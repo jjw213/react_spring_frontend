@@ -11,7 +11,7 @@ function ListPage() {
                 setMessage(data);
             });
     }, []);
-    console.log(message);
+    // console.log(message);
     return (
         <div>
 

@@ -20,6 +20,7 @@ function MainPage(props) {
         <p>
           <a href="/members/new">회원 가입</a>
           <a href="/members">회원 목록</a>
+          <a href="/members/memberLogin">로그인</a>
         </p>
       </div>
     </div>
