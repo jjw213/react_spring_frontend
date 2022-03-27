@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from "react-redux";
 
 function MainPage(props) {
   // const [message, setMessage] = useState([]);
@@ -12,6 +13,8 @@ function MainPage(props) {
   //     });
   // }, []);
   // console.log(message)
+  const user = useSelector(state => state.user)
+  console.log(user)
   return (
     <div className="container">
       <div>

@@ -36,11 +36,12 @@ function LoginPage(props) {
           dispatch(loginUser(body))
             .then(response => {
               console.log(response.payload)
-              if(response.payload.name!=null){
+              if(response.payload!=null){
                 // props.history.push('/') 이제 안됌
-                navigate('.');
+                navigate('/');
               }else{
                setFormErrorMessage("아이디 혹은 비번 틀림")
+               alert('아이디 혹은 비번 틀림');
                     }
                   })
                   .catch(err => {
