@@ -13,7 +13,7 @@ function MainPage(props) {
   // }, []);
   // console.log(message)
   return (
-    <div class="container">
+    <div className="container">
       <div>
         <h1>Hello Spring</h1>
         <p>회원 기능</p>

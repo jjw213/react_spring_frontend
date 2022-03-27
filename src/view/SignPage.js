@@ -1,15 +1,47 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 function SignPage() {
+    const [Name, setName] = useState("")
+    const [Password, setPassword] = useState("")
+    const [ConfirmPassword, setConfirmPassword] = useState("")
 
+    const onNameHandeler = (event) =>{
+        setName(event.currentTarget.value)
+    }
+    const onPasswordHandler = (event) => {
+        setPassword(event.currentTarget.value)
+    }
+    const onConfirmPasswordHandler=(event)=>{
+        setConfirmPassword(event.currentTarget.value)
+      }
+    const onSubmitHandler= (event) =>{
+        event.preventDefault();
+    
+        if(Password !== ConfirmPassword){
+          return alert('비밀번호와 비밀번호 확인이 다릅니다!')
+        }
+        
+        let userData = {
+          name: Name,
+          password: Password,
+        }
+    }
     return (
-        <div class="container">
+        <div className="container">
             <form action="/members/new" method="post">
-                <div class="form-group">
-                    <label for="name">이름</label>
-                    <input type="text" id="name" name="name" placeholder="이름을 입력하세요"></input>
+                <div className="form-group">
+                    <label htmlFor="name">이름</label>
+                    <input type="text" id="name" name="name" onChange={onNameHandeler} placeholder="이름을 입력하세요"></input>
                 </div>
-                <button type="submit">등록</button>
+                <div>
+                    <label htmlFor="password">비밀번호</label>
+                    <input type="password" id="password" name="password" onChange={onPasswordHandler} placeholder="비밀번호를 입력하세요"></input>
+                </div>
+                <div>
+                    <label htmlFor="passwordConfirm">비밀번호확인</label>
+                    <input type="password" id="passwordConfirm" name="passwordConfirm" onChange={onConfirmPasswordHandler} placeholder="비밀번호 확인"></input>
+                </div>
+                <button type="submit" >등록</button>
             </form>
         </div>
         // <div className='Write'>
@@ -37,6 +69,7 @@ function SignPage() {
         //         </div>
         //     </form>
         // </div>
+
     );
 }
 
