@@ -12,7 +12,7 @@ export default function saga(state={},action){
         case REGISTER_USER:
             return {...state, register: action.payload }
         case LOGIN_USER:
-            return { ...state, userData: action.payload }
+            return { ...state, userData: action.payload.name }
         case AUTH_USER:
             return {...state, userData: action.payload }
         case LOGOUT_USER:

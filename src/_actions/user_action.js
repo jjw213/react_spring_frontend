@@ -9,22 +9,25 @@ import {
 } from './types';
 // import { USER_SERVER } from '../components/Config.js';
 
-// export async function registerUser(dataToSubmit){
-//     const request = await axios.post(`${USER_SERVER}/user/join`,dataToSubmit)
-//         .then(response => response.data)
-//         //.then(setAuthHeader(response => response.dataToSubmit.token));
-//     return {
-//         type: REGISTER_USER,
-//         payload: request
-//     }
-// }
+export async function registerUser(dataToSubmit){
+    const request = await axios.post(`/members/new`,null, 
+    {params:{name : dataToSubmit.name, password : dataToSubmit.password
+    }})
+        .then(response => response.data)
+        //.then(setAuthHeader(response => response.dataToSubmit.token));
+    return {
+        type: REGISTER_USER,
+        payload: request
+    }
+}
 
 export async function loginUser(dataToSubmit){
     const request = await axios.post(`/members/memberLogin`,null, 
     {params:{name : dataToSubmit.name, password : dataToSubmit.password
-    }})
-                .then(response => response.data
-                )
+    }, withCredentials:true})
+                //.then(response => response.data)
+                .then(response => {localStorage.setItem('usertoken', response.data.name)
+                return response.data})
     // const request = await axios(
     //     {
     //       url: `/members/memberLogin`,
@@ -41,7 +44,7 @@ export async function loginUser(dataToSubmit){
     //     console.log(response.data)
     //     //console.log(response.data.theMember[0].name)
     //   });
-    console.log(request);
+    // console.log(request);
     
     return {
         type: LOGIN_USER,

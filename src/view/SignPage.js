@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+import {useDispatch} from 'react-redux';
+import {registerUser} from '../_actions/user_action'
 
 function SignPage() {
+    const navigate = useNavigate();
+    const dispatch =useDispatch();
     const [Name, setName] = useState("")
     const [Password, setPassword] = useState("")
     const [ConfirmPassword, setConfirmPassword] = useState("")
@@ -21,14 +26,32 @@ function SignPage() {
           return alert('비밀번호와 비밀번호 확인이 다릅니다!')
         }
         
-        let userData = {
+        let body = {
           name: Name,
           password: Password,
         }
+        dispatch(registerUser(body))
+            .then(response => {
+              console.log(response.payload)
+              if(response.payload!=null){
+                // props.history.push('/') 이제 안됌
+                navigate('/');
+              }else{
+            //    setFormErrorMessage("아이디 혹은 비번 틀림")
+               alert('아이디 혹은 비번 틀림');
+                    }
+                  })
+                  .catch(err => {
+                    console.log(err)
+                    // setFormErrorMessage('서버 연결이 불안정합니다.')
+                    setTimeout(() => {
+                    //   setFormErrorMessage("")
+                    }, 3000);
+                  });
     }
     return (
         <div className="container">
-            <form action="/members/new" method="post">
+            <form action="" method="post" onSubmit={onSubmitHandler}>
                 <div className="form-group">
                     <label htmlFor="name">이름</label>
                     <input type="text" id="name" name="name" onChange={onNameHandeler} placeholder="이름을 입력하세요"></input>
@@ -41,7 +64,7 @@ function SignPage() {
                     <label htmlFor="passwordConfirm">비밀번호확인</label>
                     <input type="password" id="passwordConfirm" name="passwordConfirm" onChange={onConfirmPasswordHandler} placeholder="비밀번호 확인"></input>
                 </div>
-                <button type="submit" >등록</button>
+                <button onSubmit={onSubmitHandler} >등록</button>
             </form>
         </div>
         // <div className='Write'>
