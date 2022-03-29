@@ -28,39 +28,12 @@ export async function loginUser(dataToSubmit){
                 //.then(response => response.data)
                 .then(response => {localStorage.setItem('usertoken', response.data.name)
                 return response.data})
-    // const request = await axios(
-    //     {
-    //       url: `/members/memberLogin`,
-    //       method: 'post',
-    //       data: {
-    //         name : dataToSubmit.name,
-    //         password : dataToSubmit.password
-    //       } , 
-         
-    //       baseURL: 'http://localhost:3000',
-    //       //withCredentials: true,
-    //     }
-    //   ).then(function (response) {
-    //     console.log(response.data)
-    //     //console.log(response.data.theMember[0].name)
-    //   });
-    // console.log(request);
     
     return {
         type: LOGIN_USER,
         payload: request
     }
 }
-
-    // useEffect(async()  => {
-    //      await fetch(`/members/memberLogin`)
-    //         .then((res) => {
-    //             return res.json();
-    //         })
-    //         .then((data) => {
-    //             setMessage(data);
-    //         });
-    // }, []);
 
 // export async function auth(){
 //     const request = await axios.get(`${USER_SERVER}/user`,{withCredentials:true})
@@ -72,12 +45,13 @@ export async function loginUser(dataToSubmit){
 //     }
 // }
 
-// export async function logoutUser(){
+export async function logoutUser(){
     
-//     const request = await axios.get(`${USER_SERVER}/user/logout`,{withCredentials:true})
-//     .then(response => response.data);
+    const request = await axios.get(`/members/memberLogout`,{withCredentials:true})
+    .then(response => response.data);
 
-//     return {
-//         type: LOGOUT_USER
-//     }
-// }
+    return {
+        type: LOGOUT_USER,
+        payload: request
+    }
+}

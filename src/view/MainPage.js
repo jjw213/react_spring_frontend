@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from "react-redux";
+import { logoutUser } from '../_actions/user_action'
+import { useDispatch } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 
 function MainPage(props) {
   // const [message, setMessage] = useState([]);
@@ -13,7 +16,26 @@ function MainPage(props) {
   //     });
   // }, []);
   // console.log(message)
-  const user = useSelector(state => state.user)
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [formErrorMessage, setFormErrorMessage] = useState('')
+  const user = useSelector((state) => state.user)
+  
+  const logoutHandler = (event) => {
+    dispatch(logoutUser()).then(() => {
+      navigate('/');
+    })
+      .catch(err => {
+        console.log(err)
+        setFormErrorMessage('서버 연결이 불안정합니다.')
+        setTimeout(() => {
+          setFormErrorMessage("")
+        }, 3000);
+      });
+      
+  };
+
   console.log(user)
   return (
     <div className="container">
@@ -22,8 +44,11 @@ function MainPage(props) {
         <p>회원 기능</p>
         <p>
           <a href="/members/new">회원 가입</a>
+          {user.userData == null ? <a href="/members/memberLogin">로그인</a>
+          : <a onClick={logoutHandler}>로그아웃</a>}
+        </p>
+        <p>
           <a href="/members">회원 목록</a>
-          <a href="/members/memberLogin">로그인</a>
         </p>
       </div>
     </div>
