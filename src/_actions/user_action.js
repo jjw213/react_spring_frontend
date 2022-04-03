@@ -26,8 +26,7 @@ export async function loginUser(dataToSubmit){
     {params:{name : dataToSubmit.name, password : dataToSubmit.password
     }, withCredentials:true})
                 //.then(response => response.data)
-                .then(response => {localStorage.setItem('usertoken', response.data.name)
-                return response.data})
+                .then(response => {return response.data})
     
     return {
         type: LOGIN_USER,

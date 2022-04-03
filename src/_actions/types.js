@@ -4,3 +4,5 @@ export const AUTH_USER = 'auth_user';
 export const LOGOUT_USER = 'logout_user';
 export const AUTH_FETCH_USER = 'auth_user';
 export const AUTH_AUTHENTICATED = 'AUTH_AUTHENTICATED';
+
+export const SAVE_POST = 'save_post';

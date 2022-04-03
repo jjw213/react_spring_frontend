@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from "react-redux";
-import { logoutUser } from '../_actions/user_action'
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
+import { savePost } from '../_actions/board_action'
 import { useNavigate } from "react-router-dom";
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import ReactHtmlParser from 'react-html-parser';
 import Nav from './Nav';
 import Header from './Header';
+
 
 function MainPage(props) {
   // const [message, setMessage] = useState([]);
@@ -18,26 +21,97 @@ function MainPage(props) {
   //     });
   // }, []);
   // console.log(message)
-
+  const [board, setBoardContent] = useState({
+    title: '',
+    content: '',
+    
+  })
+  
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [formErrorMessage, setFormErrorMessage] = useState('')
   const user = useSelector((state) => state.user)
 
-  console.log(user)
+  const getValue = e => {
+    const { title, value } = e.target;
+    setBoardContent({
+      ...board,
+      title: value
+    })
+      console.log(title, value);
+  };
+
+  const onSubmitHandler = (event) => {
+    event.preventDefault();
+    let body = {
+      title: board.title,
+      content: board.content,
+      writer: user.userData
+    }
+    console.log(body)
+    dispatch(savePost(body))
+      .then(response => {
+        console.log(response.payload)
+        if (response.payload != null) {
+          // props.history.push('/') 이제 안됌
+          navigate('/');
+        } else {
+          setFormErrorMessage("포스팅 실패")
+          alert('포스팅 실패');
+        }
+      })
+      .catch(err => {
+        console.log(err)
+        setFormErrorMessage('서버 연결이 불안정합니다.')
+        setTimeout(() => {
+          setFormErrorMessage("")
+        }, 3000);
+      });
+  }
+
+  console.log(user.userData)
   return (
     <div>
       <Nav></Nav>
       <Header></Header>
-      <div class="container">
-        <form action="/board/new" method="post">
-          <div class="form-group">
-            <label for="name">제목</label>
-            <input type="text" id="name" name="title" placeholder="글쓰기"/>
-          </div>
-          <button type="submit">등록</button>
-        </form>
+      <div className="App">
+      <h1>Movie Review</h1>
+      <div className='movie-container'>
+        <h2>제목</h2>
+        <div>
+          내용
+        </div>
       </div>
+      <div className='form-wrapper'>
+        <input className="title-input" type='text' placeholder='제목' 
+        onChange={getValue}
+    name='title'/>
+        <CKEditor
+          editor={ClassicEditor}
+          data="<p>Hello!</p>"
+          onReady={editor => {
+            // You can store the "editor" and use when it is needed.
+            console.log('Editor is ready to use!', editor);
+          }}
+          onChange={(event, editor) => {
+            const data = editor.getData();
+            setBoardContent({
+              ...board,
+              content: ReactHtmlParser(data)[0].props.children[0],
+            })
+            console.log(ReactHtmlParser(data)[0].props.children[0]);
+            console.log(data);
+          }}
+          // onBlur={(event, editor) => {
+          //   console.log('Blur.', editor);
+          // }}
+          // onFocus={(event, editor) => {
+          //   console.log('Focus.', editor);
+          // }}
+        />
+      </div>
+      <button className="submit-button" onClick={onSubmitHandler}>입력</button>
+    </div>
     </div>
 
     // <div className="App">
