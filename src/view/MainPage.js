@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import { logoutUser } from '../_actions/user_action'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from "react-router-dom";
+import Nav from './Nav';
+import Header from './Header';
 
 function MainPage(props) {
   // const [message, setMessage] = useState([]);
@@ -21,35 +23,20 @@ function MainPage(props) {
   const navigate = useNavigate();
   const [formErrorMessage, setFormErrorMessage] = useState('')
   const user = useSelector((state) => state.user)
-  
-  const logoutHandler = (event) => {
-    dispatch(logoutUser()).then(() => {
-      navigate('/');
-    })
-      .catch(err => {
-        console.log(err)
-        setFormErrorMessage('서버 연결이 불안정합니다.')
-        setTimeout(() => {
-          setFormErrorMessage("")
-        }, 3000);
-      });
-      
-  };
 
   console.log(user)
   return (
-    <div className="container">
-      <div>
-        <h1>Hello Spring</h1>
-        <p>회원 기능</p>
-        <p>
-          <a href="/members/new">회원 가입</a>
-          {user.userData == null ? <a href="/members/memberLogin">로그인</a>
-          : <a onClick={logoutHandler}>로그아웃</a>}
-        </p>
-        <p>
-          <a href="/members">회원 목록</a>
-        </p>
+    <div>
+      <Nav></Nav>
+      <Header></Header>
+      <div class="container">
+        <form action="/board/new" method="post">
+          <div class="form-group">
+            <label for="name">제목</label>
+            <input type="text" id="name" name="title" placeholder="글쓰기"/>
+          </div>
+          <button type="submit">등록</button>
+        </form>
       </div>
     </div>
 
