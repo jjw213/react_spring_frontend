@@ -21,24 +21,36 @@ function MainPage(props) {
   //     });
   // }, []);
   // console.log(message)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [board, setBoardContent] = useState({
     title: '',
     content: '',
-    
+
   })
-  
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+
   const [formErrorMessage, setFormErrorMessage] = useState('')
   const user = useSelector((state) => state.user)
-
+  const [boardList, setboardList] = useState([]);
+  useEffect(() => {
+    fetch(`/board/boardList`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setboardList(data);
+        console.log(data);
+      });
+  }, []);
+  console.log(user.userData);
   const getValue = e => {
     const { title, value } = e.target;
     setBoardContent({
       ...board,
       title: value
     })
-      console.log(title, value);
+    // console.log(title, value);
   };
 
   const onSubmitHandler = (event) => {
@@ -48,13 +60,15 @@ function MainPage(props) {
       content: board.content,
       writer: user.userData
     }
-    console.log(body)
+    console.log(user.userData);
+    if (body.writer == null){
+      return alert("로그인 해야 함!!");}
     dispatch(savePost(body))
       .then(response => {
         console.log(response.payload)
         if (response.payload != null) {
           // props.history.push('/') 이제 안됌
-          navigate('/');
+          navigate('/#');
         } else {
           setFormErrorMessage("포스팅 실패")
           alert('포스팅 실패');
@@ -69,49 +83,48 @@ function MainPage(props) {
       });
   }
 
-  console.log(user.userData)
   return (
     <div>
       <Nav></Nav>
       <Header></Header>
       <div className="App">
-      <h1>Movie Review</h1>
-      <div className='movie-container'>
-        <h2>제목</h2>
-        <div>
-          내용
+        <h1>Movie Review</h1>
+        <div className='movie-container'>
+          {boardList.map(ele =>
+            <div key={ele.idx}>
+              <h2>{ele.title}</h2>
+              <div>{ele.content}</div>
+              <div>작성자 : {ele.writer}</div>
+            </div>)}
         </div>
-      </div>
-      <div className='form-wrapper'>
-        <input className="title-input" type='text' placeholder='제목' 
-        onChange={getValue}
-    name='title'/>
-        <CKEditor
-          editor={ClassicEditor}
-          data="<p>Hello!</p>"
-          onReady={editor => {
-            // You can store the "editor" and use when it is needed.
-            console.log('Editor is ready to use!', editor);
-          }}
-          onChange={(event, editor) => {
-            const data = editor.getData();
-            setBoardContent({
-              ...board,
-              content: ReactHtmlParser(data)[0].props.children[0],
-            })
-            console.log(ReactHtmlParser(data)[0].props.children[0]);
-            console.log(data);
-          }}
+        <div className='form-wrapper'>
+          <input className="title-input" type='text' placeholder='제목'
+            onChange={getValue}
+            name='title' />
+          <CKEditor
+            editor={ClassicEditor}
+            data="<p>Hello!</p>"
+            onReady={editor => {
+              // You can store the "editor" and use when it is needed.
+              console.log('Editor is ready to use!', editor);
+            }}
+            onChange={(event, editor) => {
+              const data = editor.getData();
+              setBoardContent({
+                ...board,
+                content: ReactHtmlParser(data)[0].props.children[0],
+              })
+            }}
           // onBlur={(event, editor) => {
           //   console.log('Blur.', editor);
           // }}
           // onFocus={(event, editor) => {
           //   console.log('Focus.', editor);
           // }}
-        />
+          />
+        </div>
+        <button className="submit-button" onClick={onSubmitHandler}>입력</button>
       </div>
-      <button className="submit-button" onClick={onSubmitHandler}>입력</button>
-    </div>
     </div>
 
     // <div className="App">
