@@ -29,7 +29,7 @@ function RightNav() {
 
         <li className='right_nav'>
             {user.userData == null ?
-             <li><a href="/members/new">회원가입</a></li>
+             <li><a href="/members/loginSelect">회원가입</a></li>
             :<li style={{ color: 'red' }}>{user.userData} 님 환영합니다.</li>}
             {user.userData == null ? <li><a href="/members/memberLogin">로그인</a></li>
                 : <li><a onClick={logoutHandler}>로그아웃</a></li>}
