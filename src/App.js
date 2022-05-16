@@ -7,11 +7,10 @@ import SignPage from './view/SignPage';
 import ListPage from './view/ListPage'
 import LoginPage from './view/LoginPage';
 import Nav from './view/Nav';
-
-
 import LoginSelectPage from './view/LoginSelectPage';
 import Profile from './view/Profile';
 import KakaoLogout from './view/KakaoLogout';
+import ApiTest from './view/ApiTest';
 import Auth from "./_reducers/Auth";
 
 function App() {
@@ -33,8 +32,8 @@ function App() {
           <Route exact path="/members/loginSelect" element={LoginSelectPage()} />
           <Route exact path="/members/profile" element={Profile()} />
           <Route exact path="/members/kakaoLogin" element={Auth()}/>
-          <Route exact path="/members/kakaoLogout" element={KakaoLogout()}/>
-
+          <Route exact path="/members/kakaoLogout" element={KakaoLogout()}/> 
+          <Route exact path="/apiTest" element={ApiTest()}/> 
         </Routes>
 
       </div>
