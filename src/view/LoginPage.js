@@ -4,11 +4,14 @@ import { useDispatch } from 'react-redux';
 import { loginUser } from '../_actions/user_action'
 import { useNavigate } from "react-router-dom";
 import '../css/main.css';
-
+import kakao from '../css/img/kakao.png';
 function LoginPage(props) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const REST_API_KEY = "170293c1b046c874abd5476ddf3dba3a";
+  const REDIRECT_URI = "http://localhost:3000/members/kakaoLogin";
+  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+  
   const [Name, setName] = useState("")
   const [Password, setPassword] = useState("")
   const [formErrorMessage, setFormErrorMessage] = useState('')
@@ -26,6 +29,9 @@ function LoginPage(props) {
   }
   const onPasswordHandler = (event) => {
     setPassword(event.currentTarget.value)
+  }
+  const onKakaoHandler = (event) =>{
+    window.open(KAKAO_AUTH_URL)
   }
   const onSubmitHandler = (event) => {
     event.preventDefault();
@@ -53,6 +59,7 @@ function LoginPage(props) {
         }, 3000);
       });
   }
+
   return (
     <div>
       <header>
@@ -66,7 +73,7 @@ function LoginPage(props) {
       </header>
       <main className="container">
         <div className="login-page">
-          <h1>WELCOME!</h1>
+          <h2>Login</h2>
           <div className="form">
             <form action="" method="" className="login-form" onSubmit={onSubmitHandler}>
               <div className="fordnm-group">
@@ -78,7 +85,11 @@ function LoginPage(props) {
                 <input type="password" id="password" name="password" onChange={onPasswordHandler} placeholder="비밀번호를 입력하세요"></input>
               </div>
               <button onSubmit={onSubmitHandler}  >로그인</button>
+        {/* <p className='homeReg'></p> */}
+        {/* <button type="button" img className="kakaoLoginBtn" src={kakao } width="183px" height="45px" a href={KAKAO_AUTH_URL} /> */}
             </form>
+              <button><a href='/members/new'>신규 회원가입</a></button>
+              <button className="kakaoLoginBtn" onClick={onKakaoHandler}></button>
           </div>
         </div>
       </main>
@@ -87,7 +98,7 @@ function LoginPage(props) {
           <li><a href="#">개인정보 처리방침</a></li>
           <li><a href="#">이용약관</a></li>
           <li><a href="#">오시는 길</a></li>
-          <li>&copy;Global IN</li>
+          <li>&copy;</li>
       </ul>
     </footer>
     </div >
