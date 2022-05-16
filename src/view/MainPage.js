@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import ReactHtmlParser from 'react-html-parser';
-import Nav from './Nav';
+
 import Header from './Header';
 
 
@@ -85,7 +85,7 @@ function MainPage(props) {
 
   return (
     <div>
-      <Nav></Nav>
+      
       <Header></Header>
       <div className="App">
         <h1>Movie Review</h1>
