@@ -8,8 +8,16 @@ import ListPage from './view/ListPage'
 import LoginPage from './view/LoginPage';
 import Nav from './view/Nav';
 
-function App() {
 
+import LoginSelectPage from './view/LoginSelectPage';
+import Profile from './view/Profile';
+import KakaoLogout from './view/KakaoLogout';
+import Auth from "./_reducers/Auth";
+
+function App() {
+  // const REST_API_KEY = "170293c1b046c874abd5476ddf3dba3a";
+  // const REDIRECT_URI = "http://localhost:3000/members/kakaoLogin";
+  // const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
   return (
     <Suspense fallback={(<div>Loading...</div>)}>
         <Nav/>
@@ -20,7 +28,13 @@ function App() {
           <Route exact path="/members/new" element={SignPage()} />
           <Route exact path="/members" element={ListPage()} />
           <Route exact path="/members/memberLogin" element={LoginPage()} />
-          
+
+
+          <Route exact path="/members/loginSelect" element={LoginSelectPage()} />
+          <Route exact path="/members/profile" element={Profile()} />
+          <Route exact path="/members/kakaoLogin" element={Auth()}/>
+          <Route exact path="/members/kakaoLogout" element={KakaoLogout()}/>
+
         </Routes>
 
       </div>
