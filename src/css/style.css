@@ -15,6 +15,7 @@ nav { width: 100%; }
   width: 100%;
   text-align: center;
   background: #2f3b3f;
+  z-index: 1;
 }
 
 .menu {

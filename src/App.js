@@ -6,10 +6,13 @@ import MainPage from '../src/view/MainPage'
 import SignPage from './view/SignPage';
 import ListPage from './view/ListPage'
 import LoginPage from './view/LoginPage';
+import Nav from './view/Nav';
+
 function App() {
 
   return (
     <Suspense fallback={(<div>Loading...</div>)}>
+        <Nav/>
       <div style={{ paddingTop: '69px', minHeight: 'calc(100vh - 80px)' }}>
 
         <Routes>
@@ -17,6 +20,7 @@ function App() {
           <Route exact path="/members/new" element={SignPage()} />
           <Route exact path="/members" element={ListPage()} />
           <Route exact path="/members/memberLogin" element={LoginPage()} />
+          
         </Routes>
 
       </div>
