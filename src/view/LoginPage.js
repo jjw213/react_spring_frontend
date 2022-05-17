@@ -73,7 +73,7 @@ function LoginPage(props) {
       </header>
       <main className="container">
         <div className="login-page">
-          <h2>Login</h2>
+          {/* <h2>Login</h2> */}
           <div className="form">
             <form
               action=""
