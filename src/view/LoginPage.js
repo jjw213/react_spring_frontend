@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react'
-import { userData } from './SignPage'
-import { useDispatch } from 'react-redux';
-import { loginUser } from '../_actions/user_action'
+import React, { useEffect, useState } from "react";
+// import { userData } from "./SignPage";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../_actions/user_action";
 import { useNavigate } from "react-router-dom";
-import '../css/main.css';
-import kakao from '../css/img/kakao.png';
+import "../css/main.css";
+// import kakao from "../css/img/kakao.png";
 function LoginPage(props) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const REST_API_KEY = "170293c1b046c874abd5476ddf3dba3a";
-  const REDIRECT_URI = "http://localhost:3000/members/kakaoLogin";
-  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
-  
-  const [Name, setName] = useState("")
-  const [Password, setPassword] = useState("")
-  const [formErrorMessage, setFormErrorMessage] = useState('')
+  // const REDIRECT_URI = "http://localhost:3000/members/kakaoLogin";
+  // const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+
+  const [Name, setName] = useState("");
+  const [Password, setPassword] = useState("");
+  const [formErrorMessage, setFormErrorMessage] = useState("");
   // useEffect(async()  => {
   //      await fetch(`/members/memberLogin`)
   //         .then((res) => {
@@ -25,40 +25,40 @@ function LoginPage(props) {
   //         });
   // }, []);
   const onNameHandeler = (event) => {
-    setName(event.currentTarget.value)
-  }
+    setName(event.currentTarget.value);
+  };
   const onPasswordHandler = (event) => {
-    setPassword(event.currentTarget.value)
-  }
-  const onKakaoHandler = (event) =>{
-    window.open(KAKAO_AUTH_URL)
-  }
+    setPassword(event.currentTarget.value);
+  };
+  // const onKakaoHandler = (event) => {
+  //   window.open(KAKAO_AUTH_URL);
+  // };
   const onSubmitHandler = (event) => {
     event.preventDefault();
     let body = {
       name: Name,
-      password: Password
-    }
-    console.log(body)
+      password: Password,
+    };
+    console.log(body);
     dispatch(loginUser(body))
-      .then(response => {
-        console.log(response.payload)
+      .then((response) => {
+        console.log(response.payload);
         if (response.payload != null) {
           // props.history.push('/') 이제 안됌
-          navigate('/');
+          navigate("/");
         } else {
-          setFormErrorMessage("아이디 혹은 비번 틀림")
-          alert('아이디 혹은 비번 틀림');
+          setFormErrorMessage("아이디 혹은 비번 틀림");
+          alert("아이디 혹은 비번 틀림");
         }
       })
-      .catch(err => {
-        console.log(err)
-        setFormErrorMessage('서버 연결이 불안정합니다.')
+      .catch((err) => {
+        console.log(err);
+        setFormErrorMessage("서버 연결이 불안정합니다.");
         setTimeout(() => {
-          setFormErrorMessage("")
+          setFormErrorMessage("");
         }, 3000);
       });
-  }
+  };
 
   return (
     <div>
@@ -75,35 +75,64 @@ function LoginPage(props) {
         <div className="login-page">
           <h2>Login</h2>
           <div className="form">
-            <form action="" method="" className="login-form" onSubmit={onSubmitHandler}>
+            <form
+              action=""
+              method=""
+              className="login-form"
+              onSubmit={onSubmitHandler}
+            >
               <div className="fordnm-group">
                 <label htmlFor="name">이름</label>
-                <input type="text" id="name" name="name" onChange={onNameHandeler} placeholder="이름을 입력하세요"></input>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  onChange={onNameHandeler}
+                  placeholder="이름을 입력하세요"
+                ></input>
               </div>
               <div>
                 <label htmlFor="password">비밀번호</label>
-                <input type="password" id="password" name="password" onChange={onPasswordHandler} placeholder="비밀번호를 입력하세요"></input>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  onChange={onPasswordHandler}
+                  placeholder="비밀번호를 입력하세요"
+                ></input>
               </div>
-              <button onSubmit={onSubmitHandler}  >로그인</button>
-        {/* <p className='homeReg'></p> */}
-        {/* <button type="button" img className="kakaoLoginBtn" src={kakao } width="183px" height="45px" a href={KAKAO_AUTH_URL} /> */}
+              <button onSubmit={onSubmitHandler}>로그인</button>
+              {/* <p className='homeReg'></p> */}
+              {/* <button type="button" img className="kakaoLoginBtn" src={kakao } width="183px" height="45px" a href={KAKAO_AUTH_URL} /> */}
             </form>
-              <button><a href='/members/new'>신규 회원가입</a></button>
-              <button className="kakaoLoginBtn" onClick={onKakaoHandler}></button>
+            <button>
+              <a href="/members/new">신규 회원가입</a>
+            </button>
+            {/* <button
+              className="kakaoLoginBtn"
+              onClick={onKakaoHandler}
+              width="183px"
+              height="45px"
+            ></button> */}
           </div>
         </div>
       </main>
       <footer>
         <ul className="footer-list">
-          <li><a href="#">개인정보 처리방침</a></li>
-          <li><a href="#">이용약관</a></li>
-          <li><a href="#">오시는 길</a></li>
+          <li>
+            <a href="#">개인정보 처리방침</a>
+          </li>
+          <li>
+            <a href="#">이용약관</a>
+          </li>
+          <li>
+            <a href="#">오시는 길</a>
+          </li>
           <li>&copy;</li>
-      </ul>
-    </footer>
-    </div >
-
-  )
+        </ul>
+      </footer>
+    </div>
+  );
 }
 
-export default LoginPage
+export default LoginPage;

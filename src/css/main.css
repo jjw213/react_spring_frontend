@@ -84,21 +84,20 @@ header {
   transition: all 0.3 ease;
   cursor: pointer; /* 마우스가 올라갈때 손가락 모양으로 바뀐다. */
 }
-.form .kakaoLoginBtn {
+/* .form .kakaoLoginBtn {
   margin: 0 0 15px;
   font-family: sans-serif;
   outline: 0;
   background: url("../css/img/kakao.png") no-repeat;
   width: 100%;
   border: 0;
-  height: 45px;
+  height: 100px;
   padding: 15px;
   color: white;
   font-size: 14px;
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
-  cursor: pointer; /* 마우스가 올라갈때 손가락 모양으로 바뀐다. */
-}
+  cursor: pointer; /* 마우스가 올라갈때 손가락 모양으로 바뀐다. }*/
 
 .form button:hover,
 .form button:active,
@@ -160,135 +159,135 @@ img {
 }
 
 /* ---------------main---------- */
-*{
-  color:#000;
+* {
+  color: #000;
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
 }
 
-.header{
+.header {
   height: 100px;
-  width:100%;
-  border:1px solid;
-  margin:  auto;
+  width: 100%;
+  border: 1px solid;
+  margin: auto;
 }
 
-.section{
+.section {
   height: 100%;
   width: 100%;
   font-size: 0px;
 }
 
-.section .logo{
-  width:6%;
+.section .logo {
+  width: 6%;
   display: inline-block;
   height: 100%;
   font-size: 36px;
   line-height: 2.8;
   margin-left: 30px;
-  vertical-align:top;
+  vertical-align: top;
 }
 
-.section .nav{
+.section .nav {
   font-size: 0;
   width: 82%;
-  height:100%;
+  height: 100%;
   text-align: center;
   display: inline-block;
 }
 
-.section .nav ul li{
+.section .nav ul li {
   font-size: 16px;
   line-height: 6.2;
   margin: 0 15px;
   display: inline-block;
 }
 
-.section .profile{
+.section .profile {
   display: inline-block;
-  width:10.2%;
+  width: 10.2%;
   text-align: right;
   font-size: 0;
-  height:100%;
+  height: 100%;
 }
 
-.section .profile ul li{
+.section .profile ul li {
   display: inline-block;
   line-height: 7.14;
   font-size: 14px;
   margin: 0 30px 0 0;
 }
 
-.homeReg{
+.homeReg {
   position: absolute;
-     display: inline-block;
-     width: 300px; left: 0; right: -7px; margin-left: auto; margin-right: auto;
-     height: 40px; top: 300px; margin-top: auto; margin-bottom: auto;
-     padding: 0.5em;
-     text-align: center;
+  display: inline-block;
+  width: 300px;
+  left: 0;
+  right: -7px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 40px;
+  top: 300px;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 0.5em;
+  text-align: center;
+}
 
-  
-  }
-
-  hr{
-    color: #ccc;
-
-  }
-  table{
+hr {
+  color: #ccc;
+}
+table {
   border-top: 1px solid #ccc;
-    /* border: 1px solid #ccc;
+  /* border: 1px solid #ccc;
     border-radius: 7px; */
-    table-layout: fixed;
-    width: 100%;
-    border-collapse: collapse;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  table th{
-    border-collapse: collapse;
-    text-align: center;
-    width: 300px; 
-    padding: 10px 20px;
-    word-break: break-all;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .table-wrap{
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+table th {
+  border-collapse: collapse;
+  text-align: center;
+  width: 300px;
+  padding: 10px 20px;
+  word-break: break-all;
+  margin-left: auto;
+  margin-right: auto;
+}
+.table-wrap {
+  position: sticky;
+  padding-top: 42px;
+  margin: 0 auto;
+  width: 80%;
+  padding: 10px 0 30px 0;
+  /* border: 1px solid #333; */
+  /* border-radius: 5px; */
+  margin-bottom: 50px;
+}
+
+.table-box--vertical {
+  overflow-y: auto;
+  max-height: 200px;
+}
+@media screen and (max-width: 768px) {
+  /* vertical */
+  .table-wrap {
     position: sticky;
     padding-top: 42px;
     margin: 0 auto;
     width: 80%;
-    padding: 10px 0 30px 0; 
+    padding: 10px 0 30px 0;
     /* border: 1px solid #333; */
     /* border-radius: 5px; */
-     margin-bottom : 50px; 
+    margin-bottom: 50px;
   }
 
-  .table-box--vertical{
+  .table-box--vertical {
     overflow-y: auto;
     max-height: 200px;
   }
-  @media screen and (max-width: 768px){
-    /* vertical */
-    .table-wrap{
-      position: sticky;
-      padding-top: 42px;
-      margin: 0 auto;
-      width: 80%;
-      padding: 10px 0 30px 0; 
-      /* border: 1px solid #333; */
-      /* border-radius: 5px; */
-       margin-bottom : 50px; 
-    }
-
-    .table-box--vertical{
-      overflow-y: auto;
-      max-height: 200px;
-    }
-  }
-
-
-
-
+}
