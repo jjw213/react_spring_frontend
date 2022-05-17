@@ -7,12 +7,8 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import ReactHtmlParser from 'react-html-parser';
 
 import Header from './Header';
-import Main from './Main';
-import Footer from './Footer';
 
-
-function MainPage(props) {
-
+function CommunityPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -53,8 +49,9 @@ function MainPage(props) {
       writer: user.userData
     }
     console.log(user.userData);
-    if (body.writer == null){
-      return alert("로그인 해야 함!!");}
+    if (body.writer == null) {
+      return alert("로그인 해야 함!!");
+    }
     dispatch(savePost(body))
       .then(response => {
         console.log(response.payload)
@@ -77,23 +74,20 @@ function MainPage(props) {
 
   return (
     <div>
-      
-      <Main></Main>
-      <Footer></Footer>
-
       <Header></Header>
       <div className="App">
-        <h1>Movie Review</h1>
-        <div className='movie-container'>
-          {boardList.map(ele =>
-          <tr>
-            <div key={ele.idx}>
-              <h2>{ele.title}</h2>
-              <div>{ele.content}</div>
-              <div>작성자 : {ele.writer}</div>
-            </div>
-            </tr>)}
-        </div>
+        <h2>예비 입양자 및 입양자끼리 소통해요</h2>
+        <div className='table-wrap'>
+          <div className='table-box table-box--vertical'>
+            <table className='table table--vertical' cellPadding={"0"} cellSpacing="0">
+              {boardList.map(ele =>
+                <div key={ele.idx}>
+                  <th className='title'><h4>{ele.title}</h4></th>
+                  <th><div>{ele.content}</div></th>
+                  <th><div>작성자 : {ele.writer}</div></th>
+                  <hr></hr>
+                </div>)}
+            </table></div></div>
         <div className='form-wrapper'>
           <input className="title-input" type='text' placeholder='제목'
             onChange={getValue}
@@ -120,10 +114,10 @@ function MainPage(props) {
           // }}
           />
         </div>
-        <button className="submit-button" onClick={onSubmitHandler}>입력</button>
+        <button className="submit-button" onClick={onSubmitHandler}>등록</button>
       </div>
     </div>
   )
 }
 
-export default MainPage
+export default CommunityPage
