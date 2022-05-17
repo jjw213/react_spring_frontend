@@ -91,11 +91,13 @@ function MainPage(props) {
         <h1>Movie Review</h1>
         <div className='movie-container'>
           {boardList.map(ele =>
+          <tr>
             <div key={ele.idx}>
               <h2>{ele.title}</h2>
               <div>{ele.content}</div>
               <div>작성자 : {ele.writer}</div>
-            </div>)}
+            </div>
+            </tr>)}
         </div>
         <div className='form-wrapper'>
           <input className="title-input" type='text' placeholder='제목'
