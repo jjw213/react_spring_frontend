@@ -227,9 +227,68 @@ img {
      height: 40px; top: 300px; margin-top: auto; margin-bottom: auto;
      padding: 0.5em;
      text-align: center;
-     border: 1px solid black;
-     border-radius: 7px;
+
   
   }
+
+  hr{
+    color: #ccc;
+
+  }
+  table{
+  border-top: 1px solid #ccc;
+    /* border: 1px solid #ccc;
+    border-radius: 7px; */
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  table th{
+    border-collapse: collapse;
+    text-align: center;
+    width: 300px; 
+    padding: 10px 20px;
+    word-break: break-all;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .table-wrap{
+    position: sticky;
+    padding-top: 42px;
+    margin: 0 auto;
+    width: 80%;
+    padding: 10px 0 30px 0; 
+    /* border: 1px solid #333; */
+    /* border-radius: 5px; */
+     margin-bottom : 50px; 
+  }
+
+  .table-box--vertical{
+    overflow-y: auto;
+    max-height: 200px;
+  }
+  @media screen and (max-width: 768px){
+    /* vertical */
+    .table-wrap{
+      position: sticky;
+      padding-top: 42px;
+      margin: 0 auto;
+      width: 80%;
+      padding: 10px 0 30px 0; 
+      /* border: 1px solid #333; */
+      /* border-radius: 5px; */
+       margin-bottom : 50px; 
+    }
+
+    .table-box--vertical{
+      overflow-y: auto;
+      max-height: 200px;
+    }
+  }
+
+
 
 
