@@ -7,20 +7,12 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import ReactHtmlParser from 'react-html-parser';
 
 import Header from './Header';
+import Main from './Main';
+import Footer from './Footer';
 
 
 function MainPage(props) {
-  // const [message, setMessage] = useState([]);
-  // useEffect(() => {
-  //   fetch(`/hello-api?name=ss`)
-  //     .then((res) => {
-  //       return res.json();
-  //     })
-  //     .then((data) => {
-  //       setMessage(data);
-  //     });
-  // }, []);
-  // console.log(message)
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -86,6 +78,9 @@ function MainPage(props) {
   return (
     <div>
       
+      <Main></Main>
+      <Footer></Footer>
+
       <Header></Header>
       <div className="App">
         <h1>Movie Review</h1>
@@ -128,25 +123,6 @@ function MainPage(props) {
         <button className="submit-button" onClick={onSubmitHandler}>입력</button>
       </div>
     </div>
-
-    // <div className="App">
-    //   <header className="App-header">
-    //     {/* <ul>
-    //         {message.map((v, idx) =>
-    //           <li key={
-    //             `${idx}${v}`
-    //           }> {v} </li>)}
-    //       </ul> */}
-    //       {/* {message.map((v, idx)=>{
-    //         return (<div>{v}</div>)
-    //       })} */}
-
-
-    //     {/* <div>
-    //         <input onChange={}></input>
-    //       </div> */}
-    //   </header>
-    // </div>
   )
 }
 
