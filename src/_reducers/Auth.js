@@ -46,28 +46,7 @@ const Auth = () => {
               console.log(error);
             },
       });
-      let body = {
-        name: data.properties.nickname,
-        password: "",
-      }
-      dispatch(registerUser(body))
-      .then(response => {
-        console.log(response.payload)
-        if (response.payload != null) {
-          // props.history.push('/') 이제 안됌
-          navigate('/');
-        } else {
-          //    setFormErrorMessage("아이디 혹은 비번 틀림")
-          alert('아이디 혹은 비번 틀림');
-        }
-      })
-      .catch(err => {
-        console.log(err)
-        // setFormErrorMessage('서버 연결이 불안정합니다.')
-        setTimeout(() => {
-          //   setFormErrorMessage("")
-        }, 3000);
-      });
+      
 
       // window.Kakao.Auth.logout();
       // let data = await window.Kakao.API.request({

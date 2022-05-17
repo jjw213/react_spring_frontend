@@ -3,8 +3,6 @@ import React,{ useEffect, useState } from 'react'
 
 function ApiTest() {
     const [animal, setAnimal] = useState([]);
-    // let API_URL = "http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?bgnde=20140301&endde=20140430&pageNo=1&numOfRows=10&ServiceKey=";
-    // let API_KEY = "d7DXF5UusAcJ7jFQYs3HTZ4c%2FrU7kRtgZOq6EIVTNyL5VJ%2B6Lu9Wp0ge6uWOxn2XbPuKuB42fiGPe4U1bfmWtA%3D%3D";
     const [Num, setNum] = useState("")
     const onNumHandeler = (event) => {
       setNum(event.currentTarget.value)
