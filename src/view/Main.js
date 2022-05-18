@@ -1,5 +1,7 @@
 import React from "react";
-import Silde from "./Silde";
+import Slide from "./Slide";
+import Chart1 from "./Chart1";
+import Chart2 from "./Chart2";
 
 function Main() {
     return(
@@ -8,28 +10,27 @@ function Main() {
             <section id="section1">
                 <div className="text_area">
                     <h1>
-                        <span>section1</span>
-                        <span>테스트 섹션의 위치입니다.......</span> 
+                        <span>새로운 가족이 되어주세요.</span>
+                        <span>여러분들의 따뜻한 손길이 필요합니다.</span> 
                     </h1>
                 </div>
-
                 <div className="moveImage">
-                    <Silde></Silde>
+                    <Slide></Slide>
                 </div>
-
             </section>
 
             <section id="section2">
-                <h1>section2</h1>
+                <Chart1></Chart1>
+            </section>
+            <section id="section3">
+                <Chart2></Chart2>
             </section>
 
-            <section id="section3">
-                <h1>section3</h1>
-            </section>
 
             <section id="section4">
                 <h1>section4</h1>
             </section>
+
 
         </div>
     )
