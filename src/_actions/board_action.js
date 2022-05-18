@@ -20,7 +20,8 @@ export async function savePost(dataToSubmit){
 }
 export async function loadAnimal(dataToSubmit){
     const request = await axios.post(`/animal/animalList`,null, 
-    {params:{numOfRows : dataToSubmit.numOfRows, kindcd : dataToSubmit.kindcd
+    {params:{numOfRows : dataToSubmit.numOfRows, kindcd : dataToSubmit.kindcd,
+        upr_cd : dataToSubmit.upr_cd
     }})
         .then(response => response.data)
         //.then(setAuthHeader(response => response.dataToSubmit.token));
