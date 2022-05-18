@@ -62,13 +62,15 @@ function SignPage() {
           </div>
         </nav>
       </header>
-      <main className="container">
-        <div className="login-page">
+      <main className="signContainer">
+        <div className="sign-page">
           <h1>신규 회원가입</h1>
-          <div className="form">
+          <div className="signForm">
             <form action="" method="" onSubmit={onSubmitHandler}>
-              <div className="form-group">
-                <label htmlFor="name">이름</label>
+              <div className="signForm-group">
+                <label htmlFor="name" className="signName">
+                  이름
+                </label>
                 <input
                   type="text"
                   id="name"
@@ -78,7 +80,9 @@ function SignPage() {
                 ></input>
               </div>
               <div>
-                <label htmlFor="password">비밀번호</label>
+                <label htmlFor="password" className="signPassword">
+                  비밀번호
+                </label>
                 <input
                   type="password"
                   id="password"

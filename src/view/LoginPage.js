@@ -82,8 +82,10 @@ function LoginPage(props) {
               className="login-form"
               onSubmit={onSubmitHandler}
             >
-              <div className="fordnm-group">
-                <label htmlFor="name">이름</label>
+              <div className="form-group">
+                <label htmlFor="name" className="loginName">
+                  이름
+                </label>
                 <input
                   type="text"
                   id="name"
@@ -93,7 +95,9 @@ function LoginPage(props) {
                 ></input>
               </div>
               <div>
-                <label htmlFor="password">비밀번호</label>
+                <label htmlFor="password" className="passwordName">
+                  비밀번호
+                </label>
                 <input
                   type="password"
                   id="password"
