@@ -53,6 +53,7 @@ header {
   position: relative;
   /* top: 15%; */
   z-index: 1;
+  transform: translate(0%, -100%);
   background-color: rgb(136, 175, 207);
   border-radius: 10%;
   text-align: center;
@@ -66,10 +67,10 @@ header {
   background-image: url("../css/img/corgi.png");
   background-size: 100px;
   background-repeat: no-repeat;
-  position: static;
+  position: relative;
   width: 500px;
   height: 500px;
-  transform: translate(10%, 119%);
+  transform: translate(15%, 41%);
   max-width: 360px;
   margin: 0 auto 100px;
   padding: 45px;
@@ -103,7 +104,11 @@ header {
   transition: all 0.3 ease;
   cursor: pointer; /* 마우스가 올라갈때 손가락 모양으로 바뀐다. */
 }
-label {
+.loginName {
+  font-family: sans-serif;
+  color: rgb(237, 248, 179);
+}
+.passwordName {
   font-family: sans-serif;
   color: rgb(237, 248, 179);
 }
@@ -125,6 +130,90 @@ label {
 .form button:hover,
 .form button:active,
 .form button:focus {
+  background-color: rgb(248, 190, 105);
+}
+
+/* signPage css */
+.signContainer {
+  /* background-image: url("../css/img/background.png");
+  background-size: cover; */
+  position: relative;
+  z-index: 1;
+  max-width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  min-height: 100%;
+  padding-bottom: 70px; /* footer 의 높이만큼 아래쪽 공백주기 */
+}
+
+.sign-page {
+  height: 760px;
+  width: 360px;
+  text-align: center;
+  padding-top: 5em;
+  margin: auto;
+}
+
+/* .doCa {
+  background-image: url("../css/img/corgi.png");
+  background-size: 100px;
+  background-repeat: no-repeat;
+  position: relative;
+  width: 500px;
+  height: 500px;
+  transform: translate(15%, 41%);
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+} */
+
+.signForm input {
+  font-family: sans-serif;
+  outline: 0;
+  background-color: white;
+  border-radius: 10px;
+  width: 100%;
+  border: 1.5px solid white;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.signForm button {
+  margin: 0 0 15px;
+  font-family: sans-serif;
+  outline: 0;
+  background-color: rgb(247, 239, 190);
+  width: 100%;
+  border: 0;
+  border-radius: 10px;
+  padding: 15px;
+  color: black;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer; /* 마우스가 올라갈때 손가락 모양으로 바뀐다. */
+}
+
+/* .form .kakaoLoginBtn {
+  margin: 0 0 15px;
+  font-family: sans-serif;
+  outline: 0;
+  background: url("../css/img/kakao.png") no-repeat;
+  width: 100%;
+  border: 0;
+  height: 100px;
+  padding: 15px;
+  color: white;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer; /* 마우스가 올라갈때 손가락 모양으로 바뀐다. }*/
+
+.signForm button:hover,
+.signForm button:active,
+.signForm button:focus {
   background-color: rgb(248, 190, 105);
 }
 
@@ -218,6 +307,10 @@ img {
   height: 100%;
   text-align: center;
   display: inline-block;
+}
+
+.section .nav ul {
+  list-style-type: none;
 }
 
 .section .nav ul li {
