@@ -72,6 +72,7 @@ function LoginPage(props) {
         </nav>
       </header>
       <main className="container">
+        <div className="doCa"></div>
         <div className="login-page">
           {/* <h2>Login</h2> */}
           <div className="form">
@@ -104,10 +105,10 @@ function LoginPage(props) {
               <button onSubmit={onSubmitHandler}>로그인</button>
               {/* <p className='homeReg'></p> */}
               {/* <button type="button" img className="kakaoLoginBtn" src={kakao } width="183px" height="45px" a href={KAKAO_AUTH_URL} /> */}
+              <button>
+                <a href="/members/new">신규 회원가입</a>
+              </button>
             </form>
-            <button>
-              <a href="/members/new">신규 회원가입</a>
-            </button>
             {/* <button
               className="kakaoLoginBtn"
               onClick={onKakaoHandler}
