@@ -1,174 +1,198 @@
-// install (please make sure versions match peerDependencies)
-// yarn add @nivo/core @nivo/pie
 import { ResponsivePie } from '@nivo/pie'
+import React,{useState, useEffect} from "react";
+import axios from "axios";
 
 const data = [
     {
-      "id": "scala",
-      "label": "scala",
-      "value": 587,
-      "color": "hsl(267, 70%, 50%)"
-    },
-    {
-      "id": "c",
-      "label": "c",
-      "value": 259,
-      "color": "hsl(246, 70%, 50%)"
-    },
-    {
-      "id": "java",
-      "label": "java",
-      "value": 502,
-      "color": "hsl(8, 70%, 50%)"
-    },
-    {
-      "id": "python",
-      "label": "python",
-      "value": 467,
-      "color": "hsl(34, 70%, 50%)"
-    },
-    {
-      "id": "make",
-      "label": "make",
-      "value": 406,
-      "color": "hsl(21, 70%, 50%)"
-    }
+        "id": "경기도",
+        "label": "경기도",
+        "value": 460
+      },
+      {
+        "id": "c",
+        "label": "c",
+        "value": 460
+      },
+      {
+        "id": "java",
+        "label": "java",
+        "value": 460
+      },
+      {
+        "id": "python",
+        "label": "python",
+        "value": 460
+      },
+      {
+        "id": "make",
+        "label": "make",
+        "value": 460
+      }
+      ,
+      {
+        "id": "make2",
+        "label": "make2",
+        "value": 460
+      },
+      {
+        "id": "make21",
+        "label": "make21",
+        "value": 460
+      },
+      {
+        "id": "make211",
+        "label": "make211",
+        "value": 460
+      },
+      {
+        "id": "make21111",
+        "label": "make21111",
+        "value": 460
+      },
+      {
+        "id": "make22",
+        "label": "make22",
+        "value": 460
+      },
+      {
+        "id": "make222",
+        "label": "make222",
+        "value": 460
+      },
+      {
+        "id": "make2222",
+        "label": "make2222",
+        "value": 460
+      },
+      {
+        "id": "make23",
+        "label": "make23",
+        "value": 460
+      },
+      {
+        "id": "make233",
+        "label": "make233",
+        "value": 460
+      }
   ];
 
 
-// make sure parent container have a defined height when using
-// responsive component, otherwise height will be 0 and
-// no chart will be rendered.
-// website examples showcase many properties,
-// you'll often use just a few of them.
-const MyResponsivePie = () => (
-    <ResponsivePie
-        data={data}
-        margin={{ top: 30, right: 80, bottom: 80, left: 80 }}
-        innerRadius={0.3}
-        activeOuterRadiusOffset={8}
-        colors={{ scheme: 'reds' }}
-        borderWidth={1}
-        borderColor={{
-            from: 'color',
-            modifiers: [
-                [
-                    'darker',
-                    '3'
-                ]
-            ]
-        }}
-        arcLinkLabelsSkipAngle={10}
-        arcLinkLabelsTextColor="#333333"
-        arcLinkLabelsThickness={2}
-        arcLinkLabelsColor={{ from: 'color' }}
-        arcLabelsRadiusOffset={0.55}
-        arcLabelsSkipAngle={10}
-        arcLabelsTextColor={{
-            from: 'color',
-            modifiers: [
-                [
-                    'darker',
-                    2
-                ]
-            ]
-        }}
-        defs={[
-            {
-                id: 'dots',
-                type: 'patternDots',
-                background: 'inherit',
-                color: 'rgba(255, 255, 255, 0.3)',
-                size: 4,
-                padding: 1,
-                stagger: true
-            },
-            {
-                id: 'lines',
-                type: 'patternLines',
-                background: 'inherit',
-                color: 'rgba(255, 255, 255, 0.3)',
-                rotation: -45,
-                lineWidth: 6,
-                spacing: 10
-            }
-        ]}
-        fill={[
-            {
-                match: {
-                    id: 'ruby'
-                },
-                id: 'dots'
-            },
-            {
-                match: {
-                    id: 'c'
-                },
-                id: 'dots'
-            },
-            {
-                match: {
-                    id: 'go'
-                },
-                id: 'dots'
-            },
-            {
-                match: {
-                    id: 'python'
-                },
-                id: 'dots'
-            },
-            {
-                match: {
-                    id: 'scala'
-                },
-                id: 'lines'
-            },
-            {
-                match: {
-                    id: 'lisp'
-                },
-                id: 'lines'
-            },
-            {
-                match: {
-                    id: 'elixir'
-                },
-                id: 'lines'
-            },
-            {
-                match: {
-                    id: 'javascript'
-                },
-                id: 'lines'
-            }
-        ]}
-        legends={[
-            {
-                anchor: 'bottom',
-                direction: 'row',
-                justify: false,
-                translateX: 0,
-                translateY: 56,
-                itemsSpacing: 0,
-                itemWidth: 100,
-                itemHeight: 18,
-                itemTextColor: '#999',
-                itemDirection: 'left-to-right',
-                itemOpacity: 1,
-                symbolSize: 18,
-                symbolShape: 'circle',
-                effects: [
-                    {
-                        on: 'hover',
-                        style: {
-                            itemTextColor: '#000'
-                        }
-                    }
-                ]
-            }
-        ]}
-    />
-)
+function MyResponsivePie() {
 
+    const [animal, setAnimal] = useState([]);
+
+    const endPoint = async()=>{
+        axios.post(`/animal/countList`,null, 
+        {params:{numOfRows : 1000 , kindcd:"개"}})
+        .then(res=>setAnimal(res.data))
+        console.log(animal)
+    }
+    useEffect(()=>{
+        endPoint();
+    },[])
+
+    return (
+        <ResponsivePie
+            data={data}
+            margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
+            innerRadius={0.3}
+            cornerRadius={3}
+            activeOuterRadiusOffset={8}
+            colors={{ scheme: 'greens' }}
+            borderWidth={1}
+            borderColor={{
+                from: 'color',
+                modifiers: [
+                    [
+                        'darker',
+                        '3'
+                    ]
+                ]
+            }}
+            arcLinkLabelsTextColor="#333333"
+            arcLinkLabelsThickness={2}
+            arcLinkLabelsColor={{ from: 'color' }}
+            arcLabelsTextColor={{
+                from: 'color',
+                modifiers: [
+                    [
+                        'darker',
+                        '3'
+                    ]
+                ]
+            }}
+            defs={[
+                {
+                    id: 'dots',
+                    type: 'patternDots',
+                    background: 'inherit',
+                    color: 'rgba(255, 255, 255, 0.3)',
+                    size: 4,
+                    padding: 1,
+                    stagger: true
+                },
+                {
+                    id: 'lines',
+                    type: 'patternLines',
+                    background: 'inherit',
+                    color: 'rgba(255, 255, 255, 0.3)',
+                    rotation: -45,
+                    lineWidth: 6,
+                    spacing: 10
+                }
+            ]}
+            fill={[
+                {
+                    match: {
+                        id: 'ruby'
+                    },
+                    id: 'dots'
+                },
+                {
+                    match: {
+                        id: 'c'
+                    },
+                    id: 'dots'
+                },
+                {
+                    match: {
+                        id: 'go'
+                    },
+                    id: 'dots'
+                },
+                {
+                    match: {
+                        id: 'python'
+                    },
+                    id: 'dots'
+                },
+                {
+                    match: {
+                        id: 'scala'
+                    },
+                    id: 'lines'
+                },
+                {
+                    match: {
+                        id: 'lisp'
+                    },
+                    id: 'lines'
+                },
+                {
+                    match: {
+                        id: 'elixir'
+                    },
+                    id: 'lines'
+                },
+                {
+                    match: {
+                        id: 'javascript'
+                    },
+                    id: 'lines'
+                }
+            ]}
+            legends={[]}
+        />
+    )   
+}
 export default MyResponsivePie

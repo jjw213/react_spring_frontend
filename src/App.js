@@ -12,6 +12,7 @@ import Profile from './view/Profile';
 import KakaoLogout from './view/KakaoLogout';
 import ApiTest from './view/ApiTest';
 import CommunityPage from './view/CommunityPage';
+import Adad from './view/Adad';
 import Auth from "./_reducers/Auth";
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           <Route exact path="/members/kakaoLogout" element={KakaoLogout()}/> 
           <Route exact path="/apiTest" element={ApiTest()}/> 
           <Route exact path="/community" element={CommunityPage()}/>
+          <Route exact path="/test" element={Adad()}/>
 
           
         </Routes>
