@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from "react-redux";
+import axios from 'axios';
 import { savePost } from '../_actions/board_action'
 import { useNavigate } from "react-router-dom";
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import ReactHtmlParser from 'react-html-parser';
+import "../css/MainPage.css"
 
 import Header from './Header';
 import Main from './Main';
@@ -13,115 +14,36 @@ import Footer from './Footer';
 
 function MainPage(props) {
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  const [board, setBoardContent] = useState({
-    title: '',
-    content: '',
-
-  })
-
-  const [formErrorMessage, setFormErrorMessage] = useState('')
-  const user = useSelector((state) => state.user)
-  const [boardList, setboardList] = useState([]);
-  useEffect(() => {
-    fetch(`/board/boardList`)
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setboardList(data);
-        console.log(data);
-      });
-  }, []);
-  console.log(user.userData);
-  const getValue = e => {
-    const { title, value } = e.target;
-    setBoardContent({
-      ...board,
-      title: value
-    })
-    // console.log(title, value);
-  };
-
-  const onSubmitHandler = (event) => {
-    event.preventDefault();
-    let body = {
-      title: board.title,
-      content: board.content,
-      writer: user.userData
-    }
-    console.log(user.userData);
-    if (body.writer == null){
-      return alert("로그인 해야 함!!");}
-    dispatch(savePost(body))
-      .then(response => {
-        console.log(response.payload)
-        if (response.payload != null) {
-          // props.history.push('/') 이제 안됌
-          navigate('/#');
-        } else {
-          setFormErrorMessage("포스팅 실패")
-          alert('포스팅 실패');
-        }
-      })
-      .catch(err => {
-        console.log(err)
-        setFormErrorMessage('서버 연결이 불안정합니다.')
-        setTimeout(() => {
-          setFormErrorMessage("")
-        }, 3000);
-      });
+  const [animal, setAnimal] = useState([]);
+  // let API_URL = "http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?bgnde=20140301&endde=20140430&pageNo=1&numOfRows=10&ServiceKey=";
+  // let API_KEY = "d7DXF5UusAcJ7jFQYs3HTZ4c%2FrU7kRtgZOq6EIVTNyL5VJ%2B6Lu9Wp0ge6uWOxn2XbPuKuB42fiGPe4U1bfmWtA%3D%3D";
+  const [Num, setNum] = useState("")
+  const onNumHandeler = (event) => {
+    setNum(event.currentTarget.value)
   }
+  const endPoint = async()=>{
+      axios.post(`/animal/animalList`,null, 
+      {params:{numOfRows : 10 }})
+      // .then(res=>res.json())
+      // .then(res=>console.log(res.data))
+      .then(res=>setAnimal(res.data))
+      //  console.log(res);
+      console.log(animal)
+  }
+  useEffect(()=>{
+  //   if()
+      endPoint();
+  },[])
+
+ 
 
   return (
     <div>
       
-      <Main></Main>
-      <Footer></Footer>
 
       <Header></Header>
-      <div className="App">
-        <h1>Movie Review</h1>
-        <div className='movie-container'>
-          {boardList.map(ele =>
-          <tr>
-            <div key={ele.idx}>
-              <h2>{ele.title}</h2>
-              <div>{ele.content}</div>
-              <div>작성자 : {ele.writer}</div>
-            </div>
-            </tr>)}
-        </div>
-        <div className='form-wrapper'>
-          <input className="title-input" type='text' placeholder='제목'
-            onChange={getValue}
-            name='title' />
-          <CKEditor
-            editor={ClassicEditor}
-            data="<p>Hello!</p>"
-            onReady={editor => {
-              // You can store the "editor" and use when it is needed.
-              console.log('Editor is ready to use!', editor);
-            }}
-            onChange={(event, editor) => {
-              const data = editor.getData();
-              setBoardContent({
-                ...board,
-                content: ReactHtmlParser(data)[0].props.children[0],
-              })
-            }}
-          // onBlur={(event, editor) => {
-          //   console.log('Blur.', editor);
-          // }}
-          // onFocus={(event, editor) => {
-          //   console.log('Focus.', editor);
-          // }}
-          />
-        </div>
-        <button className="submit-button" onClick={onSubmitHandler}>입력</button>
-      </div>
+      <Main></Main>
+      <Footer></Footer>
     </div>
   )
 }
