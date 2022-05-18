@@ -5,6 +5,10 @@ const Profile = () => {
     const [nickName, setNickName] = useState();
     const [profileImage, setProfileImage] = useState();
     const REST_API_KEY = "170293c1b046c874abd5476ddf3dba3a";
+    let a = false;
+    function onLoadProfile() {
+        a = true;
+    }
     const getProfile = async () => {
         try {
             if (!window.Kakao.isInitialized()) {
@@ -20,7 +24,7 @@ const Profile = () => {
             // 사용자 정보 변수에 저장
             setUserId(data.id);
             setNickName(data.properties.nickname);
-            setProfileImage(data.properties.profile_image);
+            setProfileImage(data.properties.thumbnail_image);
         } catch (err) {
 
             console.log(err);
@@ -28,10 +32,12 @@ const Profile = () => {
         }
     };
     useEffect(() => {
+        if(a)
         getProfile();
-    }, []);
+    }, [a]);
     return (
         <div>
+            <button onClick={onLoadProfile()}>프로필 불러오기</button>
             <h2>{user_id}</h2>
             <h2>{nickName}</h2>
             <img src={profileImage}></img>
