@@ -7,78 +7,7 @@ import axios from "axios";
 
 
 function MyResponsivePie() { 
-    const data = [
-        {
-            id: "경기도",
-            value: 10
-          },
-          {
-            "id": "c",
-            "label": "c",
-            "value": 600
-          },
-          {
-            "id": "java",
-            "label": "java",
-            "value": 60
-          },
-          {
-            "id": "python",
-            "label": "python",
-            "value": 460
-          },
-          {
-            "id": "make",
-            "label": "make",
-            "value": 460
-          }
-          ,
-          {
-            "id": "make2",
-            "label": "make2",
-            "value": 460
-          },
-          {
-            "id": "make21",
-            "label": "make21",
-            "value": 460
-          },
-          {
-            "id": "make211",
-            "label": "make211",
-            "value": 460
-          },
-          {
-            "id": "make21111",
-            "label": "make21111",
-            "value": 460
-          },
-          {
-            "id": "make22",
-            "label": "make22",
-            "value": 460
-          },
-          {
-            "id": "make222",
-            "label": "make222",
-            "value": 460
-          },
-          {
-            "id": "make2222",
-            "label": "make2222",
-            "value": 460
-          },
-          {
-            "id": "make23",
-            "label": "make23",
-            "value": 460
-          },
-          {
-            "id": "make233",
-            "label": "make233",
-            "value": 460
-          }
-      ];
+
     const [animal, setAnimal] = useState([]);
 
     const endPoint = async()=>{
@@ -100,7 +29,7 @@ function MyResponsivePie() {
 
         <Suspense>
         <ResponsivePie
-        data={data}
+        data={animal}
         margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
         innerRadius={0.3}
         cornerRadius={3}
