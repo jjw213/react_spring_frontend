@@ -37,6 +37,7 @@ const Auth = () => {
       window.Kakao.Auth.setAccessToken(res.data.access_token);
       console.log(window.Kakao.Auth.getAccessToken());
       console.log(res.data.access_token);
+<<<<<<< HEAD
       // let data = await window.Kakao.API.request({
       //     url: "/v1/user/unlink",
       //     success: function(response) {
@@ -68,6 +69,18 @@ const Auth = () => {
       //     //   setFormErrorMessage("")
       //   }, 3000);
       // });
+=======
+      let data = await window.Kakao.API.request({
+          url: "/v2/user/me",
+          success: function(response) {
+              console.log(response);
+            },
+            fail: function(error) {
+              console.log(error);
+            },
+      });
+      
+>>>>>>> 1cec7909e0752d8e730e1e6d4ac4e8a99fea8d4a
 
       // window.Kakao.Auth.logout();
       // let data = await window.Kakao.API.request({

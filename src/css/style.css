@@ -69,7 +69,8 @@ nav { width: 100%; }
   color: #fff;
 }
 
-.menu ul li > a { padding: 15px; }
+.menu ul li > a { 
+  padding: 15px; }
 
 .menu ul ul {
   display: none;

@@ -11,7 +11,8 @@ import {
 
 export async function registerUser(dataToSubmit){
     const request = await axios.post(`/members/new`,null, 
-    {params:{name : dataToSubmit.name, password : dataToSubmit.password
+    {params:{name : dataToSubmit.name, password : dataToSubmit.password,
+        kakao_id : dataToSubmit.kakao_id
     }})
         .then(response => response.data)
         //.then(setAuthHeader(response => response.dataToSubmit.token));

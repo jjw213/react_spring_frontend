@@ -6,3 +6,4 @@ export const AUTH_FETCH_USER = 'auth_user';
 export const AUTH_AUTHENTICATED = 'AUTH_AUTHENTICATED';
 
 export const SAVE_POST = 'save_post';
+export const LOAD_ANIMAL = 'save_post';
