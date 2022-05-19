@@ -30,6 +30,9 @@ function LoginPage(props) {
   const onPasswordHandler = (event) => {
     setPassword(event.currentTarget.value);
   };
+  const onSigninHandler = (event) => {
+    navigate("/members/new");
+  };
   // const onKakaoHandler = (event) => {
   //   window.open(KAKAO_AUTH_URL);
   // };
@@ -107,9 +110,7 @@ function LoginPage(props) {
               <button onSubmit={onSubmitHandler}>로그인</button>
               {/* <p className='homeReg'></p> */}
               {/* <button type="button" img className="kakaoLoginBtn" src={kakao } width="183px" height="45px" a href={KAKAO_AUTH_URL} /> */}
-              <button>
-                <a href="/members/new">신규 회원가입</a>
-              </button>
+              <button onClick={onSigninHandler}>신규 회원가입</button>
             </form>
             {/* <button
               className="kakaoLoginBtn"
