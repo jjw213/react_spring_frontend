@@ -100,16 +100,19 @@ function ApiTest() {
   const [Loading, setLoading] = useState(true)
   const handleSelect = (e) => {
     setSelected(e.target.value);
+    setNumOfRows(50);
+    console.log(numOfRows);
   };
   const handleSelect2 = (e) => {
     setSelected2(e.target.value);
-    console.log(Selected2);
   };
   const onCatHandler = (event) => {
     setKindcd(event.currentTarget.value)
+    setNumOfRows(50);
   }
   const onDogHandler = (event) => {
     setKindcd(event.currentTarget.value)
+    setNumOfRows(50);
   }
   const loadMoreHandler = (event) => {
     setLoading(true)
