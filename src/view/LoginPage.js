@@ -65,16 +65,14 @@ function LoginPage(props) {
       <header>
         <nav className="header-nav">
           <div>
-            <a href="/">
-              <h1>MY USERS</h1>
-            </a>
+            <a href="/"></a>
           </div>
         </nav>
       </header>
       <main className="container">
-        <div className="doCa"></div>
+        {/* <div className="doCa"> */}
         <div className="login-page">
-          {/* <h2>Login</h2> */}
+          <h2>Login</h2>
           <div className="form">
             <form
               action=""
@@ -121,6 +119,7 @@ function LoginPage(props) {
             ></button> */}
           </div>
         </div>
+        {/* </div> */}
       </main>
       <footer>
         <ul className="footer-list">
