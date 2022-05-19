@@ -4,12 +4,15 @@ html {
   background: #f5f7fa;
 }
 
-body { overflow-x:hidden}
+body {
+  overflow-x: hidden;
+}
 
-nav { width: 100%; }
+nav {
+  width: 100%;
+}
 
 .nav_wrapper {
-  position: fixed;
   left: 0;
   top: 0;
   width: 100%;
@@ -39,16 +42,22 @@ nav { width: 100%; }
   border: 1px solid #fff;
 }
 
-.menu ul li { padding: 0px; }
-
-.menu > ul > li { display: inline-block; }
-
-.menu > ul > .right_nav{
-  margin-left: 100px ;
+.menu ul li {
+  padding: 0px;
 }
 
-.menu > ul > .right_nav >li  { display: inline-block;
-  color: red; } 
+.menu > ul > li {
+  display: inline-block;
+}
+
+.menu > ul > .right_nav {
+  margin-left: 100px;
+}
+
+.menu > ul > .right_nav > li {
+  display: inline-block;
+  color: red;
+}
 
 .menu ul li a {
   display: block;
@@ -60,7 +69,7 @@ nav { width: 100%; }
 .menu ul li a:hover {
   background: #efa666;
   color: #fff;
-  transition: all .5s ease-out;
+  transition: all 0.5s ease-out;
   border-radius: 50px;
 }
 
@@ -69,8 +78,9 @@ nav { width: 100%; }
   color: #fff;
 }
 
-.menu ul li > a { 
-  padding: 15px; }
+.menu ul li > a {
+  padding: 15px;
+}
 
 .menu ul ul {
   display: none;
@@ -80,9 +90,13 @@ nav { width: 100%; }
   background: #39484d;
 }
 
-.menu ul li:hover > ul { display: block;}
+.menu ul li:hover > ul {
+  display: block;
+}
 
-.menu ul ul > li { position: relative; }
+.menu ul ul > li {
+  position: relative;
+}
 
 .menu ul ul > li a {
   padding: 10px 15px;
@@ -100,4 +114,3 @@ nav { width: 100%; }
   left: 100%;
   top: 0;
 }
-
