@@ -2,6 +2,7 @@ import React from "react";
 import Slide from "./Slide";
 import Chart1 from "./Chart1";
 import Chart2 from "./Chart2";
+import SectionSlide from "./SectionSlide";
 
 function Main() {
     return(
@@ -18,17 +19,34 @@ function Main() {
                     <Slide></Slide>
                 </div>
             </section>
+        
+            <section id="section2_forntpage">
+
+                <div>
+                    <h1>
+                        <span>지역별 유기동물</span>
+                        <span>개/고양이 DB 분포</span>
+                    </h1>
+                </div>
+
+                <div>
+                    <div className="dogimg"></div>
+                    <div className="catimg"></div>
+                </div>
+
+            </section>
 
             <section id="section2">
                 <Chart1></Chart1>
             </section>
+
             <section id="section3">
                 <Chart2></Chart2>
             </section>
 
 
             <section id="section4">
-                <h1>section4</h1>
+                <SectionSlide></SectionSlide>
             </section>
 
 

@@ -17,7 +17,7 @@ function Slide(){
 
     
     return(
-        <div class="slidebox">
+        <div className="slidebox">
             
             <input type="radio" name="slide" id="slide01" checked/>
             <input type="radio" name="slide" id="slide02"/>
@@ -33,7 +33,7 @@ function Slide(){
                         </div>)
                     }
                 </div>
-            
+
             </div>
             
         </div>
