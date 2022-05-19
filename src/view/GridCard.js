@@ -14,7 +14,7 @@ function GridCard(props) {
     console.log(modalOpen);
   };
   return (
-    <Col lg={6} md={8} xs={24}>
+    <Col lg={4} md={8} xs={24}>
       <div style={{ position: 'relative' }}>
         {/* <a href='#'> */}
         <img onClick={openModal} style={{ width: '100%', height: '320px' }} src={props.image} alt={props.processState} />
@@ -24,7 +24,12 @@ function GridCard(props) {
             <img style={{ width: '60%', height: '100%' }} src={props.image} />
           </div>
           <p>나이 : {props.age}</p>
+          <p>품종 : {props.kindCd}</p>
+          <p>보호소 : {props.careNm}</p>
+          <p>보호소 위치 : {props.careAddr}</p>
+          <p>보호소 연락처 : {props.careTel}</p>
           <p>상태 : {props.processState}</p>
+          <p>특징 : {props.specialMark}</p>
         </Modal>
         {/* </a> */}
 

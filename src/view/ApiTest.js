@@ -1,14 +1,11 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { loadAnimal } from "../_actions/board_action"
 import { useDispatch } from "react-redux";
 import GridCard from "./GridCard.js";
-import {Row} from "antd";
+import { Row } from "antd";
 
 function ApiTest() {
-  const dispatch = useDispatch();
-  const [animal, setAnimal] = useState([]);
-  const [kindcd, setKindcd] = useState("")
   const selectList = [
     {
       place: "강원도",
@@ -79,11 +76,34 @@ function ApiTest() {
       code: 6430000
     },
   ];
-  const [Selected, setSelected] = useState("");
-  const [numOfRows, setNumOfRows] = useState(30);
-
+  const selectList2 = [
+    {
+      processState: "전체",
+      code: 1
+    },
+    {
+      processState: "보호중",
+      code: 2
+    },
+    {
+      processState: "종료",
+      code: 3
+    },
+  ]
+  const dispatch = useDispatch();
+  const buttonRef = useRef(null);
+  const [animal, setAnimal] = useState([]);
+  const [kindcd, setKindcd] = useState("개")
+  const [Selected, setSelected] = useState("6110000");
+  const [Selected2, setSelected2] = useState("전체");
+  const [numOfRows, setNumOfRows] = useState(50);
+  const [Loading, setLoading] = useState(true)
   const handleSelect = (e) => {
     setSelected(e.target.value);
+  };
+  const handleSelect2 = (e) => {
+    setSelected2(e.target.value);
+    console.log(Selected2);
   };
   const onCatHandler = (event) => {
     setKindcd(event.currentTarget.value)
@@ -92,9 +112,14 @@ function ApiTest() {
     setKindcd(event.currentTarget.value)
   }
   const loadMoreHandler = (event) => {
-    setNumOfRows(numOfRows+30);
+    setLoading(true)
+    setNumOfRows(numOfRows + 50);
     onSubmitHandler();
   }
+  useEffect(() => {
+    onSubmitHandler()
+  }, []);
+
   const onSubmitHandler = () => {
     let body = {
       numOfRows: numOfRows,
@@ -106,27 +131,67 @@ function ApiTest() {
       .then((response) => {
         console.log(response.payload);
         if (response.payload != null) {
-          setAnimal(response.payload);
+          setAnimal(response.payload)
+          setLoading(false);
         } else {
           alert("동물들을 불러오지 못했어요 ㅠㅠ");
         }
       })
   }
+  useEffect(() => {
+
+    window.addEventListener("scroll", handleScroll);
+
+  }, [])
+  const handleScroll = () => {
+
+    const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
+
+    const body = document.body;
+
+    const html = document.documentElement;
+
+    const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+
+    const windowBottom = windowHeight + window.pageYOffset;
+
+    if (windowBottom >= docHeight - 1) {
+
+
+
+      // loadMoreItems()
+
+      console.log('clicked')
+
+      buttonRef.current.click();
+
+
+
+    }
+
+  }
   return (
-    <div style={{width:'100%', margin:'0'}}>
-      
-        <select onChange={handleSelect} value={Selected}>
-          {selectList.map((item) => (
-            <option value={item.code} key={item.code}>
-              {item.place}
-            </option>
-          ))}
-        </select>
-        <hr />
-        <p>
-          Selected: <b>{Selected}</b>
-        </p>
-      
+    <div style={{ width: '100%', margin: '0' }}>
+
+      <select onChange={handleSelect} value={Selected}>
+        {selectList.map((item) => (
+          <option value={item.code} key={item.code}>
+            {item.place}
+          </option>
+        ))}
+      </select>
+      <select onChange={handleSelect2} value={Selected2}>
+        {selectList2.map((item) => (
+          <option value={item.processState} key={item.code}>
+            {item.processState}
+          </option>
+        ))}
+      </select>
+      <hr />
+      <p>
+        Selected: <b>{Selected}</b>
+      </p>
+
       <form>
         <label htmlFor="name">개 / 고양이</label>
         {/* <input type="text" id="name" name="numOfRows" onChange={onNumHandeler} placeholder="이름을 입력하세요"></input> */}
@@ -135,33 +200,54 @@ function ApiTest() {
       <button onClick={onDogHandler} value="개" >강아지</button>
       <button onClick={onSubmitHandler}  >제출</button>
 
-      <div style={{width:'85%', margin:'1rem auto'}}>
-            <h2>Animals by latest</h2>
-            <hr></hr>
-            <Row gutter={[16,16]}>
-              {animal && animal.map((ani, index)=>(
-                <React.Fragment key={ani.desertionNo}>
-                  {ani.processState =="보호중"? 
-                  <GridCard 
-                    image={ani.popfile}
-                    kindCd={ani.kindCd}
-                    age={ani.age}
-                    careAddr={ani.careAddr}
-                    careNm={ani.careNm}
-                    careTel={ani.careTel}
-                    processState={ani.processState}
-                    sexCd={ani.sexCd}
-                    specialMark={ani.specialMark}
-                    weight={ani.weight}
-                  />
-             :"" }
-                </React.Fragment>
-              ))}
+      <div style={{ width: '85%', margin: '1rem auto' }}>
+        <h2>Animals by latest</h2>
+        <hr></hr>
+        <Row gutter={[16, 16]}>
+          {animal && animal.map((ani, index) => (
+            <React.Fragment key={ani.desertionNo}>
+              {Selected2 == "전체" ?
+                <GridCard
+                  image={ani.popfile}
+                  kindCd={ani.kindCd}
+                  age={ani.age}
+                  careAddr={ani.careAddr}
+                  careNm={ani.careNm}
+                  careTel={ani.careTel}
+                  processState={ani.processState}
+                  sexCd={ani.sexCd}
+                  specialMark={ani.specialMark}
+                  weight={ani.weight}
+                /> :
+                (
+                  ani.processState == Selected2 ?
+                    <GridCard
+                      image={ani.popfile}
+                      kindCd={ani.kindCd}
+                      age={ani.age}
+                      careAddr={ani.careAddr}
+                      careNm={ani.careNm}
+                      careTel={ani.careTel}
+                      processState={ani.processState}
+                      sexCd={ani.sexCd}
+                      specialMark={ani.specialMark}
+                      weight={ani.weight}
+                    />
+                    : ""
+                )
+              }
+            </React.Fragment>
+          ))}
 
-            </Row>
+        </Row>
       </div>
-      <div style={{display:'flex', justifyContent:'center'}}>
-            <button onClick={loadMoreHandler}>Load More</button>
+      {Loading &&
+
+        <div style={{ textAlign: 'center', fontSize: 'large' }}>
+          최근 {numOfRows} 개의 목록 중 '{Selected2}' 동물들 불러오는 중 ...</div>}
+      <br />
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <button ref={buttonRef} onClick={loadMoreHandler}>Load More</button>
       </div>
 
       {/* {animal && animal.map(ele =>
