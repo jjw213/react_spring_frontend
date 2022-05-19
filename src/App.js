@@ -14,6 +14,7 @@ import ApiTest from './view/ApiTest';
 import CommunityPage from './view/CommunityPage';
 import Adad from './view/Adad';
 import Auth from "./_reducers/Auth";
+import "../node_modules/antd/dist/antd.css";
 
 function App() {
   // const REST_API_KEY = "170293c1b046c874abd5476ddf3dba3a";
