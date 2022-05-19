@@ -80,15 +80,24 @@ function ApiTest() {
     },
   ];
   const [Selected, setSelected] = useState("");
+  const [numOfRows, setNumOfRows] = useState(30);
 
   const handleSelect = (e) => {
     setSelected(e.target.value);
   };
-  const onSubmitHandler = (event) => {
-    event.preventDefault();
+  const onCatHandler = (event) => {
     setKindcd(event.currentTarget.value)
+  }
+  const onDogHandler = (event) => {
+    setKindcd(event.currentTarget.value)
+  }
+  const loadMoreHandler = (event) => {
+    setNumOfRows(numOfRows+30);
+    onSubmitHandler();
+  }
+  const onSubmitHandler = () => {
     let body = {
-      numOfRows: 30,
+      numOfRows: numOfRows,
       kindcd: kindcd,
       upr_cd: Selected
     };
@@ -103,13 +112,6 @@ function ApiTest() {
         }
       })
   }
-  const onCatHandler = (event) => {
-    setKindcd(event.currentTarget.value)
-  }
-  const onDogHandler = (event) => {
-    setKindcd(event.currentTarget.value)
-  }
-
   return (
     <div style={{width:'100%', margin:'0'}}>
       
@@ -139,6 +141,7 @@ function ApiTest() {
             <Row gutter={[16,16]}>
               {animal && animal.map((ani, index)=>(
                 <React.Fragment key={ani.desertionNo}>
+                  {ani.processState =="보호중"? 
                   <GridCard 
                     image={ani.popfile}
                     kindCd={ani.kindCd}
@@ -151,14 +154,14 @@ function ApiTest() {
                     specialMark={ani.specialMark}
                     weight={ani.weight}
                   />
-
+             :"" }
                 </React.Fragment>
               ))}
 
             </Row>
       </div>
       <div style={{display:'flex', justifyContent:'center'}}>
-            <button>Load More</button>
+            <button onClick={loadMoreHandler}>Load More</button>
       </div>
 
       {/* {animal && animal.map(ele =>
