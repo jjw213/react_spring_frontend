@@ -52,19 +52,18 @@ function SignPage() {
       });
   };
   return (
-    <div className="container">
+    <div className>
       <header>
         <nav className="header-nav">
           <div>
-            <a href="/">
-              <h1>MY USERS</h1>
-            </a>
+            <a href="/">{/* <h1>MY USERS</h1> */}</a>
           </div>
         </nav>
       </header>
       <main className="signContainer">
+        <div className="neKo"></div>
         <div className="sign-page">
-          <h1>신규 회원가입</h1>
+          {/* <h2>신규 회원가입</h2> */}
           <div className="signForm">
             <form action="" method="" onSubmit={onSubmitHandler}>
               <div className="signForm-group">
@@ -92,7 +91,9 @@ function SignPage() {
                 ></input>
               </div>
               <div>
-                <label htmlFor="passwordConfirm">비밀번호 재입력</label>
+                <label htmlFor="passwordConfirm" className="signPasswordCon">
+                  비밀번호 재입력
+                </label>
                 <input
                   type="password"
                   id="passwordConfirm"

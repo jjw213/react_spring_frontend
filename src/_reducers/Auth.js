@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import qs from "qs";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from 'react-redux';
-import { registerUser } from '../_actions/user_action'
+import { useDispatch } from "react-redux";
+import { registerUser } from "../_actions/user_action";
 
 const Auth = () => {
   const REST_API_KEY = "170293c1b046c874abd5476ddf3dba3a";
@@ -28,7 +28,7 @@ const Auth = () => {
         "https://kauth.kakao.com/oauth/token",
         payload
       );
-      sessionStorage.setItem('kakao_token', res.data.access_token)
+      sessionStorage.setItem("kakao_token", res.data.access_token);
       if (!window.Kakao.isInitialized()) {
         // Kakao Javascript SDK 초기화
         window.Kakao.init(REST_API_KEY);

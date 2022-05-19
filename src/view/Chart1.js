@@ -4,8 +4,6 @@ import React,{useState, useEffect, Suspense} from "react";
 import axios from "axios";
 
 
-
-
 function MyResponsivePie() { 
 
     const [animal, setAnimal] = useState([]);
@@ -27,36 +25,23 @@ function MyResponsivePie() {
     return (
 
 
-        <Suspense>
+
         <ResponsivePie
         data={animal}
-        margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
-        innerRadius={0.3}
+        margin={{ top: 55, right: 80, bottom: 55, left: 80 }}
+        innerRadius={0.5}
+        padAngle={0.7}
         cornerRadius={3}
         activeOuterRadiusOffset={8}
-        colors={{ scheme: 'green_blue' }}
+        colors={{ scheme: 'blues' }}
         borderWidth={1}
-        borderColor={{
-            from: 'color',
-            modifiers: [
-                [
-                    'darker',
-                    '3'
-                ]
-            ]
-        }}
+        borderColor="black"
+        arcLinkLabelsSkipAngle={10}
         arcLinkLabelsTextColor="#333333"
         arcLinkLabelsThickness={2}
-        arcLinkLabelsColor={{ from: 'color' }}
-        arcLabelsTextColor={{
-            from: 'color',
-            modifiers: [
-                [
-                    'darker',
-                    '3'
-                ]
-            ]
-        }}
+        arcLinkLabelsColor={{ from: 'color', modifiers: [] }}
+        arcLabelsSkipAngle={10}
+        arcLabelsTextColor="black"
         defs={[
             {
                 id: 'dots',
@@ -129,6 +114,6 @@ function MyResponsivePie() {
         ]}
         legends={[]}
     />
-</Suspense>
+
 )}
 export default MyResponsivePie

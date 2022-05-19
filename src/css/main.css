@@ -42,18 +42,21 @@ header {
 }
 
 .login-page {
-  height: 760px;
+  height: 0px;
   width: 360px;
   text-align: center;
-  padding-top: 5em;
+  /* padding-top: 5em; */
   margin: auto;
 }
 
 .form {
   position: relative;
+  float: center;
   /* top: 15%; */
   z-index: 1;
-  transform: translate(0%, -100%);
+  transform: translate(0%, -10%);
+  background-image: url("../css/img/corgi.png");
+  background-repeat: repeat-x;
   background-color: rgb(136, 175, 207);
   border-radius: 10%;
   text-align: center;
@@ -63,18 +66,18 @@ header {
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.24);
 }
 
-.doCa {
-  background-image: url("../css/img/corgi.png");
+/* .doCa {
   background-size: 100px;
-  background-repeat: no-repeat;
-  position: relative;
-  width: 500px;
-  height: 500px;
-  transform: translate(15%, 41%);
+  width: 200px;
+  height: 200px;
+  transform: translate(0%, -10%);
+  background-color: rgb(136, 175, 207);
+  border-radius: 10%;
+  text-align: center;
   max-width: 360px;
   margin: 0 auto 100px;
   padding: 45px;
-}
+} */
 
 .form input {
   font-family: sans-serif;
@@ -106,11 +109,11 @@ header {
 }
 .loginName {
   font-family: sans-serif;
-  color: rgb(237, 248, 179);
+  color: black;
 }
 .passwordName {
   font-family: sans-serif;
-  color: rgb(237, 248, 179);
+  color: black;
 }
 /* .form .kakaoLoginBtn {
   margin: 0 0 15px;
@@ -135,37 +138,57 @@ header {
 
 /* signPage css */
 .signContainer {
-  /* background-image: url("../css/img/background.png");
-  background-size: cover; */
   position: relative;
   z-index: 1;
   max-width: 100%;
   margin: 0 auto;
   height: 100%;
   min-height: 100%;
-  padding-bottom: 70px; /* footer 의 높이만큼 아래쪽 공백주기 */
 }
 
 .sign-page {
-  height: 760px;
+  height: 0px;
   width: 360px;
   text-align: center;
-  padding-top: 5em;
+  /* padding-top: 5em; */
   margin: auto;
 }
 
-/* .doCa {
-  background-image: url("../css/img/corgi.png");
-  background-size: 100px;
-  background-repeat: no-repeat;
+/* .neKo {
+  background-image: url("../css/img/neko.png");
+} */
+
+.signName {
+  font-family: sans-serif;
+  color: black;
+}
+
+.signPassword {
+  font-family: sans-serif;
+  color: black;
+}
+
+.signPasswordCon {
+  font-family: sans-serif;
+  color: black;
+}
+
+.signForm {
   position: relative;
-  width: 500px;
-  height: 500px;
-  transform: translate(15%, 41%);
+  float: center;
+  /* top: 15%; */
+  z-index: 1;
+  transform: translate(0%, -10%);
+  background-image: url("../css/img/neko.png");
+  background-repeat: repeat-x;
+  background-color: rgb(93, 190, 165);
+  border-radius: 10%;
+  text-align: center;
   max-width: 360px;
   margin: 0 auto 100px;
   padding: 45px;
-} */
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.24);
+}
 
 .signForm input {
   font-family: sans-serif;
@@ -184,7 +207,7 @@ header {
   margin: 0 0 15px;
   font-family: sans-serif;
   outline: 0;
-  background-color: rgb(247, 239, 190);
+  background-color: rgb(249, 167, 39);
   width: 100%;
   border: 0;
   border-radius: 10px;
@@ -214,7 +237,7 @@ header {
 .signForm button:hover,
 .signForm button:active,
 .signForm button:focus {
-  background-color: rgb(248, 190, 105);
+  background-color: rgb(246, 229, 121);
 }
 
 footer {
