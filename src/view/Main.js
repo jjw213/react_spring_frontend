@@ -2,6 +2,7 @@ import React from "react";
 import Slide from "./Slide";
 import Chart1 from "./Chart1";
 import Chart2 from "./Chart2";
+import SectionSlide from "./SectionSlide";
 
 function Main() {
     return(
@@ -45,7 +46,7 @@ function Main() {
 
 
             <section id="section4">
-                <h1>section4</h1>
+                <SectionSlide></SectionSlide>
             </section>
 
 
