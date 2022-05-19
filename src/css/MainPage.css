@@ -36,7 +36,12 @@
 * {margin:0;padding:0;box-sizing:border-box;}
 
 [name="slide"] {display:none;}
-.slidebox {max-width:100000px;width:100%;margin:0 auto;}
+.slidebox {
+    max-width:100000px;
+    width:100%;
+    margin:0 auto;
+}
+
 .slidebox img {max-width:100%;}
 .slidebox .slidelist {
     white-space:nowrap;
@@ -45,8 +50,10 @@
     font-size:0;
     overflow:hidden;
     position: absolute;
-    top: 15%;
-    left: 60%;
+    top: 20%;
+    left: 65%;
+    border-radius: 70%;
+    
 }
 .slidebox .slideitem  {
     position:relative;    
@@ -78,15 +85,66 @@
     100% {left:-300%;}
 }
 
+@font-face {
+    font-family: "Do";
+    src: url("./fonts/Do_Hyeon/DoHyeon-Regular.ttf");
+}
+
+.main #section2_forntpage{
+    display: block;
+    float: left;
+    width: 30%;
+    height: 400px;
+    background-color: white;
+    border: 1px solid black;
+    
+}
+
+.main #section2_forntpage div {
+    height: 50%;
+    font-family: "Do";
+    
+}
+.main #section2_forntpage div div {
+    display: block;
+    float: left;
+}
+.main #section2_forntpage div .dogimg {
+    display: block;
+    background-image: url("/src/css/mainImg/free-animated-icon-dog-7211975.gif");
+    background-size: cover;
+    width: 50%;
+    height: 100%;
+}
+
+.main #section2_forntpage div .catimg {
+    display: block;
+    width: 50%;
+    height: 100%;
+    background-image: url("/src/css/mainImg/free-animated-icon-cat-7211991.gif");
+    background-size: cover;
+}
+
+.main #section2_forntpage h1 {
+    position: relative;
+    left: 20%;
+    top: 30%;
+}
+
+.main #section2_forntpage span {
+    display: block;
+    font-size: 40px;
+}
 
 
 /*----- main section 2 -----*/
 .main #section2{
-    width: 50%;
+    width: 35%;
     height: 400px;
     background-color: gray;
     display: block;
     float: left;
+    border: 1px solid black;
 
 }
 
@@ -95,14 +153,15 @@
 .main #section3{
     display: block;
     float: left;
-    width: 50%;
+    width: 35%;
     height: 400px;
-    background-color: gray
+    background-color: gray;
+    border: 1px solid black;
 }
 
 /*----- main section 4 -----*/
 .main #section4{
-    height: 700px;
+    height: 1200px;
     background-color: beige;
 }
 
