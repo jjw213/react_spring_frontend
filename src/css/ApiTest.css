@@ -1,0 +1,33 @@
+.animalBtn {
+  display: block;
+  margin: 0px auto;
+  text-align: center;
+}
+
+.submitBtn {
+  margin: 0px auto;
+  text-align: center;
+  border-radius: 4px;
+  display: inline-block;
+  cursor: pointer;
+  color: white;
+  font-family: Arial;
+  font-size: 15px;
+  padding: 9px 15px;
+  text-decoration: none;
+}
+
+.submitBtn:active {
+  position: relative;
+  top: 1px;
+}
+.submitBtn:hover,
+.submitBtn:focus {
+  background-color: #ff8e00;
+}
+
+.searchName {
+  display: block;
+  margin: 0px auto;
+  text-align: center;
+}

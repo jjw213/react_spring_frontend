@@ -114,10 +114,14 @@ function ApiTest() {
   };
   const onCatHandler = (event) => {
     setKindcd(event.currentTarget.value);
+    setIsHover2(false);
+    setIsHover1(true);
     setNumOfRows(50);
   };
   const onDogHandler = (event) => {
     setKindcd(event.currentTarget.value);
+    setIsHover2(true);
+    setIsHover1(false);
     setNumOfRows(50);
   };
   const loadMoreHandler = (event) => {
@@ -199,50 +203,65 @@ function ApiTest() {
           ))}
         </select>
       </p>
-      <hr />
 
       <form>
-        <label htmlFor="name">개 / 고양이</label>
+        <div className="searchName">
+          <label htmlFor="name">찾고자 하는 동물을 선택해주세요 👀</label>
+        </div>
         {/* <input type="text" id="name" name="numOfRows" onChange={onNumHandeler} placeholder="이름을 입력하세요"></input> */}
       </form>
-      <button
-        onClick={onCatHandler}
-        value="고양이"
-        className="catBtn"
-        style={{
-          border: "none",
-          width: "80px",
-          backgroundColor: "white",
-          cursor: "pointer",
-        }}
-      >
-        <img
-          onMouseOver={() => setIsHover1(true)}
-          onMouseOut={() => setIsHover1(false)}
-          src={isHover1 ? catBtn2 : catBtn1}
-          style={{ width: "100%", height: "100%" }}
-        />
-      </button>
-      <button
-        onClick={onDogHandler}
-        value="개"
-        className="dogBtn"
-        style={{
-          border: "none",
-          width: "80px",
-          backgroundColor: "white",
-          cursor: "pointer",
-        }}
-      >
-        <img
-          onMouseOver={() => setIsHover2(true)}
-          onMouseOut={() => setIsHover2(false)}
-          src={isHover2 ? dogBtn2 : dogBtn1}
-          style={{ width: "100%", height: "100%" }}
-        />
-      </button>
-      <button onClick={onSubmitHandler}>제출</button>
-
+      <div className="animalBtn">
+        <button
+          onClick={onCatHandler}
+          value="고양이"
+          className="catBtn"
+          style={{
+            border: "none",
+            width: "80px",
+            backgroundColor: "white",
+            cursor: "pointer",
+          }}
+        >
+          <img
+            // onMouseOver={() => setIsHover1(true)}
+            // onMouseOut={() => setIsHover1(false)}
+            src={isHover1 ? catBtn2 : catBtn1}
+            style={{ width: "100%", height: "100%" }}
+          />
+        </button>
+        <button
+          onClick={onDogHandler}
+          value="개"
+          className="dogBtn"
+          style={{
+            border: "none",
+            width: "80px",
+            backgroundColor: "white",
+            cursor: "pointer",
+          }}
+        >
+          <img
+            // onMouseOver={() => setIsHover2(true)}
+            // onMouseOut={() => setIsHover2(false)}
+            src={isHover2 ? dogBtn2 : dogBtn1}
+            style={{ width: "100%", height: "100%" }}
+          />
+        </button>
+      </div>
+      <div className="submitBtn">
+        <button
+          onClick={onSubmitHandler}
+          style={{
+            border: "none",
+            width: "80px",
+            backgroundColor: "#FFAA40",
+            cursor: "pointer",
+          }}
+        >
+          제출
+        </button>
+      </div>
+      <hr />
       <div style={{ width: "85%", margin: "1rem auto" }}>
         <h2>Animals by latest</h2>
         <hr></hr>
