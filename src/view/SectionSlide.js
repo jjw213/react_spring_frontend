@@ -7,6 +7,7 @@ import image4 from "../css/img/image4.png";
 function SectionSlide(){
 
     return(
+        
         <div className="slidebox2">
             
             <input type="radio" name="slide2" id="slide05" checked/>
@@ -19,23 +20,26 @@ function SectionSlide(){
             <div className="slidelist2">
             
                 <div className="slideitem2">
-                    <div>
+                    <div className="Float2">
                         <img src={image4}/>
                     </div>
-                    <div>
+                    <div className="Float2">
                         <img src={image1}/>
                     </div>
-                    <div>
+                    <div className="Float2">
                         <img src={image2}/>
                     </div>
-                    <div>
+                    <div className="Float2">
                         <img src={image3}/>
                     </div>
-                    <div>
+                    <div className="Float2">
                         <img src={image4}/>
                     </div>
-                    <div>
+                    <div className="Float2">
                         <img src={image1}/>
+                    </div>
+                    <div className="Float2">
+                        <img src={image2}/>
                     </div>
                 </div>
             </div>

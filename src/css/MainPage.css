@@ -5,6 +5,10 @@
     height: auto;
 }
 
+.main section{
+    display: block;
+}
+
 /*----- main section 1 -----*/
 
 @font-face {
@@ -57,7 +61,7 @@
 }
 .slidebox .slideitem  {
     position:relative;    
-    transition:all .35s;
+    transition:all .60s;
     width: 1200px;
 }
 
@@ -161,44 +165,55 @@
 
 /*----- main section 4 -----*/
 .main #section4{
-    height: 1200px;
+    width: 100%;
+    height: 500px;
     background-color: beige;
+    float: left;
 }
 
-
+.textslide{
+    display: block;
+    background-color: violet;
+    width: 30%;
+    height: 100%;
+    float: left;
+}
 
 [name="slide2"] {display:none;}
 .slidebox2 {
     max-width:100000px;
-    width:100%;
+    width:70%;
+    height: 100%;
     margin:0 auto;
+    float: left;
 }
 
 .slidebox2 img {max-width:100%;}
 .slidebox2 .slidelist2 {
     white-space:nowrap;
-    width: 300px;
-    height: 300px;
+    width: 60%;
+    height: 100%;
+    font-size:0;
+    overflow:hidden;
     position: relative;
-    top: 20%;
-    left: 65%;
-    border-radius: 70%;
+    left: 20%;
     
 }
 .slidebox2 .slideitem2  {
     position:relative;    
-    transition:all .35s;
-    width: max-content;
+    transition:all .60s;
+    width: max-content
 }
 
-.slidebox2 .slideitem2 div{
+.slidebox2 .slideitem2 .Float2 {
     float: left;
 }
 
 
 .slidebox2 .slideitem2 img {
-    width: 600px;
-    height: 600px;
+    width: 500px;
+    height: 500px;
+
 }
 
 
@@ -207,17 +222,22 @@
 [id="slide07"]:checked ~ .slidelist2 .slideitem2 {transform:translateX(-200%);animation:slide02 15s infinite;}
 [id="slide08"]:checked ~ .slidelist2 .slideitem2 {transform:translateX(-300%);animation:slide02 15s infinite;}
 [id="slide09"]:checked ~ .slidelist2 .slideitem2 {transform:translateX(-300%);animation:slide02 15s infinite;}
-[id="slide10"]:checked ~ .slidelist2 .slideitem2 {transform:translateX(-300%);animation:slide02 15s infinite;}
+[id="slide010"]:checked ~ .slidelist2 .slideitem2 {transform:translateX(-300%);animation:slide02 15s infinite;}
 
 @keyframes slide02 {
-    0% {left:-10%;}
-    33% {left:-300%;}
-    67% {left:-500%;}
-    100% {left: -700%;}
+    0% {left:-70%;}
+    25% {left:-145%;}
+    50% {left:-220%;}
+    75% {left:-300%;}
+    100% {left:-380%;}
 }
 
 
 .footer {
-    height: 300px;
-    background-color: red;
+    height: 500px;
+    background-color: yellowgreen;
+    display: block;
+    float: left;
+    width: 100%;
+    height: 200px;
 }

@@ -3,6 +3,7 @@ import Slide from "./Slide";
 import Chart1 from "./Chart1";
 import Chart2 from "./Chart2";
 import SectionSlide from "./SectionSlide";
+import TextSlide from "./TextSlide";
 
 function Main() {
     return(
@@ -46,7 +47,7 @@ function Main() {
 
 
             <section id="section4">
-                <h1>section4</h1>
+                <TextSlide></TextSlide>
                 <SectionSlide></SectionSlide>
             </section>
 

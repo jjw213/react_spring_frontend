@@ -36,8 +36,6 @@ function MainPage(props) {
   //     endPoint();
   // },[])
 
- 
-
   return (
     <div>
     
