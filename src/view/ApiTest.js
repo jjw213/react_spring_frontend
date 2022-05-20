@@ -2,84 +2,14 @@ import axios from "axios";
 import React, { useEffect, useState, useRef } from "react";
 import { loadAnimal } from "../_actions/board_action";
 import { useDispatch } from "react-redux";
-import GridCard from "./GridCard.js";
-import { Row } from "antd";
+import AnimalList from "./AnimalList";
+import selectList from "../selectList.json";
 import catBtn1 from "../css/img/catIcon1.png";
 import dogBtn1 from "../css/img/dogIcon1.png";
 import catBtn2 from "../css/img/catIcon2.png";
 import dogBtn2 from "../css/img/dogIcon2.png";
 import "../css/ApiTest.css";
 function ApiTest() {
-  const selectList = [
-    {
-      place: "강원도",
-      code: 6420000,
-    },
-    {
-      place: "경기도",
-      code: 6410000,
-    },
-    {
-      place: "경상남도",
-      code: 6480000,
-    },
-    {
-      place: "경상북도",
-      code: 6470000,
-    },
-    {
-      place: "광주광역시",
-      code: 6290000,
-    },
-    {
-      place: "대구광역시",
-      code: 6270000,
-    },
-    {
-      place: "대전광역시",
-      code: 6300000,
-    },
-    {
-      place: "부산광역시",
-      code: 6260000,
-    },
-    {
-      place: "서울특별시",
-      code: 6110000,
-    },
-    {
-      place: "세종특별자치시",
-      code: 5690000,
-    },
-    {
-      place: "울산광역시",
-      code: 6310000,
-    },
-    {
-      place: "인천광역시",
-      code: 6280000,
-    },
-    {
-      place: "전라남도",
-      code: 6460000,
-    },
-    {
-      place: "전라북도",
-      code: 6450000,
-    },
-    {
-      place: "제주특별자치도",
-      code: 6500000,
-    },
-    {
-      place: "충청남도",
-      code: 6440000,
-    },
-    {
-      place: "충청북도",
-      code: 6430000,
-    },
-  ];
   const selectList2 = [
     {
       processState: "전체",
@@ -107,7 +37,7 @@ function ApiTest() {
   const handleSelect = (e) => {
     setSelected(e.target.value);
     setNumOfRows(50);
-    console.log(numOfRows);
+    console.log(selectList);
   };
   const handleSelect2 = (e) => {
     setSelected2(e.target.value);
@@ -204,12 +134,9 @@ function ApiTest() {
         </select>
       </p>
 
-      <form>
         <div className="searchName">
           <label htmlFor="name">찾고자 하는 동물을 선택해주세요 👀</label>
         </div>
-        {/* <input type="text" id="name" name="numOfRows" onChange={onNumHandeler} placeholder="이름을 입력하세요"></input> */}
-      </form>
       <div className="animalBtn">
         <button
           onClick={onCatHandler}
@@ -223,8 +150,6 @@ function ApiTest() {
           }}
         >
           <img
-            // onMouseOver={() => setIsHover1(true)}
-            // onMouseOut={() => setIsHover1(false)}
             src={isHover1 ? catBtn2 : catBtn1}
             style={{ width: "100%", height: "100%" }}
           />
@@ -241,8 +166,6 @@ function ApiTest() {
           }}
         >
           <img
-            // onMouseOver={() => setIsHover2(true)}
-            // onMouseOut={() => setIsHover2(false)}
             src={isHover2 ? dogBtn2 : dogBtn1}
             style={{ width: "100%", height: "100%" }}
           />
@@ -258,50 +181,11 @@ function ApiTest() {
             cursor: "pointer",
           }}
         >
-          제출
+          찾기
         </button>
       </div>
       <hr />
-      <div style={{ width: "85%", margin: "1rem auto" }}>
-        <h2>Animals by latest</h2>
-        <hr></hr>
-        <Row gutter={[16, 16]}>
-          {animal &&
-            animal.map((ani, index) => (
-              <React.Fragment key={ani.desertionNo}>
-                {Selected2 == "전체" ? (
-                  <GridCard
-                    image={ani.popfile}
-                    kindCd={ani.kindCd}
-                    age={ani.age}
-                    careAddr={ani.careAddr}
-                    careNm={ani.careNm}
-                    careTel={ani.careTel}
-                    processState={ani.processState}
-                    sexCd={ani.sexCd}
-                    specialMark={ani.specialMark}
-                    weight={ani.weight}
-                  />
-                ) : ani.processState == Selected2 ? (
-                  <GridCard
-                    image={ani.popfile}
-                    kindCd={ani.kindCd}
-                    age={ani.age}
-                    careAddr={ani.careAddr}
-                    careNm={ani.careNm}
-                    careTel={ani.careTel}
-                    processState={ani.processState}
-                    sexCd={ani.sexCd}
-                    specialMark={ani.specialMark}
-                    weight={ani.weight}
-                  />
-                ) : (
-                  ""
-                )}
-              </React.Fragment>
-            ))}
-        </Row>
-      </div>
+      <AnimalList animal={animal} Selected2={Selected2}/>
       {Loading && (
         <div style={{ textAlign: "center", fontSize: "large" }}>
           최근 {numOfRows} 개의 목록 중 '{Selected2}' 동물들 불러오는 중 ...
@@ -313,14 +197,6 @@ function ApiTest() {
           Load More
         </button>
       </div>
-
-      {/* {animal && animal.map(ele =>
-        <div key={ele.desertionNo}>
-          <h2>종 : {ele.kindCd}</h2>
-          <div>나이 : {ele.age}</div>
-          <div>특징 : {ele.specialMark}</div>
-          <div><img src={ele.filename}></img></div>
-        </div>)} */}
     </div>
   );
 }
