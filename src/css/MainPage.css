@@ -74,9 +74,9 @@
 
 
 [id="slide01"]:checked ~ .slidelist .slideitem {transform:translateX(0);animation:slide01 15s infinite;}
-[id="slide02"]:checked ~ .slidelist .slideitem {transform:translateX(-100%);animation:slide02 15s infinite;}
-[id="slide03"]:checked ~ .slidelist .slideitem {transform:translateX(-200%);animation:slide03 15s infinite;}
-[id="slide04"]:checked ~ .slidelist .slideitem {transform:translateX(-300%);animation:slide04 15s infinite;}
+[id="slide02"]:checked ~ .slidelist .slideitem {transform:translateX(-100%);animation:slide01 15s infinite;}
+[id="slide03"]:checked ~ .slidelist .slideitem {transform:translateX(-200%);animation:slide01 15s infinite;}
+[id="slide04"]:checked ~ .slidelist .slideitem {transform:translateX(-300%);animation:slide01 15s infinite;}
 
 @keyframes slide01 {
     0% {left:0%;}
@@ -164,6 +164,58 @@
     height: 1200px;
     background-color: beige;
 }
+
+
+
+[name="slide2"] {display:none;}
+.slidebox2 {
+    max-width:100000px;
+    width:100%;
+    margin:0 auto;
+}
+
+.slidebox2 img {max-width:100%;}
+.slidebox2 .slidelist2 {
+    white-space:nowrap;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    top: 20%;
+    left: 65%;
+    border-radius: 70%;
+    
+}
+.slidebox2 .slideitem2  {
+    position:relative;    
+    transition:all .35s;
+    width: max-content;
+}
+
+.slidebox2 .slideitem2 div{
+    float: left;
+}
+
+
+.slidebox2 .slideitem2 img {
+    width: 600px;
+    height: 600px;
+}
+
+
+[id="slide05"]:checked ~ .slidelist2 .slideitem2 {transform:translateX(0);animation:slide02 15s infinite;}
+[id="slide06"]:checked ~ .slidelist2 .slideitem2 {transform:translateX(-100%);animation:slide02 15s infinite;}
+[id="slide07"]:checked ~ .slidelist2 .slideitem2 {transform:translateX(-200%);animation:slide02 15s infinite;}
+[id="slide08"]:checked ~ .slidelist2 .slideitem2 {transform:translateX(-300%);animation:slide02 15s infinite;}
+[id="slide09"]:checked ~ .slidelist2 .slideitem2 {transform:translateX(-300%);animation:slide02 15s infinite;}
+[id="slide10"]:checked ~ .slidelist2 .slideitem2 {transform:translateX(-300%);animation:slide02 15s infinite;}
+
+@keyframes slide02 {
+    0% {left:-10%;}
+    33% {left:-300%;}
+    67% {left:-500%;}
+    100% {left: -700%;}
+}
+
 
 .footer {
     height: 300px;

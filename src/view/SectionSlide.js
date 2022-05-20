@@ -1,22 +1,42 @@
-import React,{useState, useEffect} from "react";
+import React from "react";
+import image1 from "../css/img/image1.png";
+import image2 from "../css/img/image2.png";
+import image3 from "../css/img/image3.png";
+import image4 from "../css/img/image4.png";
 
 function SectionSlide(){
 
     return(
-        <div className="slidebox">
+        <div className="slidebox2">
             
-            <input type="radio" name="slide" id="slide01" checked/>
-            <input type="radio" name="slide" id="slide02"/>
-            <input type="radio" name="slide" id="slide03"/>
-            <input type="radio" name="slide" id="slide04"/>
+            <input type="radio" name="slide2" id="slide05" checked/>
+            <input type="radio" name="slide2" id="slide06"/>
+            <input type="radio" name="slide2" id="slide07"/>
+            <input type="radio" name="slide2" id="slide08"/>
+            <input type="radio" name="slide2" id="slide09"/>
+            <input type="radio" name="slide2" id="slide10"/>
             
-            <div className="slidelist">
+            <div className="slidelist2">
             
-                <div className="slideitem">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
+                <div className="slideitem2">
+                    <div>
+                        <img src={image4}/>
+                    </div>
+                    <div>
+                        <img src={image1}/>
+                    </div>
+                    <div>
+                        <img src={image2}/>
+                    </div>
+                    <div>
+                        <img src={image3}/>
+                    </div>
+                    <div>
+                        <img src={image4}/>
+                    </div>
+                    <div>
+                        <img src={image1}/>
+                    </div>
                 </div>
             </div>
             
