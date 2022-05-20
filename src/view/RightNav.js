@@ -27,14 +27,14 @@ function RightNav() {
 
     return (
 
-        <li className='right_nav'>
+        <React.Fragment >
             {user.userData == null ?
-             <li><a href="/members/loginSelect">회원가입</a></li>
-            :<li style={{ color: 'red' }}>{user.userData} 님 환영합니다.</li>}
-            {user.userData == null ? <li><a href="/members/memberLogin">로그인</a></li>
-                : <li><a onClick={logoutHandler}>로그아웃</a></li>}
-            <li><a href="/members">회원목록</a></li>
-        </li>
+             <a href="/members/loginSelect" style={{margin:'0 20px 0 50px'}}>회원가입</a>
+            :<div style={{ color: 'red' }}>{user.userData} 님 환영합니다.</div>}
+            {user.userData == null ? <a href="/members/memberLogin">로그인</a>
+                : <div><a onClick={logoutHandler}>로그아웃</a></div>}
+            {/* <div><a href="/members">회원목록</a></div> */}
+        </React.Fragment>
 
     )
 }

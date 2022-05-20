@@ -8,36 +8,15 @@ function Nav() {
             <div className="nav_wrapper">
                 <nav className="menu">
                     <ul>
-                        <li ><a href="#Link" title="Link">Home</a>
+                        <li ><a href="/" title="Link">Home</a>
+                        </li>
+                        <li ><a href="/apiTest" title="Link">동물 찾기</a>
                             <ul >
-                                <li ><a href="#Link" title="Link">Link » </a>
-                                    <ul >
-                                        <li ><a href="#Link" title="Link">Link</a></li>
-                                        <li ><a href="#Link" title="Link">Link</a></li>
-                                    </ul>
-                                </li>
-                                <li ><a href="#Link" title="Link">About</a></li>
-                                <li ><a href="#Link" title="Link">Link » </a>
-                                    <ul >
-                                        <li ><a href="#Link" title="Link">Link</a></li>
-                                        <li ><a href="#link" title="Link">Link</a></li>
-                                        <li ><a href="#Link" title="Link">Link </a></li>
-                                    </ul>
-                                </li>
+                                <li ><a href="/apiTest" title="Link ">전체 보기</a></li>
+                                <li ><a href="#Link" title="Link">추천 받기</a></li>
                             </ul>
                         </li>
-                        <li ><a href="#Link" title="Link">Category</a>
-                            <ul >
-                                <li ><a href="#Link" title="Link ">Link</a></li>
-                                <li ><a href="#Link" title="Link">Link</a></li>
-                            </ul>
-                        </li>
-                        <li ><a href="#Link" title="Link">Portfolio</a>
-                            <ul >
-                                <li ><a href="#Link" title="Link">Link</a></li>
-                                <li ><a href="#Link" title="Link">Link</a></li>
-                                <li ><a href="#Link" title="Link">Link</a></li>
-                            </ul>
+                        <li ><a href="/community" title="Link">커뮤니티</a>
                         </li>
 
                         <RightNav />
