@@ -6,8 +6,10 @@ import AnimalList from "./AnimalList";
 import selectList from "../selectList.json";
 import catBtn1 from "../css/img/catIcon1.png";
 import dogBtn1 from "../css/img/dogIcon1.png";
+import etcBtn1 from "../css/img/etcIcon1.png";
 import catBtn2 from "../css/img/catIcon2.png";
 import dogBtn2 from "../css/img/dogIcon2.png";
+import etcBtn2 from "../css/img/etcIcon2.png";
 import "../css/ApiTest.css";
 function ApiTest() {
   const selectList2 = [
@@ -34,6 +36,7 @@ function ApiTest() {
   const [Loading, setLoading] = useState(true);
   const [isHover1, setIsHover1] = useState(false);
   const [isHover2, setIsHover2] = useState(false);
+  const [isHover3, setIsHover3] = useState(false);
   const handleSelect = (e) => {
     setSelected(e.target.value);
     setNumOfRows(50);
@@ -46,12 +49,21 @@ function ApiTest() {
     setKindcd(event.currentTarget.value);
     setIsHover2(false);
     setIsHover1(true);
+    setIsHover3(false);
     setNumOfRows(50);
   };
   const onDogHandler = (event) => {
     setKindcd(event.currentTarget.value);
     setIsHover2(true);
     setIsHover1(false);
+    setIsHover3(false);
+    setNumOfRows(50);
+  };
+  const onAnimalsHandler = (event) => {
+    setKindcd(event.currentTarget.value);
+    setIsHover2(false);
+    setIsHover1(false);
+    setIsHover3(true);
     setNumOfRows(50);
   };
   const loadMoreHandler = (event) => {
@@ -134,9 +146,9 @@ function ApiTest() {
         </select>
       </p>
 
-        <div className="searchName">
-          <label htmlFor="name">찾고자 하는 동물을 선택해주세요 👀</label>
-        </div>
+      <div className="searchName">
+        <label htmlFor="name">👀 찾고자 하는 동물을 선택해주세요 👀</label>
+      </div>
       <div className="animalBtn">
         <button
           onClick={onCatHandler}
@@ -170,13 +182,30 @@ function ApiTest() {
             style={{ width: "100%", height: "100%" }}
           />
         </button>
-      </div>
-      <div className="submitBtn">
         <button
-          onClick={onSubmitHandler}
+          onClick={onAnimalsHandler}
+          value="기타"
+          className="dogBtn"
           style={{
             border: "none",
             width: "80px",
+            backgroundColor: "white",
+            cursor: "pointer",
+          }}
+        >
+          <img
+            src={isHover3 ? etcBtn2 : etcBtn1}
+            style={{ width: "100%", height: "100%" }}
+          />
+        </button>
+      </div>
+      <div className="submitCenter">
+        <button
+          className="submitBtn submitBtnPush"
+          onClick={onSubmitHandler}
+          style={{
+            border: "none",
+            width: "120px",
             backgroundColor: "#FFAA40",
             cursor: "pointer",
           }}
@@ -185,7 +214,12 @@ function ApiTest() {
         </button>
       </div>
       <hr />
-      <AnimalList animal={animal} Selected2={Selected2}/>
+      <AnimalList
+        animal={animal}
+        kindcd={kindcd}
+        Selected={Selected}
+        Selected2={Selected2}
+      />
       {Loading && (
         <div style={{ textAlign: "center", fontSize: "large" }}>
           최근 {numOfRows} 개의 목록 중 '{Selected2}' 동물들 불러오는 중 ...
