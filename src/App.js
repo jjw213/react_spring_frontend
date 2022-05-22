@@ -10,7 +10,7 @@ import Nav from './view/Nav';
 import LoginSelectPage from './view/LoginSelectPage';
 import Profile from './view/Profile';
 import KakaoLogout from './view/KakaoLogout';
-import ApiTest from './view/ApiTest';
+import ApiTest from './view/Animals/ApiTest';
 import CommunityPage from './view/CommunityPage';
 import Adad from './view/Adad';
 import Auth from "./_reducers/Auth";

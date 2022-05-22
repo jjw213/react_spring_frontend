@@ -2,11 +2,11 @@ import React from "react";
 import GridCard from "./GridCard.js";
 import { Row } from "antd";
 function AnimalList(props) {
-  const { animal, Selected, Selected2, kindcd } = props;
+  const { animal, num , Selected2, kindcd } = props;
   return (
     <div style={{ width: "85%", margin: "1rem auto" }}>
       <h2>
-        상태 : '{Selected2}' 인 {kindcd} 친구들
+        전체 {num} 마리 중 상태 : '{Selected2}' 인 친구들
       </h2>
       <hr></hr>
       <Row gutter={[16, 16]}>

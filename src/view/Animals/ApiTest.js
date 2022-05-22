@@ -1,16 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState, useRef } from "react";
-import { loadAnimal } from "../_actions/board_action";
+import { loadAnimal } from "../../_actions/board_action";
 import { useDispatch } from "react-redux";
 import AnimalList from "./AnimalList";
-import selectList from "../selectList.json";
-import catBtn1 from "../css/img/catIcon1.png";
-import dogBtn1 from "../css/img/dogIcon1.png";
-import etcBtn1 from "../css/img/etcIcon1.png";
-import catBtn2 from "../css/img/catIcon2.png";
-import dogBtn2 from "../css/img/dogIcon2.png";
-import etcBtn2 from "../css/img/etcIcon2.png";
-import "../css/ApiTest.css";
+import selectList from "../../selectList.json";
+import "../../css/ApiTest.css";
+import Btn from "./Btn";
 function ApiTest() {
   const selectList2 = [
     {
@@ -146,79 +141,17 @@ function ApiTest() {
         </select>
       </p>
 
-      <div className="searchName">
-        <label htmlFor="name">👀 찾고자 하는 동물을 선택해주세요 👀</label>
-      </div>
-      <div className="animalBtn">
-        <button
-          onClick={onCatHandler}
-          value="고양이"
-          className="catBtn"
-          style={{
-            border: "none",
-            width: "80px",
-            backgroundColor: "white",
-            cursor: "pointer",
-          }}
-        >
-          <img
-            src={isHover1 ? catBtn2 : catBtn1}
-            style={{ width: "100%", height: "100%" }}
-          />
-        </button>
-        <button
-          onClick={onDogHandler}
-          value="개"
-          className="dogBtn"
-          style={{
-            border: "none",
-            width: "80px",
-            backgroundColor: "white",
-            cursor: "pointer",
-          }}
-        >
-          <img
-            src={isHover2 ? dogBtn2 : dogBtn1}
-            style={{ width: "100%", height: "100%" }}
-          />
-        </button>
-        <button
-          onClick={onAnimalsHandler}
-          value="기타"
-          className="dogBtn"
-          style={{
-            border: "none",
-            width: "80px",
-            backgroundColor: "white",
-            cursor: "pointer",
-          }}
-        >
-          <img
-            src={isHover3 ? etcBtn2 : etcBtn1}
-            style={{ width: "100%", height: "100%" }}
-          />
-        </button>
-      </div>
-      <div className="submitCenter">
-        <button
-          className="submitBtn submitBtnPush"
-          onClick={onSubmitHandler}
-          style={{
-            border: "none",
-            width: "120px",
-            backgroundColor: "#FFAA40",
-            cursor: "pointer",
-          }}
-        >
-          찾기
-        </button>
-      </div>
+      
+      <Btn dog={onDogHandler} cat={onCatHandler} animals={onAnimalsHandler}
+        isHover1={isHover1} isHover2={isHover2} isHover3={isHover3} submit={onSubmitHandler}/>
+      
       <hr />
       <AnimalList
         animal={animal}
         kindcd={kindcd}
         Selected={Selected}
         Selected2={Selected2}
+        num={numOfRows}
       />
       {Loading && (
         <div style={{ textAlign: "center", fontSize: "large" }}>
