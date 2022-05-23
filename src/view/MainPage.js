@@ -8,9 +8,9 @@ import ReactHtmlParser from 'react-html-parser';
 import "../css/MainPage.css"
 
 import Header from './Header';
-import Main from './Main';
-import Footer from './Footer';
-import Chart1 from './Chart1'
+import Main from './Mainpage/Main';
+import Footer from './Mainpage/Footer';
+
 
 function MainPage(props) {
 
