@@ -58,15 +58,7 @@ console.log(kakaoid);
   };
   return (
     <div className>
-      <header>
-        <nav className="header-nav">
-          <div>
-            <a href="/">{/* <h1>MY USERS</h1> */}</a>
-          </div>
-        </nav>
-      </header>
-      <main className="signContainer">
-        <div className="neKo"></div>
+      <main className="signContainer">      
         <div className="sign-page">
           {/* <h2>신규 회원가입</h2> */}
           <div className="signForm">

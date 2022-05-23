@@ -166,7 +166,7 @@ function ApiTest() {
           num={numOfRows}
         />
         {Loading && (
-          <div style={{ textAlign: "center", fontSize: "10px" }}>
+          <div style={{ textAlign: "center" }}>
             최근 {numOfRows} 개의 목록 중 '{Selected2}' 동물들 불러오는 중 ...
             <div class="sk-chase">
               <div class="sk-chase-dot"></div>
