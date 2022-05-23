@@ -148,10 +148,10 @@ header {
 
 .sign-page {
   height: 0px;
-  width: 360px;
+  width: 310px;
   text-align: center;
   /* padding-top: 5em; */
-  margin: auto;
+  margin: 15% auto;
 }
 
 .signName {
