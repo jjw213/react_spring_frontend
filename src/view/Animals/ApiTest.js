@@ -120,31 +120,37 @@ function ApiTest() {
   };
   return (
     <div style={{ width: "100%", margin: "0" }}>
-      <p>
-        지역 :
-        <select onChange={handleSelect} value={Selected}>
+      <div className="locationText">
+        <p>지역📍</p>
+        <select onChange={handleSelect} value={Selected} className="locSel">
           {selectList.map((item) => (
             <option value={item.code} key={item.code}>
               {item.place}
             </option>
           ))}
         </select>
-      </p>
-      <p>
-        상태 :
-        <select onChange={handleSelect2} value={Selected2}>
+      </div>
+      <div className="stateText">
+        <p>상태❗</p>
+        <select onChange={handleSelect2} value={Selected2} className="stateSel">
           {selectList2.map((item) => (
             <option value={item.processState} key={item.code}>
               {item.processState}
             </option>
           ))}
         </select>
-      </p>
+      </div>
 
-      
-      <Btn dog={onDogHandler} cat={onCatHandler} animals={onAnimalsHandler}
-        isHover1={isHover1} isHover2={isHover2} isHover3={isHover3} submit={onSubmitHandler}/>
-      
+      <Btn
+        dog={onDogHandler}
+        cat={onCatHandler}
+        animals={onAnimalsHandler}
+        isHover1={isHover1}
+        isHover2={isHover2}
+        isHover3={isHover3}
+        submit={onSubmitHandler}
+      />
+
       <hr />
       <AnimalList
         animal={animal}

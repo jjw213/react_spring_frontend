@@ -4,10 +4,17 @@
   text-align: center;
 }
 
+.catBtn {
+  margin-right: 12px;
+}
+
 .catBtn:hover {
   transform: scale(1.4);
 }
 
+.dogBtn {
+  margin-right: 12px;
+}
 .dogBtn:hover {
   transform: scale(1.4);
 }
@@ -18,8 +25,8 @@
   display: inline-block;
   position: relative;
   width: 120px;
-  padding: 0;
-  margin: 15px 20px 10px 0;
+  padding: 10;
+  margin: 10px 20px 10px 0;
   font-weight: 600;
   text-align: center;
   line-height: 50px;
@@ -48,6 +55,72 @@
 }
 
 .searchName {
+  display: block;
+  margin: 0px auto 20px auto;
+  text-align: center;
+}
+
+.locSel::-ms-expand {
+  display: none;
+}
+
+.locSel {
+  width: 120px;
+  height: 25px;
+  background-size: 20px;
+  text-align: center;
+  border-radius: 5px;
+  outline: 0 none;
+  background: url("../css/img/down.png") no-repeat;
+  background-size: 15px;
+  background-position: 7em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-apperance: none;
+  appearance: none;
+}
+
+.locSel option {
+  background: #ffaa40;
+  color: white;
+  /* padding: 3px 0; */
+  border-radius: 5px;
+}
+
+.stateSel::-ms-expand {
+  display: none;
+}
+
+.stateSel {
+  width: 120px;
+  height: 25px;
+  background-size: 20px;
+  text-align: center;
+  border-radius: 5px;
+  outline: 0 none;
+  background: url("../css/img/down.png") no-repeat;
+  background-size: 15px;
+  background-position: 7em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-apperance: none;
+  appearance: none;
+}
+
+.stateSel option {
+  background: #ffaa40;
+  color: white;
+  /* padding: 3px 0; */
+  border-radius: 5px;
+}
+
+.locationText {
+  display: block;
+  margin: 0px auto 20px auto;
+  text-align: center;
+}
+
+.stateText {
   display: block;
   margin: 0px auto 20px auto;
   text-align: center;
