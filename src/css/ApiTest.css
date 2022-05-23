@@ -3,6 +3,14 @@
   margin: 0px auto;
   text-align: center;
 }
+
+.catBtn:hover {
+  transform: scale(1.4);
+}
+
+.dogBtn:hover {
+  transform: scale(1.4);
+}
 .submitCenter {
   text-align: center;
 }
@@ -11,7 +19,7 @@
   position: relative;
   width: 120px;
   padding: 0;
-  margin: 10px 20px 10px 0;
+  margin: 15px 20px 10px 0;
   font-weight: 600;
   text-align: center;
   line-height: 50px;
@@ -41,6 +49,6 @@
 
 .searchName {
   display: block;
-  margin: 0px auto;
+  margin: 0px auto 20px auto;
   text-align: center;
 }
