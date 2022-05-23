@@ -119,50 +119,75 @@ function ApiTest() {
     }
   };
   return (
-    <div style={{ width: "100%", margin: "0" }}>
-      <p>
-        지역 :
-        <select onChange={handleSelect} value={Selected}>
-          {selectList.map((item) => (
-            <option value={item.code} key={item.code}>
-              {item.place}
-            </option>
-          ))}
-        </select>
-      </p>
-      <p>
-        상태 :
-        <select onChange={handleSelect2} value={Selected2}>
-          {selectList2.map((item) => (
-            <option value={item.processState} key={item.code}>
-              {item.processState}
-            </option>
-          ))}
-        </select>
-      </p>
+    <div>
+      <div style={{ width: "100%", margin: "0" }}>
+        <div className="totalText">
+          <div className="locationText">
+            <p>지역📍</p>
+            <select onChange={handleSelect} value={Selected} className="locSel">
+              {selectList.map((item) => (
+                <option value={item.code} key={item.code}>
+                  {item.place}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="stateText">
+            <p>상태❗</p>
+            <select
+              onChange={handleSelect2}
+              value={Selected2}
+              className="stateSel"
+            >
+              {selectList2.map((item) => (
+                <option value={item.processState} key={item.code}>
+                  {item.processState}
+                </option>
+              ))}
+            </select>
+          </div>
 
-      
-      <Btn dog={onDogHandler} cat={onCatHandler} animals={onAnimalsHandler}
-        isHover1={isHover1} isHover2={isHover2} isHover3={isHover3} submit={onSubmitHandler}/>
-      
-      <hr />
-      <AnimalList
-        animal={animal}
-        kindcd={kindcd}
-        Selected={Selected}
-        Selected2={Selected2}
-        num={numOfRows}
-      />
-      {Loading && (
-        <div style={{ textAlign: "center", fontSize: "large" }}>
-          최근 {numOfRows} 개의 목록 중 '{Selected2}' 동물들 불러오는 중 ...
+          <Btn
+            dog={onDogHandler}
+            cat={onCatHandler}
+            animals={onAnimalsHandler}
+            isHover1={isHover1}
+            isHover2={isHover2}
+            isHover3={isHover3}
+            submit={onSubmitHandler}
+          />
         </div>
-      )}
-      <br />
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <button ref={buttonRef} onClick={loadMoreHandler}>
-          Load More
-        </button>
+        <hr />
+        <AnimalList
+          animal={animal}
+          kindcd={kindcd}
+          Selected={Selected}
+          Selected2={Selected2}
+          num={numOfRows}
+        />
+        {Loading && (
+          <div style={{ textAlign: "center", fontSize: "10px" }}>
+            최근 {numOfRows} 개의 목록 중 '{Selected2}' 동물들 불러오는 중 ...
+            <div class="sk-chase">
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+            </div>
+          </div>
+        )}
+        <br />
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <button
+            ref={buttonRef}
+            onClick={loadMoreHandler}
+            className="custom-btn btn-1"
+          >
+            더 찾기
+          </button>
+        </div>
       </div>
     </div>
   );

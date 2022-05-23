@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { registerUser } from "../_actions/user_action";
-import "../css/main.css";
+import { registerUser } from "../../_actions/user_action";
+import "../../css/main.css";
 
-function SignPage() {
+function SignPage(props) {
+const kakaoid = props;
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [Name, setName] = useState("");
@@ -20,8 +22,10 @@ function SignPage() {
   const onConfirmPasswordHandler = (event) => {
     setConfirmPassword(event.currentTarget.value);
   };
+console.log(kakaoid);
+
   const onSubmitHandler = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
 
     if (Password !== ConfirmPassword) {
       return alert("비밀번호와 비밀번호 재입력이 일치하지 않아요");
@@ -30,6 +34,7 @@ function SignPage() {
     let body = {
       name: Name,
       password: Password,
+      kakao_id:props.kakaoid
     };
     dispatch(registerUser(body))
       .then((response) => {
@@ -122,32 +127,6 @@ function SignPage() {
         </ul>
       </footer>
     </div>
-
-    // <div className='Write'>
-    //     <form action="/members/new" method="post">
-    //         <div>
-    //         	<input type='text' id='title_txt' name='name' placeholder='제목'/>
-    //         </div>
-    //         <div>
-    //         	<input type='url' id='link_txt' name='url' placeholder='링크'/>
-    //         </div>
-    //         <div>
-    //         	<textarea id='ex_txt' name='content' placeholder='설문내용에 대해 설명해주세요'></textarea>
-    //         </div>
-    //         <div>
-    //             시작일자&nbsp;&nbsp;
-    //                 <input type="date" name="startDate" id='date'/>
-    //             	&nbsp;&nbsp;
-
-    //             마감일자&nbsp;&nbsp;
-    //                 <input type="date" name="endDate" id='date'/>
-    //         </div>
-    //         <div id="submit_btn">
-    //             <button type="submit">저장</button>&nbsp;&nbsp;
-    //             <button>취소</button>
-    //         </div>
-    //     </form>
-    // </div>
   );
 }
 

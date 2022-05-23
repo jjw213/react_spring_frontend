@@ -30,7 +30,6 @@ function CommunityPage() {
         console.log(data);
       });
   }, []);
-  console.log(user.userData);
   const getValue = (e) => {
     const { title, value } = e.target;
     setBoardContent({
@@ -47,13 +46,11 @@ function CommunityPage() {
       content: board.content,
       writer: user.userData,
     };
-    console.log(user.userData);
     if (body.writer == null) {
       return alert("로그인 해야 함!!");
     }
     dispatch(savePost(body))
       .then((response) => {
-        console.log(response.payload);
         if (response.payload != null) {
           // props.history.push('/') 이제 안됌
           navigate("/#");
