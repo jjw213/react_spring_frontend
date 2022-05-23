@@ -47,7 +47,6 @@ function CommunityPage() {
       content: board.content,
       writer: user.userData,
     };
-    console.log(user.userData);
     if (body.writer == null) {
       return alert("로그인 해야 함!!");
     }

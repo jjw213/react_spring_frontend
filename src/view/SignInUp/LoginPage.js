@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 // import { userData } from "./SignPage";
 import { useDispatch } from "react-redux";
-import { loginUser } from "../_actions/user_action";
+import { loginUser } from "../../_actions/user_action";
 import { useNavigate } from "react-router-dom";
-import "../css/main.css";
+import "../../css/main.css";
 // import kakao from "../css/img/kakao.png";
 function LoginPage(props) {
   const dispatch = useDispatch();
