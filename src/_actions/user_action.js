@@ -5,7 +5,7 @@ import {
     REGISTER_USER,
     AUTH_USER,
     LOGOUT_USER,
-
+    KAKAO_USER
 } from './types';
 // import { USER_SERVER } from '../components/Config.js';
 
@@ -34,6 +34,28 @@ export async function loginUser(dataToSubmit){
         payload: request
     }
 }
+export async function kakaoLoginUser(dataToSubmit){
+    const request = await axios.post(`/members/kakaoLogin`,null, 
+    {params:{kakao_id : dataToSubmit.id}, withCredentials:true})
+                //.then(response => response.data)
+                .then(response => {return response.data})
+    
+    return {
+        type: LOGIN_USER,
+        payload: request
+    }
+}
+
+// export async function findUser(dataToSubmit){
+//     const request = await axios.post(`/members/kakaoLogin`,null, 
+//     {params:{kakao_id : dataToSubmit.id}, withCredentials:true})
+//                 //.then(response => response.data)
+//                 .then(response => {return response.data})   
+//     return {
+//         type: LOGIN_USER,
+//         payload: request
+//     }
+// }
 
 // export async function auth(){
 //     const request = await axios.get(`${USER_SERVER}/user`,{withCredentials:true})

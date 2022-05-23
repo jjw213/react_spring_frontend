@@ -1,10 +1,12 @@
-import React from "react";
+import React, { Suspense, useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import qs from "qs";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { registerUser } from "../_actions/user_action";
+import { kakaoLoginUser, loginUser, registerUser } from "../_actions/user_action";
+import SignPage from "../view/SignInUp/SignPage";
+import MainPage from "../view/MainPage";
 
 const Auth = () => {
   const REST_API_KEY = "170293c1b046c874abd5476ddf3dba3a";
@@ -14,6 +16,8 @@ const Auth = () => {
   const code = new URL(window.location.href).searchParams.get("code");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [data, setData] = useState();
+  const [isSignUp, setIsSignUp] = useState(false);
   const getToken = async () => {
     const payload = qs.stringify({
       grant_type: "authorization_code",
@@ -33,49 +37,39 @@ const Auth = () => {
         // Kakao Javascript SDK 초기화
         window.Kakao.init(REST_API_KEY);
       }
-      // access token 설정
-      window.Kakao.Auth.setAccessToken(res.data.access_token);
-      console.log(window.Kakao.Auth.getAccessToken());
-      console.log(res.data.access_token);
-      // let data = await window.Kakao.API.request({
-      //     url: "/v1/user/unlink",
-      //     success: function(response) {
-      //         console.log(response);
-      //       },
-      //       fail: function(error) {
-      //         console.log(error);
-      //       },
-      // });
-      // let body = {
-      //   name: data.properties.nickname,
-      //   password: "",
-      // }
-      // dispatch(registerUser(body))
-      // .then(response => {
-      //   console.log(response.payload)
-      //   if (response.payload != null) {
-      //     // props.history.push('/') 이제 안됌
-      //     navigate('/');
-      //   } else {
-      //     //    setFormErrorMessage("아이디 혹은 비번 틀림")
-      //     alert('아이디 혹은 비번 틀림');
-      //   }
-      // })
-      // .catch(err => {
-      //   console.log(err)
-      //   // setFormErrorMessage('서버 연결이 불안정합니다.')
-      //   setTimeout(() => {
-      //     //   setFormErrorMessage("")
-      //   }, 3000);
-      // });
+      // try{
+        window.Kakao.Auth.setAccessToken(res.data.access_token);
+        let resp = await window.Kakao.API.request({
+          url: "/v2/user/me",
+          success: function(response) {
+            console.log(response.id);
+          },
+          fail: function(error) {
+            console.log(error);
+          },
+        });
+        
+        dispatch(kakaoLoginUser(resp))
+        .then((response) => {
+          console.log(response);
+          if (response.payload != null) {
+            // 이미 회원가입한 회원
+            // console.log(response.payload)
+            setIsSignUp(true);
+          } else {
+            // 새로 회원가입해야하는 회원
+            setIsSignUp(false);  
+          }
+        })
+        setData(resp);
+        console.log(isSignUp);
 
       // window.Kakao.Auth.logout();
-      // let data = await window.Kakao.API.request({
-      //     url: "/v2/user/me",
+      // data = await window.Kakao.API.request({
+      //     url: "/v1/user/unlink"
       // });
       // console.log(data);
 
-      navigate("/members/profile");
     } catch (err) {
       console.log(err);
     }
@@ -86,6 +80,7 @@ const Auth = () => {
       getToken();
     }
   }, [code]);
-  return null;
+  return <Suspense fallback={<div>로딩중....</div>}>{data && (isSignUp ?<MainPage/>: <SignPage kakaoid={data.id}/>)}
+  </Suspense>
 };
 export default Auth;
