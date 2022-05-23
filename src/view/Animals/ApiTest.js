@@ -166,14 +166,26 @@ function ApiTest() {
           num={numOfRows}
         />
         {Loading && (
-          <div style={{ textAlign: "center", fontSize: "large" }}>
+          <div style={{ textAlign: "center", fontSize: "10px" }}>
             최근 {numOfRows} 개의 목록 중 '{Selected2}' 동물들 불러오는 중 ...
+            <div class="sk-chase">
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+            </div>
           </div>
         )}
         <br />
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <button ref={buttonRef} onClick={loadMoreHandler}>
-            Load More
+          <button
+            ref={buttonRef}
+            onClick={loadMoreHandler}
+            className="custom-btn btn-1"
+          >
+            더 찾기
           </button>
         </div>
       </div>
