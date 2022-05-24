@@ -168,13 +168,13 @@ function ApiTest() {
         {Loading && (
           <div style={{ textAlign: "center" }}>
             최근 {numOfRows} 개의 목록 중 '{Selected2}' 동물들 불러오는 중 ...
-            <div class="sk-chase">
-              <div class="sk-chase-dot"></div>
-              <div class="sk-chase-dot"></div>
-              <div class="sk-chase-dot"></div>
-              <div class="sk-chase-dot"></div>
-              <div class="sk-chase-dot"></div>
-              <div class="sk-chase-dot"></div>
+            <div className="sk-chase">
+              <div className="sk-chase-dot"></div>
+              <div className="sk-chase-dot"></div>
+              <div className="sk-chase-dot"></div>
+              <div className="sk-chase-dot"></div>
+              <div className="sk-chase-dot"></div>
+              <div className="sk-chase-dot"></div>
             </div>
           </div>
         )}

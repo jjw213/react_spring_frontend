@@ -16,7 +16,7 @@ function AnimalList(props) {
               {Selected2 == "전체" ? (
                 <GridCard
                   image={ani.popfile}
-                  kindCd={ani.kindCd}
+                  kindCd={ani.kindCd.split("] ")[1]}
                   age={ani.age}
                   careAddr={ani.careAddr}
                   careNm={ani.careNm}
@@ -25,11 +25,13 @@ function AnimalList(props) {
                   sexCd={ani.sexCd}
                   specialMark={ani.specialMark}
                   weight={ani.weight}
+                  desertionNo={ani.desertionNo}
+                  kindCdforSubmit={kindcd}
                 />
               ) : ani.processState == Selected2 ? (
                 <GridCard
                   image={ani.popfile}
-                  kindCd={ani.kindCd}
+                  kindCd={ani.kindCd.split("] ")[1]}
                   age={ani.age}
                   careAddr={ani.careAddr}
                   careNm={ani.careNm}
@@ -38,6 +40,8 @@ function AnimalList(props) {
                   sexCd={ani.sexCd}
                   specialMark={ani.specialMark}
                   weight={ani.weight}
+                  desertionNo={ani.desertionNo}
+                  kindCdforSubmit={kindcd}
                 />
               ) : (
                 ""

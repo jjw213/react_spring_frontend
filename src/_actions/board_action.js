@@ -31,3 +31,17 @@ export async function loadAnimal(dataToSubmit){
     }
 }
 
+export async function dibsAnimal(dataToSubmit){
+    const request = await axios.post(`/animal/animalDibs`,null, 
+    {params:{age : dataToSubmit.age, careAddr:dataToSubmit.careAddr, careNm:dataToSubmit.careNm,careTel:dataToSubmit.careTel,
+        kindCd : dataToSubmit.kindCd, desertionNo : dataToSubmit.desertionNo, 
+        popfile:dataToSubmit.popfile,sexCd:dataToSubmit.sexCd,processState:dataToSubmit.processState,
+        specialMark:dataToSubmit.specialMark,weight:dataToSubmit.weight, name : dataToSubmit.user
+    }})
+        .then(response => response.data)
+        //.then(setAuthHeader(response => response.dataToSubmit.token));
+    return {
+        type: LOAD_ANIMAL,
+        payload: request
+    }
+}

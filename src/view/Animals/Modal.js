@@ -1,10 +1,11 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import '../../css/modal.css';
 
 const Modal = (props) => {
   // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
-  const { open, close, header } = props;
-
+  const { open, close, header,dibs } = props;
+  const user = useSelector((state) => state.user)
   return (
     // 모달이 열릴때 openModal 클래스가 생성된다.
     <div className={open ? 'openModal modal' : 'modal'}>
@@ -18,6 +19,11 @@ const Modal = (props) => {
           </header>
           <main>{props.children}</main>
           <div>
+            {user.userData ? 
+            <button className="close" onClick={dibs} style={{margin:"0 10px"}}>
+              찜하기
+            </button> : ""
+            }
             <button className="close" onClick={close}>
               close
             </button>
