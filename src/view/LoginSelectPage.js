@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-// import kakao from "../css/img/kakao.png";
+import kakao from "../css/img/kakao.png";
+import newReg from "../css/img/dogAndcat.png";
+import "../css/main.css";
 
 function LoginSelectPage() {
   const REST_API_KEY = "170293c1b046c874abd5476ddf3dba3a";
@@ -8,26 +10,30 @@ function LoginSelectPage() {
 
   return (
     <div>
-      <h1 className="register">로그인</h1>
+      {/* <h1 className="register">로그인</h1>
       <hr></hr>
-      <br></br>
-      <p className="homeReg">
-        <a href="/members/new">신규 회원가입</a>
-      </p>
-      <br></br>
-      <p>
-        <a href={KAKAO_AUTH_URL}>
-          {/* <span>
-            <img
-              className="kakaoLoginBtn"
-              src={kakao}
-              width="183px"
-              height="45px"
-            ></img>
-          </span> */}
-          카카오 로그인
-        </a>
-      </p>
+      <br></br> */}
+      <div className="up">
+        <p className="homeReg btn-11">
+          <a
+            href="/members/new"
+            style={{
+              color: "black",
+            }}
+          >
+            신규 회원가입
+          </a>
+        </p>
+        <br></br>
+        <p className="kakaoLoginBtn">
+          <a href={KAKAO_AUTH_URL}>
+            <img src={kakao} width="220px" height="45px"></img>
+          </a>
+        </p>
+      </div>
+      <div className="down">
+        <img src={newReg} width="300px" height="150px"></img>
+      </div>
     </div>
   );
 }
