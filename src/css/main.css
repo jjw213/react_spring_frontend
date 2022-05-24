@@ -115,20 +115,83 @@ header {
   font-family: sans-serif;
   color: black;
 }
-/* .form .kakaoLoginBtn {
-  margin: 0 0 15px;
-  font-family: sans-serif;
-  outline: 0;
-  background: url("../css/img/kakao.png") no-repeat;
-  width: 100%;
-  border: 0;
-  height: 100px;
-  padding: 15px;
-  color: white;
-  font-size: 14px;
-  -webkit-transition: all 0.3 ease;
-  transition: all 0.3 ease;
-  cursor: pointer; /* 마우스가 올라갈때 손가락 모양으로 바뀐다. }*/
+.kakaoLoginBtn {
+  display: grid;
+  place-content: center;
+  max-width: 1120px;
+  margin: 3px auto;
+
+  animation-name: slideExpandUp;
+  -webkit-animation-name: slideExpandUp;
+
+  animation-duration: 1.6s;
+  -webkit-animation-duration: 1.6s;
+
+  animation-timing-function: ease-out;
+  -webkit-animation-timing-function: ease -out;
+
+  visibility: visible !important;
+}
+
+@keyframes slideExpandUp {
+  0% {
+    transform: translateY(100%) scaleX(0.5);
+  }
+  30% {
+    transform: translateY(-8%) scaleX(0.5);
+  }
+  40% {
+    transform: translateY(2%) scaleX(0.5);
+  }
+  50% {
+    transform: translateY(0%) scaleX(1.1);
+  }
+  60% {
+    transform: translateY(0%) scaleX(0.9);
+  }
+  70% {
+    transform: translateY(0%) scaleX(1.05);
+  }
+  80% {
+    transform: translateY(0%) scaleX(0.95);
+  }
+  90% {
+    transform: translateY(0%) scaleX(1.02);
+  }
+  100% {
+    transform: translateY(0%) scaleX(1);
+  }
+}
+
+@-webkit-keyframes slideExpandUp {
+  0% {
+    -webkit-transform: translateY(100%) scaleX(0.5);
+  }
+  30% {
+    -webkit-transform: translateY(-8%) scaleX(0.5);
+  }
+  40% {
+    -webkit-transform: translateY(2%) scaleX(0.5);
+  }
+  50% {
+    -webkit-transform: translateY(0%) scaleX(1.1);
+  }
+  60% {
+    -webkit-transform: translateY(0%) scaleX(0.9);
+  }
+  70% {
+    -webkit-transform: translateY(0%) scaleX(1.05);
+  }
+  80% {
+    -webkit-transform: translateY(0%) scaleX(0.95);
+  }
+  90% {
+    -webkit-transform: translateY(0%) scaleX(1.02);
+  }
+  100% {
+    -webkit-transform: translateY(0%) scaleX(1);
+  }
+}
 
 .form button:hover,
 .form button:active,
@@ -148,7 +211,7 @@ header {
 
 .sign-page {
   height: 0px;
-  width: 310px;
+  width: 360px;
   text-align: center;
   /* padding-top: 5em; */
   margin: 15% auto;
@@ -214,21 +277,6 @@ header {
   transition: all 0.3 ease;
   cursor: pointer; /* 마우스가 올라갈때 손가락 모양으로 바뀐다. */
 }
-
-/* .form .kakaoLoginBtn {
-  margin: 0 0 15px;
-  font-family: sans-serif;
-  outline: 0;
-  background: url("../css/img/kakao.png") no-repeat;
-  width: 100%;
-  border: 0;
-  height: 100px;
-  padding: 15px;
-  color: white;
-  font-size: 14px;
-  -webkit-transition: all 0.3 ease;
-  transition: all 0.3 ease;
-  cursor: pointer; /* 마우스가 올라갈때 손가락 모양으로 바뀐다. }*/
 
 .signForm button:hover,
 .signForm button:active,
@@ -355,19 +403,41 @@ img {
 }
 
 .homeReg {
-  position: absolute;
-  display: inline-block;
-  width: 300px;
-  left: 0;
-  right: -7px;
-  margin-left: auto;
-  margin-right: auto;
-  height: 40px;
-  top: 300px;
-  margin-top: auto;
-  margin-bottom: auto;
-  padding: 0.5em;
+  display: grid;
+  place-content: center;
+  /* max-width: 1120px; */
+  margin: auto;
+  width: 220px;
+  height: 45px;
   text-align: center;
+  border-style: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  border: 3px solid rgb(136, 175, 207);
+  background-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: -1.5px;
+  font-weight: 500;
+  position: relative;
+}
+.btn-11 {
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.btn-11:hover {
+  background: rgb(136, 175, 207);
+  color: #fff;
+}
+.btn-11:before {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  top: -180px;
+  left: 0;
+  width: 30px;
+  height: 100%;
+  background-color: #fff;
 }
 
 /* 테이블 css */
@@ -428,4 +498,17 @@ table th {
     overflow-y: auto;
     max-height: 200px;
   }
+}
+
+.up {
+  display: block;
+  margin-top: 250px;
+}
+
+.down {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: grid;
+  justify-content: center;
 }
