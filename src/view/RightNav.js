@@ -29,7 +29,7 @@ function RightNav() {
 
         <React.Fragment >
             {user.userData == null ?
-             <a href="/members/loginSelect" style={{margin:'0 20px 0 50px'}}>회원가입</a>
+            <a href="/members/loginSelect" style={{margin:'0 20px 0 50px'}}>회원가입</a>
             :<a href="/members/profile" style={{margin:'0 20px 0 50px'}}>{user.userData} 님 환영합니다.</a>}
             {user.userData == null ? <a href="/members/memberLogin">로그인</a>
                 : <a onClick={logoutHandler}>로그아웃</a>}

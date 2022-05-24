@@ -1,8 +1,8 @@
 import React from "react";
-import image1 from "../css/img/image1.png";
-import image2 from "../css/img/image2.png";
-import image3 from "../css/img/image3.png";
-import image4 from "../css/img/image4.png";
+import image1 from "../../css/img/image1.png";
+import image2 from "../../css/img/image2.png";
+import image3 from "../../css/img/image3.png";
+import image4 from "../../css/img/image4.png";
 
 function SectionSlide(){
 

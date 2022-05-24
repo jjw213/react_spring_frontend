@@ -1,5 +1,6 @@
 import React from "react";
 
+
 function TextSlide() {
     return(
         <div className="textslide">

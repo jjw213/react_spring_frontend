@@ -12,11 +12,13 @@ import Profile from './view/Profile';
 import KakaoLogout from './view/KakaoLogout';
 import ApiTest from './view/Animals/ApiTest';
 import CommunityPage from './view/CommunityPage';
+import MyPage from './view/Mainpage/MyPage';
 
 import Auth from "./_reducers/Auth";
 import "../node_modules/antd/dist/antd.css";
 import PublicRoute from './store/PublicRoute';
 import PrivateRoute from './store/PrivateRoute';
+
 
 function App() {
    return (
@@ -41,6 +43,7 @@ function App() {
           <Route exact path="/members/kakaoLogout" element={KakaoLogout()}/> 
           <Route exact path="/apiTest" element={ApiTest()}/> 
           <Route exact path="/community" element={CommunityPage()}/>
+          <Route exact path="/MyPage" element={MyPage()}/>
           
 
           

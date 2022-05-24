@@ -2,7 +2,7 @@ import React from "react";
 import Slide from "./Slide";
 import Chart1 from "./Chart1";
 import Chart2 from "./Chart2";
-import SectionSlide from "../SectionSlide";
+import SectionSlide from "./SectionSlide";
 import TextSlide from "./TextSlide";
 
 
