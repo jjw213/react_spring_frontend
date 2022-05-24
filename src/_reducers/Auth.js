@@ -5,7 +5,7 @@ import qs from "qs";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { kakaoLoginUser, loginUser, registerUser } from "../_actions/user_action";
-import SignPage from "../view/SignInUp/SignPage";
+import KakaoSignUpPage from "../view/SignInUp/KakaoSignUpPage";
 import MainPage from "../view/MainPage";
 
 const Auth = () => {
@@ -53,11 +53,11 @@ const Auth = () => {
         .then((response) => {
           console.log(response);
           if (response.payload == "") {
-            // 이미 회원가입한 회원
+            // 새로 회원가입해야하는 회원
             setIsSignUp(false);  
             console.log(isSignUp);
           } else {
-            // 새로 회원가입해야하는 회원
+            // 이미 회원가입한 회원
             setIsSignUp(true);
           }
         })
@@ -80,7 +80,7 @@ const Auth = () => {
       getToken();
     }
   }, [code]);
-  return <Suspense fallback={<div>로딩중....</div>}>{data && (isSignUp ?<Navigate to="/"/>: <SignPage kakaoid={data.id}/>)}
+  return <Suspense fallback={<div>로딩중....</div>}>{data && (isSignUp ?<Navigate to="/"/>: <KakaoSignUpPage kakaoid={data.id}/>)}
   </Suspense>
 };
 export default Auth;

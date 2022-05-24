@@ -17,7 +17,7 @@ export default function saga(state={},action){
         case AUTH_USER:
             return {...state, userData: action.payload }
         case LOGOUT_USER:
-            return {...state, userData: action.payload.name }
+            return {...state, userData: action.payload.name,register:action.payload.name }
         case AUTH_FETCH_USER:
             return {...state, user: action.payload,};
         // case KAKAO_USER:

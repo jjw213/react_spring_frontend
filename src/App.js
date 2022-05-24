@@ -31,7 +31,7 @@ function App() {
           <Route exact path="/" element={MainPage()} />
           <Route exact path="/members" element={ListPage()} />
           <Route exact path="/members/new" element={<PublicRoute/>} >
-          <Route exact path="/members/new" element={SignPage()}/>
+            <Route exact path="/members/new" element={SignPage()}/>
           </Route>
           <Route exact path="/members/memberLogin" element={<PublicRoute/>} >
             <Route exact path="/members/memberLogin" element={LoginPage()}/>
