@@ -14,7 +14,7 @@ export async function registerUser(dataToSubmit){
     {params:{name : dataToSubmit.name, password : dataToSubmit.password,
         kakao_id : dataToSubmit.kakao_id
     }})
-        .then(response => response.data)
+        .then(response =>  {return response.data})
         //.then(setAuthHeader(response => response.dataToSubmit.token));
     return {
         type: REGISTER_USER,

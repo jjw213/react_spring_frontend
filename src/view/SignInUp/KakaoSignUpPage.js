@@ -35,12 +35,12 @@ console.log(kakaoid);
     let body = {
       name: Name,
       password: Password,
-      kakao_id:0
+      kakao_id:props.kakaoid
     };
     dispatch(registerUser(body))
       .then((response) => {
-        console.log(response.payload);
-        if (response.payload != null) {
+        console.log(response);
+        if (Response != null) {
           // props.history.push('/') 이제 안됌
           alert("회원가입 축하드립니다!");
           navigate("/");
@@ -59,7 +59,7 @@ console.log(kakaoid);
   };
   return (
     <div>
-      <SignUpInput submit={onSubmitHandler} name={onNameHandeler} pw={onPasswordHandler} pwc={onConfirmPasswordHandler}/>
+        <SignUpInput submit={onSubmitHandler} name={onNameHandeler} pw={onPasswordHandler} pwc={onConfirmPasswordHandler}/>
       <footer>
         <ul className="footer-list">
           <li>
