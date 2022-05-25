@@ -26,7 +26,7 @@ function AnimalList(props) {
                   specialMark={ani.specialMark}
                   weight={ani.weight}
                   desertionNo={ani.desertionNo}
-                  kindCdforSubmit={kindcd}
+                  id={ani.id}
                 />
               ) : ani.processState == Selected2 ? (
                 <GridCard
@@ -41,7 +41,7 @@ function AnimalList(props) {
                   specialMark={ani.specialMark}
                   weight={ani.weight}
                   desertionNo={ani.desertionNo}
-                  kindCdforSubmit={kindcd}
+                  id={ani.id}
                 />
               ) : (
                 ""

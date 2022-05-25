@@ -3,12 +3,14 @@ import { Col } from 'antd';
 import Modal from "./Modal.js";
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { dibsAnimal } from '../../_actions/board_action.js';
+import { dibsAnimal, dibsCancel, dibsList } from '../../_actions/board_action.js';
 
 function GridCard(props) {
   const dispatch = useDispatch();
   const [modalOpen, setModalOpen] = useState(false);
-  const user = useSelector((state) => state.user)
+  const [isDibs, setIsDibs] = useState(false);
+  const user = useSelector((state) => state.user);
+  const dibs = useSelector((state) => state.board)
   const openModal = () => {
     setModalOpen(true);
     console.log(modalOpen);
@@ -24,18 +26,37 @@ function GridCard(props) {
         kindCd : props.kindCd, desertionNo : props.desertionNo, popfile:props.image,sexCd:props.sexCd,processState:props.processState,
         specialMark:props.specialMark,weight:props.weight, user:user.userData
     };
-    // var str = body.kindCd;
-    // var arr = str.split("]");
-    console.log(props.kindCd);
-    // body.kindCd=arr[1];
-    
-    // const str = "안녕 하세";
-    // str.split(" ");
-    // console.log(body.kindcd);
     dispatch(dibsAnimal(body)).then((response) => {
       console.log(response.payload);
       if (response.payload != null) {
+        dispatch(dibsList(user.userData))
+            .then((response)=>{
+              console.log(response.payload);
+            })
         alert("찜 완료")
+        setIsDibs(true);
+        dibs.isDibs=true;
+        console.log("찜 버튼 눌렀을 때 딥스"+dibs.isDibs);
+      } else {
+        alert("동물들을 불러오지 못했어요");
+      }
+    });
+  }
+
+  const onDibsCancelHandler=()=>{
+    setIsDibs(false);
+    let body = {
+      id:props.id
+    };
+    console.log(body.id);
+    dispatch(dibsCancel(body)).then((response) => {
+      console.log(response.payload);
+      if (response.payload != null) {
+        dispatch(dibsList(user.userData))
+            .then((response)=>{
+              console.log(response.payload);
+            })
+        alert("찜 취소 완료")
       } else {
         alert("동물들을 불러오지 못했어요");
       }
@@ -47,7 +68,8 @@ function GridCard(props) {
         {/* <a href='#'> */}
         <img onClick={openModal} style={{ width: '100%', height: '320px' }} src={props.image} alt={props.processState} />
         <p>품종 : {props.kindCd}</p>
-        <Modal open={modalOpen} close={closeModal} header="저와 친구가 되어요!" dibs={onDibsHandler}>
+        <Modal open={modalOpen} close={closeModal} header="저와 친구가 되어요!" dibs={onDibsHandler} 
+        dibsCancel={onDibsCancelHandler} desertionNo={props.desertionNo} isDibs={isDibs}>
           {/* // Modal.js <main> {props.children} </main>에 내용이 입력된다. 리액트 함수형 모달 */}
           <div style={{ textAlign:'center' }}>
             <img style={{ width: '60%', height: '100%' }} src={props.image} />

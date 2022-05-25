@@ -7,12 +7,12 @@ import { Row } from "antd";
 
 
 function MyPage() {
-    const user = useSelector((state) => state.user)
+    const user = useSelector((state) => state.user);
+    const dibs = useSelector((state) => state.board);
     console.log(user)
 
 
     const [boardList, setboardList] = useState([]);
-    const [dibsList, setDibsList] = useState([]);
     useEffect(() => {
         fetch(`/board/boardList`)
             .then((res) => {
@@ -22,12 +22,9 @@ function MyPage() {
             setboardList(data);
             console.log(data);
             });
-            const request = axios.post(`/animal/dibsList`,null, 
-            {params:{name : user.userData}})
-                .then(response => setDibsList(response.data)
-                )
+            
     }, []);
-    console.log(dibsList);
+    console.log(dibs);
 
 
 
@@ -46,8 +43,8 @@ function MyPage() {
                     </div>
                 ))} */}
     <Row gutter={[16, 16]}>
-        {dibsList &&
-          dibsList.map((ani, index) => (
+        {dibs.dibsList &&
+          dibs.dibsList.map((ani, index) => (
             <React.Fragment key={ani.desertionNo}>
               {user.userData==ani.name ? 
                 <GridCard
@@ -62,7 +59,7 @@ function MyPage() {
                   specialMark={ani.specialMark}
                   weight={ani.weight}
                   desertionNo={ani.desertionNo}
-                  
+                  id={ani.id}
                 />
                :
                 ""

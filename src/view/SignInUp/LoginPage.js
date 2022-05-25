@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { loginUser } from "../../_actions/user_action";
 import { useNavigate } from "react-router-dom";
 import "../../css/main.css";
+import { dibsList } from "../../_actions/board_action";
 // import kakao from "../css/img/kakao.png";
 function LoginPage(props) {
   const dispatch = useDispatch();
@@ -47,7 +48,12 @@ function LoginPage(props) {
       .then((response) => {
         console.log(response.payload);
         if (response.payload != null) {
+          console.log(body.name);
           // props.history.push('/') 이제 안됌
+          dispatch(dibsList(body.name))
+            .then((response)=>{
+              console.log(response.payload);
+            })
           navigate("/");
         } else {
           setFormErrorMessage("아이디 혹은 비번 틀림");

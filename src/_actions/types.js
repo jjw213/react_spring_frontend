@@ -6,4 +6,8 @@ export const AUTH_FETCH_USER = 'auth_user';
 export const AUTH_AUTHENTICATED = 'AUTH_AUTHENTICATED';
 export const KAKAO_USER = 'kakao_user';
 export const SAVE_POST = 'save_post';
-export const LOAD_ANIMAL = 'save_post';
+export const LOAD_ANIMAL = 'load_animal';
+export const CANCEL_ANIMAL = 'cancel_animal';
+export const DIBS_LIST = 'dibs_list';
+export const DIBS_ANIMAL = 'dibs_animal';
+
