@@ -66,11 +66,7 @@ function LoginPage(props) {
   return (
     <div>
       <header>
-        <nav className="header-nav">
-          <div>
-            <a href="/"></a>
-          </div>
-        </nav>
+        <nav className="header-nav"></nav>
       </header>
       <main className="container">
         {/* <div className="doCa"> */}
