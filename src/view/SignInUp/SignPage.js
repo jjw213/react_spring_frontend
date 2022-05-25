@@ -23,7 +23,6 @@ function SignPage(props) {
   const onConfirmPasswordHandler = (event) => {
     setConfirmPassword(event.currentTarget.value);
   };
-  console.log(kakaoid);
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
@@ -39,7 +38,6 @@ function SignPage(props) {
     };
     dispatch(registerUser(body))
       .then((response) => {
-        console.log(response.payload);
         if (response.payload != null) {
           // props.history.push('/') 이제 안됌
           alert("회원가입 축하드립니다!");

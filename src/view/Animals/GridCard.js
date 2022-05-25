@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import { Col } from 'antd';
 import Modal from "./Modal.js";
 import axios from 'axios';
@@ -13,49 +13,57 @@ function GridCard(props) {
   const dibs = useSelector((state) => state.board)
   const openModal = () => {
     setModalOpen(true);
-    console.log(modalOpen);
   };
   const closeModal = () => {
     setModalOpen(false);
-    console.log(modalOpen);
   };
-  const onDibsHandler=()=>{
+
+  useEffect(()=>{
+      dibs.dibsList.map((ani)=>{
+        if(ani.desertionNo == props.desertionNo){
+          setIsDibs(true)
+        }
+      })
+      // console.log("딥스 설정한거 우얘됐노"+isDibs)
+    },[]);
+  
     
+  const onDibsHandler = () => {
+
     let body = {
-      age : props.age, careAddr:props.careAddr, careNm:props.careNm,careTel:props.careTel,
-        kindCd : props.kindCd, desertionNo : props.desertionNo, popfile:props.image,sexCd:props.sexCd,processState:props.processState,
-        specialMark:props.specialMark,weight:props.weight, user:user.userData
+      age: props.age, careAddr: props.careAddr, careNm: props.careNm, careTel: props.careTel,
+      kindCd: props.kindCd, desertionNo: props.desertionNo, popfile: props.image, sexCd: props.sexCd, processState: props.processState,
+      specialMark: props.specialMark, weight: props.weight, user: user.userData
     };
     dispatch(dibsAnimal(body)).then((response) => {
-      console.log(response.payload);
       if (response.payload != null) {
         dispatch(dibsList(user.userData))
-            .then((response)=>{
-              console.log(response.payload);
-            })
+          .then((response) => {
+          })
         alert("찜 완료")
         setIsDibs(true);
-        dibs.isDibs=true;
-        console.log("찜 버튼 눌렀을 때 딥스"+dibs.isDibs);
+        // dibs.isDibs=true;
+        // console.log("찜 버튼 눌렀을 때 딥스"+dibs.isDibs);
       } else {
         alert("동물들을 불러오지 못했어요");
       }
     });
   }
-
-  const onDibsCancelHandler=()=>{
+  // const dibsHandler = () => {
+  //   setIsDibs(true);
+  //   console.log("딥스 핸들러 작동!!")
+  // }
+  const onDibsCancelHandler = () => {
     setIsDibs(false);
     let body = {
-      id:props.id
+      desertionNo: props.desertionNo
     };
-    console.log(body.id);
+    console.log("desertionNo 숫자 입니다!!"+props.desertionNo);
     dispatch(dibsCancel(body)).then((response) => {
-      console.log(response.payload);
       if (response.payload != null) {
         dispatch(dibsList(user.userData))
-            .then((response)=>{
-              console.log(response.payload);
-            })
+          .then((response) => {
+          })
         alert("찜 취소 완료")
       } else {
         alert("동물들을 불러오지 못했어요");
@@ -68,10 +76,9 @@ function GridCard(props) {
         {/* <a href='#'> */}
         <img onClick={openModal} style={{ width: '100%', height: '320px' }} src={props.image} alt={props.processState} />
         <p>품종 : {props.kindCd}</p>
-        <Modal open={modalOpen} close={closeModal} header="저와 친구가 되어요!" dibs={onDibsHandler} 
-        dibsCancel={onDibsCancelHandler} desertionNo={props.desertionNo} isDibs={isDibs}>
-          {/* // Modal.js <main> {props.children} </main>에 내용이 입력된다. 리액트 함수형 모달 */}
-          <div style={{ textAlign:'center' }}>
+        <Modal open={modalOpen} close={closeModal} header="저와 친구가 되어요!" dibs={onDibsHandler}
+          dibsCancel={onDibsCancelHandler} desertionNo={props.desertionNo} isDibs={isDibs} >
+          <div style={{ textAlign: 'center' }}>
             <img style={{ width: '60%', height: '100%' }} src={props.image} />
           </div>
           <p>나이 : {props.age}</p>
@@ -82,6 +89,40 @@ function GridCard(props) {
           <p>상태 : {props.processState}</p>
           <p>특징 : {props.specialMark}</p>
         </Modal>
+        {/* {dibs.dibsList.map((ani) => (
+          <React.Fragment key={ani.id}>{props.desertionNo == ani.desertionNo ?
+            <Modal open={modalOpen} close={closeModal} header="저와 친구가 되어요!" dibs={onDibsHandler}
+              dibsCancel={onDibsCancelHandler} desertionNo={props.desertionNo} isDibs={isDibs} >
+              <div style={{ textAlign: 'center' }}>
+                <img style={{ width: '60%', height: '100%' }} src={props.image} />
+              </div>
+              <p>나이 : {props.age}</p>
+              <p>품종 : {props.kindCd}</p>
+              <p>보호소 : {props.careNm}</p>
+              <p>보호소 위치 : {props.careAddr}</p>
+              <p>보호소 연락처 : {props.careTel}</p>
+              <p>상태 : {props.processState}</p>
+              <p>특징 : {props.specialMark}</p>
+            </Modal>
+            
+            : 
+            <Modal open={modalOpen} close={closeModal} header="저와 친구가 되어요!" dibs={onDibsHandler}
+              dibsCancel={onDibsCancelHandler} desertionNo={props.desertionNo} isDibs={isDibs} >
+              <div style={{ textAlign: 'center' }}>
+                <img style={{ width: '60%', height: '100%' }} src={props.image} />
+              </div>
+              <p>나이 : {props.age}</p>
+              <p>품종 : {props.kindCd}</p>
+              <p>보호소 : {props.careNm}</p>
+              <p>보호소 위치 : {props.careAddr}</p>
+              <p>보호소 연락처 : {props.careTel}</p>
+              <p>상태 : {props.processState}</p>
+              <p>특징 : {props.specialMark}</p>
+            </Modal>
+            }</React.Fragment>))} */}
+
+
+        {/* // Modal.js <main> {props.children} </main>에 내용이 입력된다. 리액트 함수형 모달 */}
         {/* </a> */}
 
       </div>
@@ -89,4 +130,4 @@ function GridCard(props) {
   )
 }
 
-export default GridCard
+export default React.memo(GridCard)

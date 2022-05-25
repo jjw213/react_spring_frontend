@@ -9,7 +9,6 @@ import { Row } from "antd";
 function MyPage() {
     const user = useSelector((state) => state.user);
     const dibs = useSelector((state) => state.board);
-    console.log(user)
 
 
     const [boardList, setboardList] = useState([]);
@@ -20,13 +19,11 @@ function MyPage() {
             })
             .then((data) => {
             setboardList(data);
-            console.log(data);
             });
             
     }, []);
-    console.log(dibs);
 
-
+console.log(dibs.dibsList);
 
     return (
         <div>

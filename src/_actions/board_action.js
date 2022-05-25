@@ -72,7 +72,7 @@ export async function dibsCancel(dataToSubmit) {
     const request = await axios.post(`/animal/dibsCancel`, null,
         {
             params: {
-                id: dataToSubmit.id
+                desertionNo: dataToSubmit.desertionNo
             }
         })
         .then(response => response.data)
