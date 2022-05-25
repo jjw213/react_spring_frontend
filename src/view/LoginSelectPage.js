@@ -33,7 +33,12 @@ function LoginSelectPage() {
                 color: "black",
               }}
             >
-              {/* <img src={kakao}>카카오 로그인 및 회원가입</img> */}
+              <img
+                src={kakao}
+                width="8%"
+                height="auto"
+                style={{ margin: "0px 3% 0px 0px" }}
+              />
               카카오 로그인 및 회원가입
             </a>
           </p>

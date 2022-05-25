@@ -104,7 +104,7 @@ header {
 .kakaoLoginBtn {
   display: grid;
   place-content: center;
-  width: 40%;
+  width: 50%;
   height: 100%;
   margin: 3px auto;
   text-align: center;
@@ -132,6 +132,26 @@ header {
 }
 
 @media all and (min-width: 480px) {
+  .homeReg {
+    display: grid;
+    margin: 0 auto;
+    width: 350px;
+    height: 60px;
+    font-size: 22px;
+    place-content: center;
+    text-align: center;
+    border-style: none;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 3px solid rgb(136, 175, 207);
+    text-transform: uppercase;
+    letter-spacing: -3px;
+    font-weight: 500;
+    position: relative;
+  }
+}
+
+@media all and (min-width: 480px) {
   .kakaoLoginBtn {
     display: grid;
     place-content: center;
@@ -139,6 +159,14 @@ header {
     margin: 3px auto;
     width: 350px;
     height: 60px;
+    cursor: pointer;
+    font-size: 22px;
+    /* border: 3px solid rgb(136, 175, 207); */
+    background-color: #fedc00;
+    text-transform: uppercase;
+    letter-spacing: -3px;
+    font-weight: 500;
+    position: relative;
     animation-name: slideExpandUp;
     -webkit-animation-name: slideExpandUp;
 
@@ -449,7 +477,7 @@ img {
   /* place-content: center; */
   /* max-width: 1120px; */
   margin: auto;
-  width: 40%;
+  width: 50%;
   height: 100%;
   text-align: center;
   border-style: none;
