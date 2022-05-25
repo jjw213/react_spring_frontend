@@ -6,7 +6,7 @@ import "../../css/main.css";
 import SignUpInput from "./SignUpInput";
 
 function SignPage(props) {
-const kakaoid = props;
+  const kakaoid = props;
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ const kakaoid = props;
   const onConfirmPasswordHandler = (event) => {
     setConfirmPassword(event.currentTarget.value);
   };
-console.log(kakaoid);
+  console.log(kakaoid);
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
@@ -31,11 +31,11 @@ console.log(kakaoid);
     if (Password !== ConfirmPassword) {
       return alert("비밀번호와 비밀번호 재입력이 일치하지 않아요");
     }
-    
+
     let body = {
       name: Name,
       password: Password,
-      kakao_id:0
+      kakao_id: 0,
     };
     dispatch(registerUser(body))
       .then((response) => {
@@ -59,7 +59,15 @@ console.log(kakaoid);
   };
   return (
     <div>
-      <SignUpInput submit={onSubmitHandler} name={onNameHandeler} pw={onPasswordHandler} pwc={onConfirmPasswordHandler}/>
+      <header>
+        <nav className="header-nav"></nav>
+      </header>
+      <SignUpInput
+        submit={onSubmitHandler}
+        name={onNameHandeler}
+        pw={onPasswordHandler}
+        pwc={onConfirmPasswordHandler}
+      />
       <footer>
         <ul className="footer-list">
           <li>

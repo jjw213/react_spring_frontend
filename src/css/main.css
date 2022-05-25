@@ -30,15 +30,13 @@ header {
 }
 
 .container {
-  /* background-image: url("../css/img/background.png");
-  background-size: cover; */
   position: relative;
   z-index: 1;
   max-width: 100%;
   margin: 0 auto;
   height: 100%;
   min-height: 100%;
-  padding-bottom: 70px; /* footer 의 높이만큼 아래쪽 공백주기 */
+  /* padding-bottom: 70px; footer 의 높이만큼 아래쪽 공백주기 */
 }
 
 .login-page {
@@ -200,7 +198,9 @@ header {
 }
 
 /* signPage css */
+
 .signContainer {
+  /*  */
   position: relative;
   z-index: 1;
   max-width: 100%;
@@ -214,7 +214,7 @@ header {
   width: 360px;
   text-align: center;
   /* padding-top: 5em; */
-  margin: 15% auto;
+  margin: 70px auto;
 }
 
 .signName {
@@ -233,20 +233,43 @@ header {
 }
 
 .signForm {
-  position: relative;
-  float: center;
-  /* top: 15%; */
-  z-index: 1;
-  transform: translate(0%, -10%);
   background-image: url("../css/img/neko.png");
   background-repeat: repeat-x;
   background-color: rgb(93, 190, 165);
   border-radius: 10%;
-  text-align: center;
-  max-width: 360px;
-  margin: 0 auto 100px;
-  padding: 45px;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.24);
+  max-width: 1022px;
+}
+
+@media screen and (max-width: 1023px) {
+  .signForm {
+    position: relative;
+    float: center;
+    z-index: 1;
+    transform: translate(0%, -10%);
+
+    text-align: center;
+    margin: 0 auto 100px;
+    padding: 45px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.24);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .signForm {
+    position: relative;
+    float: center;
+    z-index: 1;
+    transform: translate(0%, -10%);
+    background-image: url("../css/img/neko.png");
+    background-repeat: repeat-x;
+    background-color: rgb(93, 190, 165);
+    border-radius: 10%;
+    text-align: center;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.24);
+  }
 }
 
 .signForm input {
