@@ -48,9 +48,10 @@ header {
 }
 
 .form {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
   position: relative;
-  float: center;
-  /* top: 15%; */
   z-index: 1;
   transform: translate(0%, -10%);
   background-image: url("../css/img/corgi.png");
@@ -63,19 +64,6 @@ header {
   padding: 45px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.24);
 }
-
-/* .doCa {
-  background-size: 100px;
-  width: 200px;
-  height: 200px;
-  transform: translate(0%, -10%);
-  background-color: rgb(136, 175, 207);
-  border-radius: 10%;
-  text-align: center;
-  max-width: 360px;
-  margin: 0 auto 100px;
-  padding: 45px;
-} */
 
 .form input {
   font-family: sans-serif;
@@ -116,8 +104,20 @@ header {
 .kakaoLoginBtn {
   display: grid;
   place-content: center;
-  max-width: 1120px;
+  width: 40%;
+  height: 100%;
   margin: 3px auto;
+  text-align: center;
+  border-style: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  /* border: 3px solid rgb(136, 175, 207); */
+  background-color: #fedc00;
+  text-transform: uppercase;
+  letter-spacing: -3px;
+  font-weight: 500;
+  position: relative;
 
   animation-name: slideExpandUp;
   -webkit-animation-name: slideExpandUp;
@@ -129,6 +129,27 @@ header {
   -webkit-animation-timing-function: ease -out;
 
   visibility: visible !important;
+}
+
+@media all and (min-width: 480px) {
+  .kakaoLoginBtn {
+    display: grid;
+    place-content: center;
+    position: relative;
+    margin: 3px auto;
+    width: 350px;
+    height: 60px;
+    animation-name: slideExpandUp;
+    -webkit-animation-name: slideExpandUp;
+
+    animation-duration: 1.6s;
+    -webkit-animation-duration: 1.6s;
+
+    animation-timing-function: ease-out;
+    -webkit-animation-timing-function: ease -out;
+
+    visibility: visible !important;
+  }
 }
 
 @keyframes slideExpandUp {
@@ -254,22 +275,20 @@ header {
   }
 }
 
-@media screen and (max-width: 767px) {
-  .signForm {
-    position: relative;
-    float: center;
-    z-index: 1;
-    transform: translate(0%, -10%);
-    background-image: url("../css/img/neko.png");
-    background-repeat: repeat-x;
-    background-color: rgb(93, 190, 165);
-    border-radius: 10%;
-    text-align: center;
-    max-width: 360px;
-    margin: 0 auto 100px;
-    padding: 45px;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.24);
-  }
+.signForm {
+  position: relative;
+  float: center;
+  z-index: 1;
+  transform: translate(0%, -10%);
+  background-image: url("../css/img/neko.png");
+  background-repeat: repeat-x;
+  background-color: rgb(93, 190, 165);
+  border-radius: 10%;
+  text-align: center;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.24);
 }
 
 .signForm input {
@@ -427,11 +446,11 @@ img {
 
 .homeReg {
   display: grid;
-  place-content: center;
+  /* place-content: center; */
   /* max-width: 1120px; */
   margin: auto;
-  width: 220px;
-  height: 45px;
+  width: 40%;
+  height: 100%;
   text-align: center;
   border-style: none;
   border-radius: 6px;
@@ -440,10 +459,31 @@ img {
   border: 3px solid rgb(136, 175, 207);
   background-color: transparent;
   text-transform: uppercase;
-  letter-spacing: -1.5px;
+  letter-spacing: -3px;
   font-weight: 500;
   position: relative;
 }
+
+@media all and (min-width: 480px) {
+  .homeReg {
+    display: grid;
+    margin: 0 auto;
+    width: 350px;
+    height: 60px;
+    font-size: 22px;
+    place-content: center;
+    text-align: center;
+    border-style: none;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 3px solid rgb(136, 175, 207);
+    text-transform: uppercase;
+    letter-spacing: -3px;
+    font-weight: 500;
+    position: relative;
+  }
+}
+
 .btn-11 {
   overflow: hidden;
   transition: all 0.3s ease;
@@ -524,14 +564,15 @@ table th {
 }
 
 .up {
-  display: block;
-  margin-top: 250px;
+  display: grid;
+  margin: -110px auto;
+  margin-top: 10%;
 }
 
 .down {
   position: fixed;
+  /* margin: auto; */
   bottom: 0;
-  width: 100%;
-  display: grid;
   justify-content: center;
+  background-attachment: fixed;
 }

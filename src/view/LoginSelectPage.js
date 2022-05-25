@@ -13,26 +13,34 @@ function LoginSelectPage() {
       {/* <h1 className="register">로그인</h1>
       <hr></hr>
       <br></br> */}
-      <div className="up">
-        <p className="homeReg btn-11">
-          <a
-            href="/members/new"
-            style={{
-              color: "black",
-            }}
-          >
-            신규 회원가입
-          </a>
-        </p>
-        <br></br>
-        <p className="kakaoLoginBtn">
-          <a href={KAKAO_AUTH_URL}>
-            <img src={kakao} width="220px" height="45px"></img>
-          </a>
-        </p>
-      </div>
-      <div className="down">
-        <img src={newReg} width="300px" height="150px"></img>
+      <div className="regReg">
+        <div className="up">
+          <p className="homeReg btn-11">
+            <a
+              href="/members/new"
+              style={{
+                color: "black",
+              }}
+            >
+              신규 회원가입
+            </a>
+          </p>
+          <br></br>
+          <p className="kakaoLoginBtn">
+            <a
+              href={KAKAO_AUTH_URL}
+              style={{
+                color: "black",
+              }}
+            >
+              {/* <img src={kakao}>카카오 로그인 및 회원가입</img> */}
+              카카오 로그인 및 회원가입
+            </a>
+          </p>
+        </div>
+        <div className="down">
+          <img src={newReg} width="2200px" height="150px"></img>
+        </div>
       </div>
     </div>
   );
