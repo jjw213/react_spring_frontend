@@ -12,7 +12,7 @@ import Profile from './view/Profile';
 import KakaoLogout from './view/KakaoLogout';
 import ApiTest from './view/Animals/ApiTest';
 import CommunityPage from './view/CommunityPage';
-import MyPage from './view/Mainpage/MyPage';
+import MyPage from './view/Mypage/MyPage';
 
 import Auth from "./_reducers/Auth";
 import "../node_modules/antd/dist/antd.css";
