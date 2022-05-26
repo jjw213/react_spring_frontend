@@ -4,7 +4,7 @@ import Chart1 from "./Chart1";
 import Chart2 from "./Chart2";
 import SectionSlide from "./SectionSlide";
 import TextSlide from "./TextSlide";
-
+import "../../css/MainPage.css";
 
 function Main() {
     return(
@@ -24,7 +24,7 @@ function Main() {
             </section>
         
             <section id="section2_forntpage">
-                <div>
+                <div className="fontText">
                     <h1>
                         <span>지역별 유기동물</span>
                         <span>개/고양이 DB 분포</span>

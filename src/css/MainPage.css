@@ -28,8 +28,8 @@
 }
 .main #section1{
     height: 100vh;
-    background-image: url(./mainImg/milad-fakurian-UiiHVEyxtyA-unsplash.jpg);
-    background-size: cover;
+    /* background-image: url(./mainImg/milad-fakurian-UiiHVEyxtyA-unsplash.jpg);
+    background-size: cover; */
     margin-top: 20px;
     position: relative;
 }
@@ -59,15 +59,14 @@
 
 .slidebox img {max-width:100%;}
 .slidebox .slidelist {
-    white-space:nowrap;
     width: 380px;
     height: 380px;
-    font-size:0;
     overflow:hidden;
     position: absolute;
     top: 5.2%;
-    left: 51.8%;
+    left: 53.5%;
     border-radius: 60%;
+    z-index: -10px;
     
 }
 .slidebox .slideitem  {
@@ -84,6 +83,7 @@
     background-size: cover;
     width: 900px;
     height: 600px;
+    z-index:9999999999999px;
 }
 
 .slideitem .Float {
@@ -94,7 +94,6 @@
 .slidebox .slideitem img {
     width: 380px;
     height: 380px;
-
 }
 
 
@@ -300,4 +299,351 @@
 
 .footer ul li a {
     font-size: 40px;
+}
+
+@media (max-width:360px) {
+    
+    .main #section1 {
+        width: auto;
+        height: 600px;
+    }
+    .main #section1 .text_area{
+        position: absolute;
+        top: 10%;
+        left: 5%;
+    }
+    .main #section1 .text_area span{
+        display: block;
+        font-size: 30px;
+        font-family: "Hi";
+    }
+
+
+    [name="slide"] {display:none;}
+    .slidebox {
+        max-width:100000000px;
+        width:100%;
+        margin:0 auto;
+    }
+    
+    .slidebox img {max-width:100%;}
+    .slidebox .slidelist {
+        width: 200px;
+        height: 200px;
+        overflow:hidden;
+        position: absolute;
+        top: 8.5%;
+        left: 46.5%;
+        border-radius: 60%;
+        
+    }
+    .slidebox .slideitem  {
+        position:relative;    
+        transition:all .60s;
+        width: 800px;
+    }
+    
+    .moveImage{
+        position: absolute;
+        top: 40%;
+        right: 5px;
+        background-image: url("./img/glass.png");
+        background-size: cover;
+        width: 600px;
+        height: 300px;
+    }
+    
+    .slideitem .Float {
+        float: left;
+    }
+    
+    
+    .slidebox .slideitem img {
+        width: 200px;
+        height: 200px;
+    
+    }
+    
+    
+    [id="slide01"]:checked ~ .slidelist .slideitem {transform:translateX(0);animation:slide01 15s infinite;}
+    [id="slide02"]:checked ~ .slidelist .slideitem {transform:translateX(-100%);animation:slide01 15s infinite;}
+    [id="slide03"]:checked ~ .slidelist .slideitem {transform:translateX(-200%);animation:slide01 15s infinite;}
+    [id="slide04"]:checked ~ .slidelist .slideitem {transform:translateX(-300%);animation:slide01 15s infinite;}
+    
+    @keyframes slide01 {
+        0% {left:0%;}
+        33% {left:-100%;}
+        66% {left:-200%;}
+        100% {left:-300%;}
+    }
+
+    .main #section2_forntpage{
+        display: block;
+        float: left;
+        width: auto;
+        height: 50vh;
+        width: 100%;
+        background-color: white;
+        margin: 0 auto;
+        
+        
+    }
+    
+    .main #section2_forntpage div {
+        height: 50%;
+        font-family: "Do";
+        
+    }
+    .main #section2_forntpage div div {
+        display: block;
+        float: left;
+    }
+    .main #section2_forntpage div .dogimg {
+        display: block;
+        background-image: url("/src/css/mainImg/free-animated-icon-dog-7211975.gif");
+        background-size: cover;
+        width: 50%;
+        height: 100%;
+    }
+    
+    .main #section2_forntpage div .catimg {
+        display: block;
+        width: 50%;
+        height: 100%;
+        background-image: url("/src/css/mainImg/free-animated-icon-cat-7211991.gif");
+        background-size: cover;
+    }
+    
+    .main #section2_forntpage h1 {
+        width: 300px;
+        left: 10%;
+        top: 15%;
+
+    }
+    
+    .main #section2_forntpage span {
+        display: block;
+        font-size: 40px;
+    }
+    
+    
+    /*----- main section 2 -----*/
+    .main #section2{
+        width: 100%;
+        height: 50vh;
+        background-color: beige;
+        display: block;
+        float: left;
+    
+    
+    }
+
+
+    .main #section4{
+        width: 100%;
+        height: auto;
+        background-color: whitesmoke;
+        float: left;
+    }
+    
+    .textslide{
+        display: block;
+        background: #1abc9c;
+        width: 100%;
+        height: 300px;
+        float: left;
+        border-radius: 20%;
+    }
+    
+    .textslide .card{
+        position: relative;
+        top: 20%;
+        width: 350px;
+        padding: 30px;
+        background: skyblue;
+        margin: auto;
+        transition: .3s ease;
+        box-shadow: 0 1px 1px rgba(0,0,0,.3);
+        
+    }
+    
+    .textslide .card:hover {
+        box-shadow: 0 5px 20px rgba(0,0,0,.8);
+        transform: translateY(-10px) scale(1.02);
+    }
+    
+    
+    .textslide .entry-title{
+    
+        display: inline;
+        transition: .5s ease-in-out;
+        font-family: raleway, arial, sans-serif;
+        text-transform: uppercase;
+        
+    }
+    .textslide .entry-title a{
+        color: white;
+        text-decoration: none;
+    }
+    
+    
+    
+    [name="slide2"] {display:none;}
+    .slidebox2 {
+        max-width:100000px;
+        width:100%;
+        height: 100%;
+        margin:0 auto;
+        float: left;
+    }
+    
+    .slidebox2 img {max-width:100%;}
+    .slidebox2 .slidelist2 {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        left: 0%;
+        
+    }
+    .slidebox2 .slideitem2  {
+        position:relative;    
+        transition:all .60s;
+        width: max-content
+    }
+    
+    .slidebox2 .slideitem2 .Float2 {
+        float: left;
+    }
+    
+    
+    .slidebox2 .slideitem2 img {
+        width: 300px;
+        height: 300px;
+    
+    }
+    
+    
+    [id="slide05"]:checked ~ .slidelist2 .slideitem2 {transform:translateX(-12.8%);animation:slide02 15s infinite;}
+    
+    @keyframes slide02 {
+        0% {left: 0%;}
+        10% {left: 0%;}
+        20% {left: -84%;}
+        30% {left: -84%;}
+        40% {left: -167%;}
+        50% {left: -167%;}
+        60% {left: -251%;}
+        70% {left:-251%;}
+        80% {left: -333%;}
+        100% {left:-333%;}
+    }
+    
+    
+    .footer {
+        height: 250px;
+        background-color: skyblue;
+        display: block;
+        float: left;
+        width: 100%;
+    }
+    
+    
+    .footer ul li {
+        float: left;
+        padding-left: 30%;
+        padding-top: 2%
+    }
+    
+    .footer ul li a {
+        font-size: 40px;
+    }
+
+}
+
+@media  (max-width:280px){
+
+    .slidebox .slidelist {
+        width: 200px;
+        height: 200px;
+        overflow:hidden;
+        position: absolute;
+        top: 10%;
+        left: 62%;
+        border-radius: 60%;
+        
+    }
+
+    .moveImage{
+        position: absolute;
+        top: 40%;
+        right: 10px;
+        background-image: none;
+    }
+
+
+    .main #section2_forntpage h1 {
+        width: 250px;
+        left: 10%;
+        top: 15%;
+
+    }
+
+    
+    
+    .main #section2_forntpage span {
+        display: block;
+        font-size: 30px;
+    }
+
+
+    .textslide .card{
+        position: relative;
+        top: 20%;
+        width: 280px;
+        padding: 30px;
+        background: skyblue;
+        margin: auto;
+        transition: .3s ease;
+        box-shadow: 0 1px 1px rgba(0,0,0,.3);
+        
+    }
+
+    .footer ul li {
+        float: left;
+        padding-left: 25%;
+        padding-top: 2%
+    }
+
+    .main #section2_forntpage div .dogimg {
+        display: block;
+        background-image: url("/src/css/mainImg/free-animated-icon-dog-7211975.gif");
+        background-size: 150px;
+        width: 50%;
+        height: 100%;
+    }
+    
+    .main #section2_forntpage div .catimg {
+        display: block;
+        width: 50%;
+        height: 100%;
+        background-image: url("/src/css/mainImg/free-animated-icon-cat-7211991.gif");
+        background-size: 150px;
+    }
+
+    [id="slide05"]:checked ~ .slidelist2 .slideitem2 {transform:translateX(-14.8%);animation:slide02 15s infinite;}
+    
+
+    @keyframes slide02 {
+        0% {left: 0%;}
+        /* 10% {left: 0%;}
+        20% {left: -84%;}
+        30% {left: -84%;}
+        40% {left: -167%;}
+        50% {left: -167%;}
+        60% {left: -251%;}
+        70% {left:-251%;}
+        80% {left: -333%;}
+        100% {left:-333%;} */
+    }
+
 }

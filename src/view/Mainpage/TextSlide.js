@@ -6,8 +6,8 @@ function TextSlide() {
         <div className="textslide">
             <div className="card">
             <h1 className="entry-title">
-                <a href="#">This text will be highlighted
-                when hovered Inspired by webdesignerdepot new design
+                <a href="#">
+                    aaaaaa
                 </a>
             </h1>
             </div>
