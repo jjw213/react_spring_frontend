@@ -44,7 +44,7 @@ function LoginSelectPage() {
           </p>
         </div>
         <div className="down">
-          <img src={newReg}></img>
+          <img src={newReg} width="100%" height="70%"></img>
         </div>
       </div>
     </div>
