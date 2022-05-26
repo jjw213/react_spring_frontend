@@ -104,7 +104,7 @@ header {
 .kakaoLoginBtn {
   display: grid;
   place-content: center;
-  width: 50%;
+  width: 70%;
   height: 100%;
   margin: 3px auto;
   text-align: center;
@@ -131,10 +131,10 @@ header {
   visibility: visible !important;
 }
 
-@media all and (min-width: 480px) {
+@media all and (min-width: 365px) {
   .homeReg {
     display: grid;
-    margin: 0 auto;
+    margin: 3px auto;
     width: 350px;
     height: 60px;
     font-size: 22px;
@@ -477,7 +477,7 @@ img {
   /* place-content: center; */
   /* max-width: 1120px; */
   margin: auto;
-  width: 50%;
+  width: 70%;
   height: 100%;
   text-align: center;
   border-style: none;
@@ -593,8 +593,9 @@ table th {
 
 .up {
   display: grid;
-  margin: -110px auto;
-  margin-top: 10%;
+  margin: 0 auto;
+  margin-bottom: 20%;
+  margin-top: 20%;
 }
 
 .down {
@@ -603,4 +604,9 @@ table th {
   bottom: 0;
   justify-content: center;
   background-attachment: fixed;
+}
+
+@media all and (min-width: 480px) and (min-height: 480px) {
+  .down {
+  }
 }

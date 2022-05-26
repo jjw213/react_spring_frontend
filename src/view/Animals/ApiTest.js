@@ -66,9 +66,10 @@ function ApiTest() {
     setNumOfRows(numOfRows + 50);
     onSubmitHandler();
   };
-  // useEffect(() => {
-  //   onSubmitHandler();
-  // }, []);  얘 있으면 메인페이지에서 animalList가 갑분 렌더링 됨
+  //얘 있으면 메인페이지에서 animalList가 갑분 렌더링 됨
+  useEffect(() => {
+    onSubmitHandler();
+  }, []);
 
   const onSubmitHandler = () => {
     let body = {
