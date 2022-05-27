@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { kakaoLoginUser, loginUser, registerUser } from "../_actions/user_action";
 import KakaoSignUpPage from "../view/SignInUp/KakaoSignUpPage";
 import MainPage from "../view/MainPage";
-
+import { dibsList } from "../_actions/board_action";
 const Auth = () => {
   const REST_API_KEY = "170293c1b046c874abd5476ddf3dba3a";
   const REDIRECT_URI = "http://localhost:3000/members/kakaoLogin";
@@ -59,6 +59,10 @@ const Auth = () => {
           } else {
             // 이미 회원가입한 회원
             setIsSignUp(true);
+            dispatch(dibsList(response.payload)).then((response) => {
+              console.log(response.payload);
+            });
+            navigate("/");
           }
         })
         setData(resp);
