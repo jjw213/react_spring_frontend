@@ -52,7 +52,7 @@ align-items:center;
     align-items:flex-end;
     display: ${(menu) => 
         {
-        // console.log("메뉴 값입니다!!"+menu.menu);
+        console.log("메뉴 값입니다!!"+menu.menu);
        return menu.menu === false ? "none" : "flex"
     }
 };
