@@ -223,7 +223,7 @@ header {
   .homeReg {
     display: grid;
     margin: 3px auto;
-    width: 350px;
+    width: 30%;
     height: 60px;
     font-size: 22px;
     place-content: center;
