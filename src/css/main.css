@@ -30,16 +30,16 @@ header {
 }
 
 .container {
-  position: relative;
-  z-index: 1;
-  max-width: 100%;
+  /* position: relative; */
+  /* z-index: 1; */
+  width: 90%;
   margin: 0 auto;
-  height: 100%;
-  min-height: 100%;
+  height: 500px;
+  /* min-height: 100%; */
   /* padding-bottom: 70px; footer 의 높이만큼 아래쪽 공백주기 */
 }
 
-.form {
+.login-form {
   display: flex;
   -webkit-box-pack: center;
   justify-content: center;
@@ -56,7 +56,7 @@ header {
 }
 
 @media all and (min-width: 480px) and (min-height: 480px) {
-  .form {
+  .login-form {
     display: flex;
     -webkit-box-pack: center;
     justify-content: center;
@@ -87,7 +87,7 @@ header {
   }
 }
 
-.form input {
+.login-form input {
   display: grid;
   align-items: center;
   font-family: sans-serif;
@@ -118,7 +118,7 @@ header {
     font-size: 14px;
   }
 }
-.form button {
+.login-form button {
   display: grid;
   align-items: center;
   margin: 0 auto 10px auto;
@@ -136,7 +136,7 @@ header {
 }
 
 @media all and (min-width: 480px) and (min-height: 480px) {
-  .form button {
+  .login-form button {
     margin: 0 0 15px;
     font-family: sans-serif;
     outline: 0;
@@ -329,9 +329,9 @@ header {
   }
 }
 
-.form button:hover,
-.form button:active,
-.form button:focus {
+.login-form button:hover,
+.login-form button:active,
+.login-form button:focus {
   background-color: rgb(248, 190, 105);
 }
 

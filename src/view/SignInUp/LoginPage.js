@@ -74,49 +74,49 @@ function LoginPage(props) {
         <nav className="header-nav"></nav>
       </header>
       <main className="container">
-        <div className="form">
-          <form
-            action=""
-            method=""
-            className="login-form"
-            onSubmit={onSubmitHandler}
-          >
-            <div className="form-group">
-              <label htmlFor="name" className="loginName">
-                이름
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                onChange={onNameHandeler}
-                placeholder="이름을 입력하세요"
-              ></input>
-            </div>
-            <div>
-              <label htmlFor="password" className="passwordName">
-                비밀번호
-              </label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                onChange={onPasswordHandler}
-                placeholder="비밀번호를 입력하세요"
-              ></input>
-            </div>
-            <button onSubmit={onSubmitHandler}>로그인</button>
-            {/* <p className='homeReg'></p> */}
-            {/* <button type="button" img className="kakaoLoginBtn" src={kakao } width="183px" height="45px" a href={KAKAO_AUTH_URL} /> */}
-            <button onClick={onSigninHandler}>신규 회원가입</button>
-          </form>
-          {/* <button
+        {/* <div className="form"> */}
+        <form
+          action=""
+          method=""
+          className="login-form"
+          onSubmit={onSubmitHandler}
+        >
+          <div className="form-group">
+            <label htmlFor="name" className="loginName">
+              이름
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              onChange={onNameHandeler}
+              placeholder="이름을 입력하세요"
+            ></input>
+          </div>
+          <div>
+            <label htmlFor="password" className="passwordName">
+              비밀번호
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              onChange={onPasswordHandler}
+              placeholder="비밀번호를 입력하세요"
+            ></input>
+          </div>
+          <button onSubmit={onSubmitHandler}>로그인</button>
+          {/* <p className='homeReg'></p> */}
+          {/* <button type="button" img className="kakaoLoginBtn" src={kakao } width="183px" height="45px" a href={KAKAO_AUTH_URL} /> */}
+          <button onClick={onSigninHandler}>신규 회원가입</button>
+        </form>
+        {/* <button
               className="kakaoLoginBtn"
               onClick={onKakaoHandler}
               width="183px"
               height="45px"
             ></button> */}
-        </div>
+        {/* </div> */}
       </main>
       <footer>
         <ul className="footer-list">
