@@ -28,7 +28,7 @@ function Slide(){
     return(
         <div className="slidebox">
             
-            <input type="radio" name="slide" id="slide01" checked/>
+            <input type="radio" name="slide" id="slide01" defaultChecked/>
             <input type="radio" name="slide" id="slide02"/>
             <input type="radio" name="slide" id="slide03"/>
             <input type="radio" name="slide" id="slide04"/>

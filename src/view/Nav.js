@@ -64,10 +64,20 @@ function Nav() {
             { /* mobile */}
             <MobileView>
                 <NavTop>
-                    <Button type="primary" onClick={toggleChange} style={{ marginBottom: 16 }}>
-                        {toggleBar ? <MenuOutlined /> : <MenuFoldOutlined />}
+                    <Button type="primary" onClick={toggleChange} 
+                    style={{ marginBottom: 16, float:"right" }}>
+                        {toggleBar ? <MenuOutlined /> : <MenuFoldOutlined  />}
                     </Button>
                 </NavTop>
+                <Menu>
+                    <Menu.Item key="subs">
+                        <Link to="/">
+                            메인화면
+                        </Link>
+
+                    </Menu.Item>
+
+                </Menu>
                 {toggleMenu &&
                     <Menu
                         defaultSelectedKeys={['1']}
@@ -76,12 +86,6 @@ function Nav() {
                         inlineCollapsed={toggleBar}
                         onClick={onMenuClick}
                     >
-                       <Menu.Item key="subs">
-                            <Link to="/">
-                                메인화면
-                            </Link>
-
-                        </Menu.Item>
                         <Menu.Item key="product">
                             <Link to="/apiTest">
                                 동물 찾기

@@ -18,8 +18,6 @@ import Auth from "./_reducers/Auth";
 import "../node_modules/antd/dist/antd.css";
 import PublicRoute from './store/PublicRoute';
 import PrivateRoute from './store/PrivateRoute';
-import CssTest1 from './CssTest1';
-
 
 function App() {
    return (
@@ -45,7 +43,6 @@ function App() {
           <Route exact path="/apiTest" element={ApiTest()}/> 
           <Route exact path="/community" element={CommunityPage()}/>
           <Route exact path="/MyPage" element={MyPage()}/>
-          <Route exact path="/cssTest" element={CssTest1()}/>
           
 
           

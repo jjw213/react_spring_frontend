@@ -10,7 +10,7 @@ function SectionSlide(){
         
         <div className="slidebox2">
             
-            <input type="radio" name="slide2" id="slide05" checked/>
+            <input type="radio" name="slide2" id="slide05" defaultChecked/>
             <input type="radio" name="slide2" id="slide06"/>
             <input type="radio" name="slide2" id="slide07"/>
             <input type="radio" name="slide2" id="slide08"/>
