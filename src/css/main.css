@@ -6,11 +6,6 @@
   box-sizing: border-box;
 }
 
-/* a {
-  text-decoration: none;
-  color: whitesmoke;
-} */
-
 body {
   position: relative;
   min-height: 100vh;
@@ -28,34 +23,124 @@ header {
   display: flex;
   justify-content: space-between;
 }
+@media screen and (max-width: 500px) {
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    min-height: 100%;
+  }
 
-.container {
-  /* position: relative; */
-  /* z-index: 1; */
-  width: 90%;
-  margin: 0 auto;
-  height: 500px;
-  /* min-height: 100%; */
-  /* padding-bottom: 70px; footer 의 높이만큼 아래쪽 공백주기 */
-}
-
-.login-form {
-  display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
+  .login-form {
+    -webkit-box-pack: center;
+    /* justify-content: center;
   position: relative;
-  z-index: 1;
-  transform: translate(0%, -10%);
-  /* background-image: url("../css/img/corgi.png"); */
-  /* background-size: 250px; */
-  background-repeat: no-repeat;
-  background-color: rgb(136, 175, 207);
-  border-radius: 10%;
-  margin: 10%;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.24);
-}
+  */
+    z-index: 1;
+    width: calc(100% - 80px);
+    /* width: 1120px/1280px */
+    padding: 40px 3.125%;
+    /* padding : 40px/1280px */
+    margin: 40px;
+    height: 90%;
+    background-repeat: no-repeat;
+    background-color: rgb(136, 175, 207);
+    background-size: 250px;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.24);
+    justify-content: flex-end;
+  }
 
-@media all and (min-width: 480px) and (min-height: 480px) {
+  .form-group {
+    display: grid;
+    align-items: center;
+  }
+
+  .form-group input {
+    display: flex;
+    align-items: center;
+    font-family: sans-serif;
+    outline: 0;
+    background-color: white;
+    border-radius: 10px;
+    width: auto;
+    min-height: 80%;
+    border: 1.5px solid white;
+    margin: 0 0 15px;
+    padding: 1rem;
+    box-sizing: border-box;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .form-group2 {
+    display: grid;
+    align-items: center;
+  }
+
+  .form-group2 input {
+    display: flex;
+    align-items: center;
+    font-family: sans-serif;
+    outline: 0;
+    background-color: white;
+    border-radius: 10px;
+    width: auto;
+    min-height: 80%;
+    border: 1.5px solid white;
+    margin: 0 0 15px;
+    padding: 1rem;
+    box-sizing: border-box;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .login-form button {
+    display: grid;
+    margin: 0 auto 10px auto;
+    font-family: sans-serif;
+    background-color: rgb(247, 239, 190);
+    width: 100%;
+    border: 0;
+    border-radius: 1rem;
+    padding: 9px;
+    color: black;
+    font-size: 1rem;
+    justify-content: center;
+    cursor: pointer; /* 마우스가 올라갈때 손가락 모양으로 바뀐다. */
+  }
+
+  .loginName {
+    display: grid;
+    font-family: sans-serif;
+    color: black;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .passwordName {
+    display: grid;
+    align-content: center;
+    font-family: sans-serif;
+    color: black;
+    text-align: center;
+    font-size: 1rem;
+  }
+}
+/* -----------데스크탑---------- */
+@media screen and (min-width: 500px) {
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 100%;
+    margin: 90px;
+    height: 100%;
+    min-height: 100%;
+    /* padding-bottom: 70px; footer 의 높이만큼 아래쪽 공백주기 */
+  }
+
   .login-form {
     display: flex;
     -webkit-box-pack: center;
@@ -64,130 +149,69 @@ header {
     z-index: 1;
     transform: translate(0%, -10%);
     background-image: url("../css/img/corgi.png");
-    background-size: 480px;
+    background-size: 250px;
+    background-repeat: no-repeat;
     background-color: rgb(136, 175, 207);
-    border-radius: 10%;
-    text-align: center;
-    /* max-width: 360px; */
-    margin: 10%;
-    padding: 45px;
+    border-radius: 2rem;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.24);
   }
-}
 
-.login-form {
-  display: grid;
-  align-content: center;
-  margin: 0 auto;
-}
-
-@media all and (min-width: 480px) and (min-height: 480px) {
   .login-form {
-    margin-left: 60%;
+    display: grid;
+    align-content: center;
+    margin: 10% 20%;
   }
-}
 
-.login-form input {
-  display: grid;
-  align-items: center;
-  font-family: sans-serif;
-  outline: 0;
-  background-color: white;
-  border-radius: 10px;
-  width: 100%;
-  border: 1.5px solid white;
-  margin: 0 0 15px;
-  padding: 9px;
-  box-sizing: border-box;
-  font-size: 50%;
-}
-
-@media all and (min-width: 480px) and (min-height: 480px) {
-  .form input {
+  .login-form input {
     display: grid;
     align-items: center;
     font-family: sans-serif;
     outline: 0;
     background-color: white;
     border-radius: 10px;
-    width: 110%;
+    width: 100%;
     border: 1.5px solid white;
     margin: 0 0 15px;
     padding: 9px;
     box-sizing: border-box;
-    font-size: 14px;
+    font-size: 50%;
   }
-}
-.login-form button {
-  display: grid;
-  align-items: center;
-  margin: 0 auto 10px auto;
-  font-family: sans-serif;
-  outline: 0;
-  background-color: rgb(247, 239, 190);
-  width: 200px;
-  border: 0;
-  border-radius: 10px;
-  padding: 9px;
-  color: black;
-  font-size: 50%;
-  justify-content: center;
-  cursor: pointer; /* 마우스가 올라갈때 손가락 모양으로 바뀐다. */
-}
 
-@media all and (min-width: 480px) and (min-height: 480px) {
   .login-form button {
-    margin: 0 0 15px;
+    display: grid;
+    align-items: center;
+    margin: 0 auto 10px auto;
     font-family: sans-serif;
     outline: 0;
     background-color: rgb(247, 239, 190);
-    width: 110%;
+    width: 200px;
     border: 0;
     border-radius: 10px;
-    padding: 5%;
+    padding: 9px;
     color: black;
-    font-size: 14px;
+    font-size: 50%;
+    justify-content: center;
     cursor: pointer; /* 마우스가 올라갈때 손가락 모양으로 바뀐다. */
   }
-}
-.loginName {
-  display: grid;
-  align-content: center;
-  font-family: sans-serif;
-  color: black;
-  text-align: center;
-  font-size: 50%;
-}
 
-@media all and (min-width: 480px) and (min-height: 480px) {
   .loginName {
     display: grid;
     align-content: center;
     font-family: sans-serif;
     color: black;
     text-align: center;
-    font-size: 14px;
+    font-size: 50%;
   }
-}
-.passwordName {
-  display: grid;
-  align-content: center;
-  font-family: sans-serif;
-  color: black;
-  text-align: center;
-  font-size: 50%;
-}
-
-@media all and (min-width: 480px) and (min-height: 480px) {
   .passwordName {
     display: grid;
     align-content: center;
     font-family: sans-serif;
     color: black;
     text-align: center;
-    font-size: 14px;
+    font-size: 50%;
   }
 }
+/* -------------------------------------------- */
 .kakaoLoginBtn {
   display: grid;
   place-content: center;

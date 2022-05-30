@@ -93,7 +93,7 @@ function LoginPage(props) {
               placeholder="이름을 입력하세요"
             ></input>
           </div>
-          <div>
+          <div className="form-group2">
             <label htmlFor="password" className="passwordName">
               비밀번호
             </label>
