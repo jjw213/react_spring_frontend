@@ -31,7 +31,6 @@ function GridCard(props) {
           }
         });
     }
-    // console.log("딥스 설정한거 우얘됐노"+isDibs)
   }, [user]);
 
   const onDibsHandler = () => {

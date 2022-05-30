@@ -19,8 +19,8 @@ function SignUpInput(props) {
               placeholder="이름을 입력하세요"
             ></input>
           </div>
-          <div>
-            <label htmlFor="password" className="signPassword">
+          <div className="form-group2">
+            <label htmlFor="password" className="passwordName">
               비밀번호
             </label>
             <input
@@ -31,8 +31,8 @@ function SignUpInput(props) {
               placeholder="비밀번호를 입력하세요"
             ></input>
           </div>
-          <div>
-            <label htmlFor="passwordConfirm" className="signPasswordCon">
+          <div className="form-group2">
+            <label htmlFor="passwordConfirm" className="passwordName">
               비밀번호 재입력
             </label>
             <input

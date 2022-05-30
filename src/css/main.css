@@ -129,7 +129,42 @@ header {
     font-size: 1rem;
   }
 }
+/* ------------680px 이하 */
+@media  (max-width:700px) and (min-width: 500px) {
+.login-form {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  transform: translate(0%, -10%);
+  /* background-image: url("../css/img/corgi.png");
+  background-size: 340px;
+  background-position: left;
+  background-repeat: no-repeat; */
+  background-color: rgb(136, 175, 207);
+  border-radius: 2rem;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.24);
+}
+}
 /* -----------데스크탑---------- */
+@media  screen and (min-width: 700px) {
+  .login-form {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    transform: translate(0%, -10%);
+    background-image: url("../css/img/corgi.png");
+    background-size: 340px;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-color: rgb(136, 175, 207);
+    border-radius: 2rem;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.24);
+  }
+  }
 @media screen and (min-width: 500px) {
   .container {
     position: relative;
@@ -142,24 +177,10 @@ header {
   }
 
   .login-form {
-    display: flex;
-    -webkit-box-pack: center;
-    justify-content: center;
-    position: relative;
-    z-index: 1;
-    transform: translate(0%, -10%);
-    background-image: url("../css/img/corgi.png");
-    background-size: 250px;
-    background-repeat: no-repeat;
-    background-color: rgb(136, 175, 207);
-    border-radius: 2rem;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.24);
-  }
-
-  .login-form {
     display: grid;
     align-content: center;
-    margin: 10% 20%;
+    margin: 10% 15%;
+    height: 400px;
   }
 
   .login-form input {
@@ -172,9 +193,8 @@ header {
     width: 100%;
     border: 1.5px solid white;
     margin: 0 0 15px;
-    padding: 9px;
+    padding: 1rem;
     box-sizing: border-box;
-    font-size: 50%;
   }
 
   .login-form button {
@@ -189,7 +209,6 @@ header {
     border-radius: 10px;
     padding: 9px;
     color: black;
-    font-size: 50%;
     justify-content: center;
     cursor: pointer; /* 마우스가 올라갈때 손가락 모양으로 바뀐다. */
   }
@@ -200,7 +219,6 @@ header {
     font-family: sans-serif;
     color: black;
     text-align: center;
-    font-size: 50%;
   }
   .passwordName {
     display: grid;
@@ -208,7 +226,6 @@ header {
     font-family: sans-serif;
     color: black;
     text-align: center;
-    font-size: 50%;
   }
 }
 /* -------------------------------------------- */
@@ -360,7 +377,7 @@ header {
 }
 
 /* signPage css */
-
+/* 
 .signContainer {
   position: relative;
   z-index: 1;
@@ -449,8 +466,7 @@ header {
   position: relative;
   z-index: 1;
   transform: translate(0%, -10%);
-  /* background-image: url("../css/img/neko.png");
-  background-size: 250px; */
+
   background-repeat: no-repeat;
   background-color: rgb(93, 190, 165);
   border-radius: 10%;
@@ -507,7 +523,196 @@ header {
     box-sizing: border-box;
     font-size: 14px;
   }
+} */
+
+@media screen and (max-width: 500px) {
+  .signContainer {
+    position: relative;
+    z-index: 1;
+    max-width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    min-height: 100%;
+  }
+
+  .sign-form {
+    -webkit-box-pack: center;
+    /* justify-content: center;
+  position: relative;
+  */
+    z-index: 1;
+    width: calc(100% - 80px);
+    /* width: 1120px/1280px */
+    padding: 40px 3.125%;
+    /* padding : 40px/1280px */
+    margin: 40px;
+    height: 90%;
+    background-repeat: no-repeat;
+    background-color: rgb(93, 190, 165);
+    background-size: 250px;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.24);
+    justify-content: flex-end;
+  }
+
+  .signForm-group {
+    display: grid;
+    align-items: center;
+  }
+
+  .signForm-group input {
+    display: flex;
+    align-items: center;
+    font-family: sans-serif;
+    outline: 0;
+    background-color: white;
+    border-radius: 10px;
+    width: auto;
+    min-height: 80%;
+    border: 1.5px solid white;
+    margin: 0 0 15px;
+    padding: 1rem;
+    box-sizing: border-box;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .sign-form button {
+    display: grid;
+    margin: 0 auto 10px auto;
+    font-family: sans-serif;
+    background-color: rgb(247, 239, 190);
+    width: 100%;
+    border: 0;
+    border-radius: 1rem;
+    padding: 9px;
+    color: black;
+    font-size: 1rem;
+    justify-content: center;
+    cursor: pointer; /* 마우스가 올라갈때 손가락 모양으로 바뀐다. */
+  }
+
+  .signName {
+    display: grid;
+    font-family: sans-serif;
+    color: black;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .passwordName {
+    display: grid;
+    align-content: center;
+    font-family: sans-serif;
+    color: black;
+    text-align: center;
+    font-size: 1rem;
+  }
 }
+/* ------------7000px 이하 */
+@media  (max-width:700px) and (min-width: 500px) {
+.sign-form {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  transform: translate(0%, -10%);
+  /* background-image: url("../css/img/corgi.png");
+  background-size: 340px;
+  background-position: left;
+  background-repeat: no-repeat; */
+  background-color: rgb(93, 190, 165);
+  border-radius: 2rem;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.24);
+}
+}
+/* -----------데스크탑---------- */
+@media  screen and (min-width: 700px) {
+  .sign-form {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    transform: translate(0%, -10%);
+    background-image: url("../css/img/neko.png");
+    background-size: 340px;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-color: rgb(93, 190, 165);
+    border-radius: 2rem;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.24);
+  }
+  }
+@media screen and (min-width: 500px) {
+  .signContainer {
+    position: relative;
+    z-index: 1;
+    max-width: 100%;
+    margin: 90px;
+    height: 100%;
+    min-height: 100%;
+    /* padding-bottom: 70px; footer 의 높이만큼 아래쪽 공백주기 */
+  }
+
+  .sign-form {
+    display: grid;
+    align-content: center;
+    margin: 10% 15%;
+    height: 400px;
+  }
+
+  .sign-form input {
+    display: grid;
+    align-items: center;
+    font-family: sans-serif;
+    outline: 0;
+    background-color: white;
+    border-radius: 10px;
+    width: 100%;
+    border: 1.5px solid white;
+    margin: 0 0 15px;
+    font-size: 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+
+  .sign-form button {
+    display: grid;
+    align-items: center;
+    margin: 0 auto 10px auto;
+    font-family: sans-serif;
+    outline: 0;
+    background-color: rgb(247, 239, 190);
+    width: 200px;
+    border: 0;
+    border-radius: 10px;
+    padding: 9px;
+    color: black;
+    justify-content: center;
+    cursor: pointer; /* 마우스가 올라갈때 손가락 모양으로 바뀐다. */
+  }
+
+  .signName {
+    display: grid;
+    align-content: center;
+    font-family: sans-serif;
+    color: black;
+    text-align: center;
+  }
+  .passwordName {
+    display: grid;
+    align-content: center;
+    font-family: sans-serif;
+    color: black;
+    text-align: center;
+  }
+}
+/* -------------------------------------------- */
+
+
+
 
 .signForm button {
   display: grid;
@@ -522,7 +727,6 @@ header {
   border-radius: 10px;
   padding: 9px;
   color: black;
-  font-size: 50%;
   justify-content: center;
   cursor: pointer; /* 마우스가 올라갈때 손가락 모양으로 바뀐다. */
 }
@@ -551,7 +755,7 @@ header {
 
 footer {
   z-index: 10;
-  position: absolute;
+  /* position: absolute; */
   bottom: 0; /* 화면 밑에 붙어있다. */
   background-color: rgb(219, 241, 242);
   color: white;

@@ -9,13 +9,14 @@ import RightNav from './RightNav';
 const MenuList = styled.div`
   display: flex;
   justify-content: space-evenly;
+  
 `;
 
 const NavTop = styled.div`
   display: flex;
   justify-content: flex-end;
   button {
-    background: black;
+    background: skyblue;
     border: none;
   };
   float:right;
@@ -63,7 +64,7 @@ function Nav() {
                 </MenuList>
             </BrowserView>
             { /* mobile */}
-            <MobileView>
+            <MobileView >
                 <NavTop>
                     <Button type="primary" onClick={toggleChange} 
                     style={{ marginBottom: 16 }}>
@@ -71,7 +72,7 @@ function Nav() {
                     </Button>
                 </NavTop>
                 <MenuList style={{display:"block"}}>
-                <Menu selectedKeys="mail" mode="horizontal">
+                <Menu style={{ backgroundColor:"skyblue"}} selectedKeys="mail" mode="horizontal">
                     <Menu.Item key="subs">
                         <Link to="/">
                             메인화면
@@ -88,6 +89,7 @@ function Nav() {
                         theme="light"
                         inlineCollapsed={toggleBar}
                         onClick={onMenuClick}
+                        style={{textAlign:"center"}}
                     >
                         <Menu.Item key="product">
                             <Link to="/apiTest">

@@ -43,7 +43,6 @@ function LoginPage(props) {
       name: Name,
       password: Password,
     };
-    console.log(body);
     dispatch(loginUser(body))
       .then((response) => {
         console.log(response.payload);

@@ -67,6 +67,18 @@ export async function kakaoLoginUser(dataToSubmit){
 //     }
 // }
 
+export async function deleteUser(dataToSubmit){
+    
+    const request = await axios.post(`/members/memberDelete`,null, 
+    {params:{name : dataToSubmit.name, password:dataToSubmit.password}, withCredentials:true})
+    .then(response => response.data);
+
+    return {
+        type: LOGOUT_USER,
+        payload: request
+    }
+}
+
 export async function logoutUser(){
     
     const request = await axios.get(`/members/memberLogout`,{withCredentials:true})
