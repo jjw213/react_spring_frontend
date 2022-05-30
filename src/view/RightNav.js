@@ -26,8 +26,8 @@ function RightNav() {
 
     };
     return (
-        <React.Fragment>
-        <ControlBox menu={menu}>
+        <React.Fragment >
+        {/* <ControlBox menu={menu}>
 
 
             {user.userData == null ?
@@ -39,7 +39,18 @@ function RightNav() {
         </ControlBox>
         <Menubar href='#' onClick={() => { setmenu(!menu) }} >
         <IoIosMenu />
-    </Menubar>
+    </Menubar> */}
+    
+    {user.userData == null ?
+                <Menu.Item key="signUp" style={{paddingLeft:"24px"}}><a href="/members/loginSelect" >
+                    회원가입</a></Menu.Item>
+                : <Menu.Item key="signUp" style={{paddingLeft:"24px"}}><Link to="/MyPage"  >
+                    {user.userData} 님 환영합니다.</Link></Menu.Item>}
+            {user.userData == null ? <Menu.Item key="signin"  style={{paddingLeft:"24px"}}><a  href="/members/memberLogin">
+                로그인</a></Menu.Item>
+                : <Menu.Item key="signin"  style={{paddingLeft:"24px"}}><a onClick
+                ={logoutHandler}>로그아웃</a></Menu.Item>}
+            
     </React.Fragment>
     )
 }
@@ -52,7 +63,6 @@ align-items:center;
     align-items:flex-end;
     display: ${(menu) => 
         {
-        console.log("메뉴 값입니다!!"+menu.menu);
        return menu.menu === false ? "none" : "flex"
     }
 };
@@ -69,7 +79,6 @@ const Menubar = styled.a`
     font-size: 30px;
     position: absolute;
     right: 32px;
-    height: 97px;
     @media screen and (min-width: 500px) {
         display: none;    
     }

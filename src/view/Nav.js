@@ -17,7 +17,8 @@ const NavTop = styled.div`
   button {
     background: black;
     border: none;
-  }
+  };
+  float:right;
 `;
 
 function Nav() {
@@ -57,19 +58,20 @@ function Nav() {
                                 커뮤니티
                             </Link>
                         </Menu.Item>
-                    </Menu>
                     <RightNav />
+                    </Menu>
                 </MenuList>
             </BrowserView>
             { /* mobile */}
             <MobileView>
                 <NavTop>
                     <Button type="primary" onClick={toggleChange} 
-                    style={{ marginBottom: 16, float:"right" }}>
+                    style={{ marginBottom: 16 }}>
                         {toggleBar ? <MenuOutlined /> : <MenuFoldOutlined  />}
                     </Button>
                 </NavTop>
-                <Menu>
+                <MenuList style={{display:"block"}}>
+                <Menu selectedKeys="mail" mode="horizontal">
                     <Menu.Item key="subs">
                         <Link to="/">
                             메인화면
@@ -78,6 +80,7 @@ function Nav() {
                     </Menu.Item>
 
                 </Menu>
+                </MenuList>
                 {toggleMenu &&
                     <Menu
                         defaultSelectedKeys={['1']}
@@ -98,6 +101,7 @@ function Nav() {
                         </Menu.Item>
                         <RightNav />
                     </Menu>
+                    
                 }
             </MobileView>
         </div>
