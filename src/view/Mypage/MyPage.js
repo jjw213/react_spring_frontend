@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import axios from 'axios';
 import GridCard from "../Animals/GridCard";
 import { Row } from "antd";
-
+import "../../css/MyPage.css";
 
 
 function MyPage() {
@@ -23,53 +23,46 @@ function MyPage() {
             
     }, []);
 
-console.log(dibs.dibsList);
+    const deleteID = () =>{
+        console.log("deleteID");
+        
+    }
+
+    console.log(dibs.dibsList);
 
     return (
         <div>
-            <section>회원이름 : {user.userData}</section>
-            <section>찜목록</section>
-            {/* {dibsList && dibsList.map((ele) => (
-                    <div key={ele.id}>
-                    {user.userData==ele.name ? <div>
-                    
-                    {ele.age}
-                    </div> : ""}
-                    
-                    <hr></hr>
-                    </div>
-                ))} */}
-    <Row gutter={[16, 16]}>
-        {dibs.dibsList &&
-          dibs.dibsList.map((ani, index) => (
-            <React.Fragment key={ani.desertionNo}>
-              {user.userData==ani.name ? 
-                <GridCard
-                  image={ani.popfile}
-                  kindCd={ani.kindCd}
-                  age={ani.age}
-                  careAddr={ani.careAddr}
-                  careNm={ani.careNm}
-                  careTel={ani.careTel}
-                  processState={ani.processState}
-                  sexCd={ani.sexCd}
-                  specialMark={ani.specialMark}
-                  weight={ani.weight}
-                  desertionNo={ani.desertionNo}
-                  id={ani.id}
-                />
-               :
-                ""
-              }
-            </React.Fragment>
-          ))}
-      </Row>
-            <section>
-                탈퇴버튼
-                <button> 버튼 </button>
+            <section className="UserName">회원이름 : {user.userData} </section>
+            <section className="DibsList">찜목록</section>
+                <Row gutter={[16, 16]}>
+                        {dibs.dibsList &&
+                        dibs.dibsList.map((ani, index) => (
+                            <React.Fragment key={ani.desertionNo}>
+                            {user.userData==ani.name ? 
+                                <GridCard
+                                image={ani.popfile}
+                                kindCd={ani.kindCd}
+                                age={ani.age}
+                                careAddr={ani.careAddr}
+                                careNm={ani.careNm}
+                                careTel={ani.careTel}
+                                processState={ani.processState}
+                                sexCd={ani.sexCd}
+                                specialMark={ani.specialMark}
+                                weight={ani.weight}
+                                desertionNo={ani.desertionNo}
+                                id={ani.id}
+                                />
+                            : ""
+                            }
+                            </React.Fragment>
+                        ))}
+                </Row>
+            <section className="DeleteID">
+                <button onClick={deleteID}> 버튼 </button>
             </section>
 
-            <section>자기가 쓴 글 목록</section>
+            <section className="WriteList">자기가 쓴 글 목록</section>
             {/* <table
                 className="table table--vertical"
                 cellPadding={"0"}
