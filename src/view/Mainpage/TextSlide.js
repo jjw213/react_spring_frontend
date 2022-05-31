@@ -7,7 +7,7 @@ function TextSlide() {
             <div className="card">
             <h1 className="entry-title">
                 <a href="#">
-                    aaaaaa
+                    가족이 되어주기 
                 </a>
             </h1>
             </div>
