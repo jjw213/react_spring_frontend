@@ -6,7 +6,6 @@ import { Link, useNavigate } from "react-router-dom";
 import '../css/style.css';
 import { Menu } from 'antd';
 import styled from 'styled-components'
-import { IoIosMenu } from "react-icons/io";
 
 function RightNav() {
     const [menu, setmenu] = useState(false)

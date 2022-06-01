@@ -18,7 +18,7 @@ function Main() {
                     </h1>
                 </div>
                 <div className="moveImage">
-                    <div className="glassimg"></div>
+                    
                     <Slide></Slide>
                 </div>
 
