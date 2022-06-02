@@ -17,7 +17,6 @@ function SignUpInput(props) {
               name="name"
               onChange={name}
               placeholder="@가 포함된 이메일 형식"
-              onKeyUp={onKeyUp}
             ></input>
           </div>
           <div className="form-group2">
@@ -30,7 +29,6 @@ function SignUpInput(props) {
               name="password"
               onChange={pw}
               placeholder="8자리 이상 비밀번호"
-              onKeyUp={onKeyUp}
             ></input>
           </div>
           <div className="form-group2">
@@ -43,7 +41,6 @@ function SignUpInput(props) {
               name="passwordConfirm"
               onChange={pwc}
               placeholder="비밀번호 재입력"
-              onKeyUp={onKeyUp}
             ></input>
           </div>
           <button onSubmit={submit}>등록</button>

@@ -24,17 +24,20 @@ function SignPage(props) {
   const onConfirmPasswordHandler = (event) => {
     setConfirmPassword(event.currentTarget.value);
   };
-  const onCheckHandler =()=>{
-    Name.includes("@") && Password.length >=5 && Password==ConfirmPassword
-    ? setIsActive(true) : setIsActive(false)
-    console.log("is액티브??"+isActive)
-  }
+  // const onCheckHandler =()=>{
+  //   Name.includes("@") && Password.length >=5 && Password==ConfirmPassword
+  //   ? setIsActive(true) : setIsActive(false)
+  //   console.log("is액티브??"+isActive)
+  // }
 
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    console.log("is액티브??"+isActive)
-    if (!isActive) {
+    console.log(Password.length);
+    console.log("비번, 확인 : "+Password+ConfirmPassword);
+    console.log("@ 포함?  "+Name);
+
+    if ((Name.includes("@")) && (Password.length >=5) && (Password==ConfirmPassword)) {
       return alert("아이디 또는 비밀번호가 잘못되었습니다.");
     }
 
@@ -72,7 +75,6 @@ function SignPage(props) {
         name={onNameHandeler}
         pw={onPasswordHandler}
         pwc={onConfirmPasswordHandler}
-        onKeyup={onCheckHandler}
       />
       <footer>
         <ul className="footer-list">
