@@ -29,7 +29,7 @@ export async function loadAnimal(dataToSubmit) {
         {
             params: {
                 numOfRows: dataToSubmit.numOfRows, kindcd: dataToSubmit.kindcd,
-                upr_cd: dataToSubmit.upr_cd
+                upr_cd: dataToSubmit.upr_cd, state:dataToSubmit.state
             }
         })
         .then(response => response.data)

@@ -10,35 +10,41 @@ function ApiTest() {
   const selectList2 = [
     {
       processState: "전체",
-      code: 1,
+      state: "",
+      code:1,
     },
     {
       processState: "보호중",
-      code: 2,
+      state: "protect",
+      code:2,
     },
-    {
-      processState: "종료",
-      code: 3,
-    },
+    // {
+    //   processState: "종료",
+    //   state: "notice",
+    //   code:3,
+    // },
   ];
   const dispatch = useDispatch();
   const buttonRef = useRef(null);
   const [animal, setAnimal] = useState([]);
   const [kindcd, setKindcd] = useState("개");
   const [Selected, setSelected] = useState("6110000");
-  const [Selected2, setSelected2] = useState("전체");
+  const [Selected2, setSelected2] = useState("");
   const [numOfRows, setNumOfRows] = useState(50);
   const [Loading, setLoading] = useState(true);
   const [isHover1, setIsHover1] = useState(false);
   const [isHover2, setIsHover2] = useState(false);
   const [isHover3, setIsHover3] = useState(false);
+  const [disabled, setDisabled] = useState(false);
   const handleSelect = (e) => {
     setSelected(e.target.value);
     setNumOfRows(50);
     console.log(selectList);
   };
   const handleSelect2 = (e) => {
+    console.log(e.target.value);
     setSelected2(e.target.value);
+    setNumOfRows(50);
   };
   const onCatHandler = (event) => {
     setKindcd(event.currentTarget.value);
@@ -76,13 +82,18 @@ function ApiTest() {
       numOfRows: numOfRows,
       kindcd: kindcd,
       upr_cd: Selected,
+      state: Selected2
     };
-    console.log(body.kindcd);
     dispatch(loadAnimal(body)).then((response) => {
-      console.log(response.payload);
       if (response.payload != null) {
         setAnimal(response.payload);
         setLoading(false);
+        if(response.payload.length<50){
+          setDisabled(true);
+        }
+        else{
+          setDisabled(false);
+        }
       } else {
         alert("동물들을 불러오지 못했어요");
       }
@@ -141,7 +152,7 @@ function ApiTest() {
               className="stateSel"
             >
               {selectList2.map((item) => (
-                <option value={item.processState} key={item.code}>
+                <option value={item.state} key={item.code}>
                   {item.processState}
                 </option>
               ))}
@@ -166,6 +177,7 @@ function ApiTest() {
           Selected2={Selected2}
           num={numOfRows}
         />
+        {disabled && (<div style={{ textAlign: "center" }}>더이상 불러올 동물이 없습니다.</div>)}
         {Loading && (
           <div style={{ textAlign: "center" }}>
             최근 {numOfRows} 개의 목록 중 '{Selected2}' 동물들 불러오는 중 ...
@@ -182,6 +194,7 @@ function ApiTest() {
         <br />
         <div style={{ display: "flex", justifyContent: "center" }}>
           <button
+            disabled={disabled}
             ref={buttonRef}
             onClick={loadMoreHandler}
             className="custom-btn btn-1"

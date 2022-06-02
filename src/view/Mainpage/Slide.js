@@ -11,7 +11,7 @@ function Slide(){
 
     const endPoint = async()=>{
         axios.post(`/animal/animalList`,null, 
-        {params:{numOfRows : 4 , kindcd:"개",upr_cd:6110000}})
+        {params:{numOfRows : 4 , kindcd:"개",upr_cd:6110000, state:"protect"}})
         .then(res=>{setAnimal(res.data)
         setImg1(res.data[0].popfile)
         // setImg2(res.data[1].popfile)

@@ -13,7 +13,7 @@ function AnimalList(props) {
         {animal &&
           animal.map((ani, index) => (
             <React.Fragment key={ani.desertionNo}>
-              {Selected2 == "전체" ? (
+              {/* {Selected2 == "전체" ? (
                 <GridCard
                   image={ani.popfile}
                   kindCd={ani.kindCd.split("] ")[1]}
@@ -45,7 +45,21 @@ function AnimalList(props) {
                 />
               ) : (
                 ""
-              )}
+              )} */}
+               <GridCard
+                  image={ani.popfile}
+                  kindCd={ani.kindCd.split("] ")[1]}
+                  age={ani.age}
+                  careAddr={ani.careAddr}
+                  careNm={ani.careNm}
+                  careTel={ani.careTel}
+                  processState={ani.processState}
+                  sexCd={ani.sexCd}
+                  specialMark={ani.specialMark}
+                  weight={ani.weight}
+                  desertionNo={ani.desertionNo}
+                  id={ani.id}
+                />
             </React.Fragment>
           ))}
       </Row>
