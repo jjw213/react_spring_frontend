@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
-function KakaoLogout() {
+function KakaoLogout(props) {
   const JAVA_KEY = process.env.REACT_APP_JAVA_KEY;
-  console.log(process.env.REACT_APP_JAVA_KEY);
+  
   const setProfile = async () => {
     if (!window.Kakao.isInitialized()) {
       console.log(window.Kakao.isInitialized());
@@ -30,9 +30,9 @@ function KakaoLogout() {
   window.Kakao.Link.sendDefault({
     objectType: 'feed',
     content: {
-      title: '찜했음!',
-      description: '동물을 찜했습니다.',
-      imageUrl:"https://image.kmib.co.kr/online_image/2020/1122/611718110015239102_3.jpg",
+      title: '함께 해주세요!',
+      description: '지금 링크를 눌러서 저와 가족이 되어주세요.',
+      imageUrl: props.popfile,
       link: {
         webUrl: "http://www.localhost:3000",
         mobileWebUrl: 'http://www.localhost:3000'
@@ -58,7 +58,7 @@ function KakaoLogout() {
   }, []);
   return (
     <React.Fragment>
-            <button className="close" onClick={sendMessage}>
+            <button className="close" style={{ margin: "0 10px" }} onClick={sendMessage}>
               공유하기
             </button>
 

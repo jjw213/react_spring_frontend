@@ -42,7 +42,6 @@ function ApiTest() {
     console.log(selectList);
   };
   const handleSelect2 = (e) => {
-    console.log(e.target.value);
     setSelected2(e.target.value);
     setNumOfRows(50);
   };

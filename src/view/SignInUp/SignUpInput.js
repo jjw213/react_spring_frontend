@@ -1,7 +1,7 @@
 import React from "react";
 
 function SignUpInput(props) {
-  const { submit, name, pw, pwc } = props;
+  const { submit, name, pw, pwc,onKeyUp,} = props;
   return (
     <main className="signContainer">
       {/* <h2>신규 회원가입</h2> */}
@@ -16,7 +16,8 @@ function SignUpInput(props) {
               id="name"
               name="name"
               onChange={name}
-              placeholder="이름을 입력하세요"
+              placeholder="@가 포함된 이메일 형식"
+              onKeyUp={onKeyUp}
             ></input>
           </div>
           <div className="form-group2">
@@ -28,7 +29,8 @@ function SignUpInput(props) {
               id="password"
               name="password"
               onChange={pw}
-              placeholder="비밀번호를 입력하세요"
+              placeholder="8자리 이상 비밀번호"
+              onKeyUp={onKeyUp}
             ></input>
           </div>
           <div className="form-group2">
@@ -40,7 +42,8 @@ function SignUpInput(props) {
               id="passwordConfirm"
               name="passwordConfirm"
               onChange={pwc}
-              placeholder="비밀번호를 다시 입력하세요"
+              placeholder="비밀번호 재입력"
+              onKeyUp={onKeyUp}
             ></input>
           </div>
           <button onSubmit={submit}>등록</button>

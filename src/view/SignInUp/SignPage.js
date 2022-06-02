@@ -13,6 +13,7 @@ function SignPage(props) {
   const [Name, setName] = useState("");
   const [Password, setPassword] = useState("");
   const [ConfirmPassword, setConfirmPassword] = useState("");
+  const [isActive, setIsActive] = useState(false);
 
   const onNameHandeler = (event) => {
     setName(event.currentTarget.value);
@@ -23,12 +24,18 @@ function SignPage(props) {
   const onConfirmPasswordHandler = (event) => {
     setConfirmPassword(event.currentTarget.value);
   };
+  const onCheckHandler =()=>{
+    Name.includes("@") && Password.length >=5 && Password==ConfirmPassword
+    ? setIsActive(true) : setIsActive(false)
+    console.log("is액티브??"+isActive)
+  }
+
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
-
-    if (Password !== ConfirmPassword) {
-      return alert("비밀번호와 비밀번호 재입력이 일치하지 않아요");
+    console.log("is액티브??"+isActive)
+    if (!isActive) {
+      return alert("아이디 또는 비밀번호가 잘못되었습니다.");
     }
 
     let body = {
@@ -65,6 +72,7 @@ function SignPage(props) {
         name={onNameHandeler}
         pw={onPasswordHandler}
         pwc={onConfirmPasswordHandler}
+        onKeyup={onCheckHandler}
       />
       <footer>
         <ul className="footer-list">

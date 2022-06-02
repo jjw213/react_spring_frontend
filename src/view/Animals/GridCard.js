@@ -81,15 +81,20 @@ function GridCard(props) {
   };
   return (
     <Col lg={4} md={8} xs={24}>
-      <div style={{ position: "relative" }}>
+      <div style={{ position: "relative" }} >
         {/* <a href='#'> */}
+        <div onClick={openModal} 
+        className="popfileImg" style={{    display: "block",
+    border: "1px solid #ddd"}}>
         <img
-          onClick={openModal}
-          style={{ width: "100%", height: "320px" }}
+          
+          style={{ width: "100%", height: "270px" }}
           src={props.image}
           alt={props.processState}
         />
         <p>품종 : {props.kindCd}</p>
+        <p>성별 : {props.sexCd == "M" ? "수컷" : props.sexCd == "F" ? "암컷" : "미상" }</p>
+        </div>
         <Modal
           open={modalOpen}
           close={closeModal}
@@ -98,9 +103,10 @@ function GridCard(props) {
           dibsCancel={onDibsCancelHandler}
           desertionNo={props.desertionNo}
           isDibs={isDibs}
+          popfile={props.image}
         >
           <div style={{ textAlign: "center" }}>
-            <img style={{ width: "60%", height: "100%" }} src={props.image} />
+            <img style={{ width: "300px", height: "300px" }} src={props.image} />
           </div>
           <p>나이 : {props.age}</p>
           <p>품종 : {props.kindCd}</p>

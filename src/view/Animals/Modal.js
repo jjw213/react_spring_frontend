@@ -24,7 +24,7 @@ const Modal = (props) => {
                 (<button className="close" onClick={dibsCancel} style={{ margin: "0 10px" }} >
                 찜 취소</button>
                 ) : (<button className="close" onClick={dibs} style={{ margin: "0 10px" }}> 찜하기 </button>) : ""}
-            <Share></Share>
+            <Share popfile={props.popfile}/>
             <button className="close" onClick={close}>
               close
             </button>
