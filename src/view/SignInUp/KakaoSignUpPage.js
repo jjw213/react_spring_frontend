@@ -40,7 +40,7 @@ function SignPage(props) {
     dispatch(registerUser(body))
       .then((response) => {
         console.log(response);
-        if (Response != null) {
+        if (response != null) {
           // props.history.push('/') 이제 안됌
           alert("회원가입 축하드립니다!");
           navigate("/");

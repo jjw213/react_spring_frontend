@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
 function KakaoLogout() {
-  const JAVA_KEY = "89722c28919aadebfec57afb7500a8c8";
-
+  const JAVA_KEY = process.env.REACT_APP_JAVA_KEY;
+  console.log(process.env.REACT_APP_JAVA_KEY);
   const setProfile = async () => {
     if (!window.Kakao.isInitialized()) {
       console.log(window.Kakao.isInitialized());
@@ -32,35 +32,38 @@ function KakaoLogout() {
     content: {
       title: '찜했음!',
       description: '동물을 찜했습니다.',
-      imageUrl:"http://www.localhost:3000",
+      imageUrl:"https://image.kmib.co.kr/online_image/2020/1122/611718110015239102_3.jpg",
       link: {
-        webUrl: "https://www.naver.com",
-        mobileWebUrl: 'https://www.naver.com'
+        webUrl: "http://www.localhost:3000",
+        mobileWebUrl: 'http://www.localhost:3000'
       },
     },
     buttons: [
       {
         title: '함께하기',
         link: {
-          webUrl: "https://www.naver.com",
-          mobileWebUrl: 'https://www.naver.com'
+          webUrl: "http://www.localhost:3000",
+          mobileWebUrl: 'http://www.localhost:3000'
 
         }
       }
     ]
   })
+  // window.Kakao.Link.sendCustom({
+  //   templateId: 77662
+  // });
 }
   useEffect(() => {
       setProfile();
   }, []);
   return (
-    <div><h1>KakaoMessage</h1>
-    <button onClick={sendMessage}>
-      전송
-    </button>
+    <React.Fragment>
+            <button className="close" onClick={sendMessage}>
+              공유하기
+            </button>
 
 
-    </div>
+    </React.Fragment>
   )
 }
 
