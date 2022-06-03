@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { savePost } from "../_actions/board_action";
+import { savePost } from "../../../_actions/board_action";
 import { useNavigate } from "react-router-dom";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import ReactHtmlParser from "react-html-parser";
 
-import Header from "./Header";
+// import Header from "../../Header";
 
 function CommunityPage() {
   const dispatch = useDispatch();
@@ -70,7 +70,6 @@ function CommunityPage() {
 
   return (
     <div>
-      <Header></Header>
       <div className="App">
         <h2>예비 입양자 및 입양자끼리 소통해요</h2>
         <div className="table-wrap">

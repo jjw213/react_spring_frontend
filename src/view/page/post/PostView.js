@@ -57,7 +57,7 @@ const PostView = () => {
             </>
           ) : '해당 게시글을 찾을 수 없습니다.'
         }
-        <button className="post-view-go-list-btn" onClick={()=>navigate("/postMain")}>목록으로 돌아가기</button>
+        <button className="post-view-go-list-btn" onClick={()=>navigate("/community")}>목록으로 돌아가기</button>
       </div>
     </>
   )

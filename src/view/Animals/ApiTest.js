@@ -31,6 +31,7 @@ function ApiTest() {
   const [Selected, setSelected] = useState("6110000");
   const [Selected2, setSelected2] = useState("protect");
   const [numOfRows, setNumOfRows] = useState(50);
+  const [num, setNum] = useState(0);
   const [Loading, setLoading] = useState(true);
   const [isHover1, setIsHover1] = useState(false);
   const [isHover2, setIsHover2] = useState(false);
@@ -87,6 +88,7 @@ function ApiTest() {
       if (response.payload != null) {
         setAnimal(response.payload);
         setLoading(false);
+        setNum(response.payload.length);
         if(response.payload.length<50){
           setDisabled(true);
         }
@@ -174,7 +176,7 @@ function ApiTest() {
           kindcd={kindcd}
           Selected={Selected}
           Selected2={Selected2}
-          num={numOfRows}
+          num={num}
         />
         {disabled && (<div style={{ textAlign: "center" }}>더이상 불러올 동물이 없습니다.</div>)}
         {Loading && (

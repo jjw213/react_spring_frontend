@@ -1,13 +1,16 @@
 import React from 'react';
 import PostList from './PostList';
-import { withRouter } from 'react-router-dom';
+import { useNavigate, withRouter } from 'react-router-dom';
 
 const PostMain = props => {
+  const navigate = useNavigate();
   return (
-    <>
-      <h2 align="center">입양 후기 게시판</h2>
+    <div className="App">
+      <h2 align="center">입양 후기 및 질문 게시판</h2>
       <PostList />
-    </>
+      <button className="post-view-go-list-btn" onClick={()=>navigate("/write")}>
+        글쓰기</button>
+    </div>
   )
 }
 

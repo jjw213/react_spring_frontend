@@ -82,7 +82,7 @@ function MyPage() {
                 deleteId={deleteID}
             >
                 <div style={{ textAlign: "center" }}>
-                {reModalOpen ? <p>비밀번호가 일치하지 않습니다.</p>:""}
+                {reModalOpen ? <p style={{color:"red"}}>비밀번호가 일치하지 않습니다.</p>:""}
                     <p>아이디 : {user.userData}</p>
                     <p>비밀번호 : <input type="password" onChange={onPasswordHandler} /></p>
                 </div>

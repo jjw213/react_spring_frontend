@@ -15,7 +15,7 @@ const PostList = props => {
         console.log(response.payload);
         setDataList(response.payload)
       });
-  }, [ ])
+  }, [])
 
   return (
     <>
