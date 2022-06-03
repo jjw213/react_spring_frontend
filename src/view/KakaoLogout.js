@@ -5,10 +5,8 @@ function KakaoLogout(props) {
   
   const setProfile = async () => {
     if (!window.Kakao.isInitialized()) {
-      console.log(window.Kakao.isInitialized());
       // Kakao Javascript SDK 초기화
       window.Kakao.init(JAVA_KEY);
-      console.log(window.Kakao.isInitialized());
     }
     // console.log(window.Kakao.Auth.getAccessToken());
     // if (window.Kakao.Auth.getAccessToken()) {

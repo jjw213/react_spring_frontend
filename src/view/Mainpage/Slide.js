@@ -14,9 +14,6 @@ function Slide(){
         {params:{numOfRows : 4 , kindcd:"개",upr_cd:6110000, state:"protect"}})
         .then(res=>{setAnimal(res.data)
         setImg1(res.data[0].popfile)
-        // setImg2(res.data[1].popfile)
-        // setImg3(res.data[2].popfile)
-        // setImg4(res.data[3].popfile)
         })
         console.log(animal)
     }

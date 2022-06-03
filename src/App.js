@@ -13,7 +13,8 @@ import KakaoLogout from './view/KakaoLogout';
 import ApiTest from './view/Animals/ApiTest';
 import CommunityPage from './view/CommunityPage';
 import MyPage from './view/Mypage/MyPage';
-
+import PostMain from './view/page/post/PostMain';
+import PostView from './view/page/post/PostView';
 import Auth from "./_reducers/Auth";
 import "../node_modules/antd/dist/antd.css";
 import PublicRoute from './store/PublicRoute';
@@ -44,7 +45,8 @@ function App() {
           <Route exact path="/community" element={CommunityPage()}/>
           <Route exact path="/MyPage" element={MyPage()}/>
           
-
+          <Route exact path='/postView/:no' element={<PostView/>} />
+        <Route exact path='/postMain' element={PostMain()} />
           
         </Routes>
 

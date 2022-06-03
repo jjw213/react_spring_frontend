@@ -59,7 +59,7 @@ const Auth = () => {
           } else {
             // 이미 회원가입한 회원
             setIsSignUp(true);
-            dispatch(dibsList(response.payload)).then((response) => {
+            dispatch(dibsList(response.payload.name)).then((response) => {
               console.log(response.payload);
             });
             navigate("/");

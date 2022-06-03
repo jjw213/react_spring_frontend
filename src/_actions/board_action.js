@@ -2,6 +2,8 @@ import axios from 'axios';
 
 import {
     SAVE_POST,
+    SHOW_POST,
+    SHOW_POSTOne,
     LOAD_ANIMAL,
     CANCEL_ANIMAL,
     DIBS_ANIMAL,
@@ -21,6 +23,34 @@ export async function savePost(dataToSubmit) {
     //.then(setAuthHeader(response => response.dataToSubmit.token));
     return {
         type: SAVE_POST,
+        payload: request
+    }
+}
+
+export async function showPost() {
+    const request = await axios.get(`/board2/boardList`, null,
+        {
+            params: {
+            }
+        })
+        .then(response => response.data)
+    //.then(setAuthHeader(response => response.dataToSubmit.token));
+    return {
+        type: SHOW_POST,
+        payload: request
+    }
+}
+export async function showPostOne(dataToSubmit) {
+    const request = await axios.post(`/board2/boardOne`, null,
+        {
+            params: {
+                no:dataToSubmit
+            }
+        })
+        .then(response => response.data)
+    //.then(setAuthHeader(response => response.dataToSubmit.token));
+    return {
+        type: SHOW_POSTOne,
         payload: request
     }
 }

@@ -29,7 +29,7 @@ function ApiTest() {
   const [animal, setAnimal] = useState([]);
   const [kindcd, setKindcd] = useState("개");
   const [Selected, setSelected] = useState("6110000");
-  const [Selected2, setSelected2] = useState("");
+  const [Selected2, setSelected2] = useState("protect");
   const [numOfRows, setNumOfRows] = useState(50);
   const [Loading, setLoading] = useState(true);
   const [isHover1, setIsHover1] = useState(false);

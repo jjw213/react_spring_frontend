@@ -88,18 +88,6 @@ function MyPage() {
                 </div>
 
             </Modal>
-            {/* <Modal
-                open={reModalOpen}
-                close={closeModal}
-                header="비밀번호가 일치하지 않습니다."
-                deleteId={deleteID}
-            >
-                <div style={{ textAlign: "center" }}>
-                    <p>아이디 : {user.userData}</p>
-                    <p>비밀번호 : <input type="password" onChange={onPasswordHandler} /></p>
-                </div>
-
-            </Modal> */}
 
             <section className="DibsList">찜목록</section>
             <Row gutter={[16, 16]}>
@@ -127,7 +115,7 @@ function MyPage() {
                     ))}
             </Row>
 
-            <section className="WriteList">자기가 쓴 글 목록</section>
+            <section className="WriteList">내가 쓴 글</section>
             {/* <table
                 className="table table--vertical"
                 cellPadding={"0"}

@@ -37,10 +37,14 @@ function SignPage(props) {
     console.log("비번, 확인 : "+Password+ConfirmPassword);
     console.log("@ 포함?  "+Name);
 
-    if ((Name.includes("@")) && (Password.length >=5) && (Password==ConfirmPassword)) {
-      return alert("아이디 또는 비밀번호가 잘못되었습니다.");
+    if (Password!=ConfirmPassword) {
+      return alert("비밀번호와 확인이 일치하지 않습니다.");
+    }else if( Password.length <5) {
+      return alert("비밀번호는 5자리 이상이여야 합니다.");
+    }else if(!Name.includes("@")){
+      console.log("@포합이니?"+Name.includes("@"))
+      return alert("아이디는 (@가 포함된) 이메일 형식이어야 합니다.");
     }
-
     let body = {
       name: Name,
       password: Password,

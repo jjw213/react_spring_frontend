@@ -28,8 +28,13 @@ function SignPage(props) {
   const onSubmitHandler = (event) => {
     event.preventDefault();
 
-    if (Password !== ConfirmPassword) {
-      return alert("비밀번호와 비밀번호 재입력이 일치하지 않아요");
+    if (Password!=ConfirmPassword) {
+      return alert("비밀번호와 확인이 일치하지 않습니다.");
+    }else if( Password.length <5) {
+      return alert("비밀번호는 5자리 이상이여야 합니다.");
+    }else if(!Name.includes("@")){
+      console.log("@포합이니?"+Name.includes("@"))
+      return alert("아이디는 (@가 포함된) 이메일 형식이어야 합니다.");
     }
 
     let body = {
