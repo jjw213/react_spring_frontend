@@ -14,10 +14,8 @@ const PostView = () => {
   const {no} = useParams();
   // const no  = params.no;
   useEffect(() => {
-    console.log("no는 몇? "+no);
     dispatch(showPostOne(no))
       .then((response) => {
-        console.log(response.payload);
         setData(response.payload)
       });
   }, []);
