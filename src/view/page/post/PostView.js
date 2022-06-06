@@ -21,7 +21,7 @@ const PostView = () => {
   }, []);
 
   return (
-    <>
+    <div className='App'>
       <h2 align="center">게시글 상세정보</h2>
 
       <div className="post-view-wrapper">
@@ -29,12 +29,12 @@ const PostView = () => {
           data ? (
             <>
               <div className="post-view-row">
-                <label>게시글 번호</label>
-                <label>{ data.no }</label>
-              </div>
-              <div className="post-view-row">
                 <label>제목</label>
                 <label>{ data.title }</label>
+              </div>
+              <div className="post-view-row">
+                <label>작성자</label>
+                <label>{ data.writer }</label>
               </div>
               <div className="post-view-row">
                 <label>작성일</label>
@@ -57,7 +57,7 @@ const PostView = () => {
         }
         <button className="post-view-go-list-btn" onClick={()=>navigate("/community")}>목록으로 돌아가기</button>
       </div>
-    </>
+    </div>
   )
 }
 
