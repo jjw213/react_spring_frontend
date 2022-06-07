@@ -4,7 +4,9 @@ import Chart1 from "./Chart1";
 import Chart2 from "./Chart2";
 import SectionSlide from "./SectionSlide";
 import TextSlide from "./TextSlide";
+import AnimateSection from "./AnimateSection";
 import "../../css/MainPage.css";
+
 
 function Main() {
     return(
@@ -49,6 +51,7 @@ function Main() {
             <section id="section4">
                 <TextSlide></TextSlide>
                 <SectionSlide></SectionSlide>
+                <AnimateSection></AnimateSection>
             </section>
 
 

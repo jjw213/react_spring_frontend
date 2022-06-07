@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import GridCard from "../Animals/GridCard";
 import { Row } from "antd";
 import Modal from "./Modal";
@@ -28,14 +28,13 @@ function MyPage() {
         setPassword(event.currentTarget.value);
     };
     useEffect(() => {
-        fetch(`/board/boardList`)
+        fetch(`/board2/boardList`)
             .then((res) => {
                 return res.json();
             })
             .then((data) => {
                 setboardList(data);
             });
-
     }, []);
 
     const deleteID = (event) => {
@@ -116,7 +115,12 @@ function MyPage() {
             </Row>
 
             <section className="WriteList">내가 쓴 글</section>
-            {/* <table
+            <div id="Alllist">
+                <div>제목</div>
+                <div>내용</div>
+                <div>이름</div>
+            </div>
+            <table
                 className="table table--vertical"
                 cellPadding={"0"}
                 cellSpacing="0"
@@ -133,12 +137,11 @@ function MyPage() {
                     <th>
                         <div>작성자 : {ele.writer}</div>
                     </th>
-                    </div> : ""}
-                    
-                    <hr></hr>
+                    </div> : ""}                    
+                    <hr/>
                     </div>
                 ))}
-                </table> */}
+                </table>
 
         </div>
     )

@@ -41,7 +41,7 @@ function MainPage(props) {
     
       <Header></Header>
       <Main></Main>
-      <Footer></Footer>
+      <Footer></Footer> 
     </div>
   )
 }

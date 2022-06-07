@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 function TextSlide() {
@@ -6,9 +7,9 @@ function TextSlide() {
         <div className="textslide">
             <div className="card">
             <h1 className="entry-title">
-                <a href="#">
+                <Link to ="/apiTest">
                     가족이 되어주기 
-                </a>
+                </Link>
             </h1>
             </div>
         </div>

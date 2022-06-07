@@ -30,6 +30,29 @@ div div div {
     margin: 0px;
 }
 
+table div {
+    width: 100%;
+}
+
+table div div {
+    width: 90%;
+    margin: 0 auto;
+}
+table div div th {
+    width: 30%;
+    text-align: left;
+}
+#Alllist{
+    width: 90%;
+    margin: 0 auto;
+}
+
+#Alllist div {
+    display: block;
+    float: left;
+    width: 30%;
+    text-align: left;
+}
 
 
 .DeleteID{
@@ -43,4 +66,5 @@ div div div {
     margin-bottom: 2%;
     margin-top: 30px;
     font-size: large;
+
 }
