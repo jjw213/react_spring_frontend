@@ -12,4 +12,6 @@ export const LOAD_ANIMAL = 'load_animal';
 export const CANCEL_ANIMAL = 'cancel_animal';
 export const DIBS_LIST = 'dibs_list';
 export const DIBS_ANIMAL = 'dibs_animal';
+export const SHOW_REPLY = 'show_reply';
+export const SAVE_REPLY = 'save_reply';
 

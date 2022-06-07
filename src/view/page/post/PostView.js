@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { showPostOne } from '../../../_actions/board_action';
 import './Post.css';
+import Comment from "../comment/Comment";
 
 const PostView = () => {
   const [ data, setData ] = useState([]);
@@ -56,6 +57,7 @@ const PostView = () => {
           ) : '해당 게시글을 찾을 수 없습니다.'
         }
         <button className="post-view-go-list-btn" onClick={()=>navigate("/community")}>목록으로 돌아가기</button>
+        <Comment no={no}/>
       </div>
     </div>
   )
