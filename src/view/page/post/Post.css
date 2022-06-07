@@ -1,6 +1,5 @@
 
 .post-view-wrapper {
-  width: 60%;
   margin: 0 auto;
 }
 
@@ -26,5 +25,4 @@
 
 .post-view-row > *:nth-child(2) {
   margin: 10px 0;
-  width: 70%;
 }

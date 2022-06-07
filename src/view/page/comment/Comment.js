@@ -25,10 +25,11 @@ import {
 } from "../component/CommentTool";
 
 const Comment = ({ no }) => {
-  const [local, setLocal] = useState([]);
   const dispatch = useDispatch();
-  // const comments = useSelector((state) => state.comment);
   const user=useSelector((state)=>state.user.userData);
+  const [local, setLocal] = useState([]);
+  const [render, setRender]=useState(true);
+  // const comments = useSelector((state) => state.comment);
   const [display, setDisplay] = useState(false);
   const editorRef = useRef();
   const date = new Date(); // 작성 시간
@@ -60,6 +61,7 @@ const Comment = ({ no }) => {
     .then((response) => {
       if (response.payload != null) {
         alert("작성 완료!");
+        setRender(!render);
       } else {
         alert("아이디 혹은 비밀번호가 틀렸어요:X");
       }
@@ -91,7 +93,7 @@ const Comment = ({ no }) => {
         setLocal(response.payload.filter((comment) => comment.responseTo === "root"))
       })
     // setLocal(comments.filter((comment) => comment.responseTo === "root"));
-  }, [no]);
+  }, [no, render]);
 
   return (
     <Paper sx={{ m: 15, p: 3 }}>
@@ -99,16 +101,19 @@ const Comment = ({ no }) => {
         onClick={() => {
           setDisplay(!display);
         }}
-        sx={{ width: "10rem" }}
+        sx={{ width: "10rem", backgroundColor: "mistyrose", marginBottom:"10px" }}
       >
         답변 달기
       </Button>
 
       {display && (
         <>
-          <Editor ref={editorRef} />
+          <Editor ref={editorRef} placeholder='명예훼손, 개인정보 유출, 분쟁 유발, 허위사실 유포등의
+          글은 이용약관에 의해 제재는 물론 법률에 의해 처벌 받을 수 있습니다. 건전한 커뮤니티를 위해
+          자재를 당부 드립니다.' 
+          initialEditType='wysiwyg' textAlign="left"/>
           <div>
-            <Button onClick={onSubmit}>저장</Button>
+            <Button sx={{marginTop:"10px", backgroundColor: "revert" }} onClick={onSubmit}>저장</Button>
           </div>
         </>
       )}
@@ -123,26 +128,28 @@ const Comment = ({ no }) => {
                 : comment.writer.slice(0, 2)}
             </ProfileIcon>
             <Item>{comment.writer}</Item>
-
-            <Item>{timeForToday(comment.created_at)}</Item>
+            
+            <Item>{timeForToday(comment.date)}</Item>
           </Stack>
 
           {/* comment 글 내용 */}
           <Box
             key={index}
-            sx={{ padding: "0px 20px", color: comment.exist || "grey" }}
+            sx={{ padding: "0px 20px", color: comment.exist || "grey", 
+            textAlign:"left",marginTop:"1em", marginLeft:"2em" }}
+            
             // exist는 초기값으로 true를 가지며, removeComment를 통해 false로 변경된다.
           >
             <Markdown comment={comment} />
           </Box>
 
           {/* comment 수정 */}
-          {comment.exist && user === comment.writer && (
+          {comment.exist==1 && user == comment.writer && (
             <>
               {openEditor === comment.commentId && (
                 <Editor initialValue={comment.content} ref={editorRef} />
               )}
-              <Button
+              <Button sx={{ float:"right" }}
                 onClick={() => {
                   if (comment.commentId === openEditor) {
                     onEdit(comment.commentId);
@@ -156,7 +163,7 @@ const Comment = ({ no }) => {
               </Button>
 
               {/* comment 삭제 */}
-              <Button
+              <Button sx={{ float:"right" }}
                 onClick={() => {
                   onRemove(comment.commentId);
                 }}

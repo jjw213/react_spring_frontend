@@ -30,10 +30,6 @@ const PostView = () => {
           data ? (
             <>
               <div className="post-view-row">
-                <label>제목</label>
-                <label>{ data.title }</label>
-              </div>
-              <div className="post-view-row">
                 <label>작성자</label>
                 <label>{ data.writer }</label>
               </div>
@@ -44,6 +40,10 @@ const PostView = () => {
               <div className="post-view-row">
                 <label>조회수</label>
                 <label>{ data.readCount }</label>
+              </div>
+              <div className="post-view-row">
+                <label>제목</label>
+                <label>{ data.title }</label>
               </div>
               <div className="post-view-row">
                 <label>내용</label>

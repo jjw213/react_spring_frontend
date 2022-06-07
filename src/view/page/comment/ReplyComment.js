@@ -4,7 +4,7 @@ import { Box } from "@mui/system";
 import uuid from "react-uuid";
 
 import { useSelector, useDispatch } from "react-redux";
-import { saveReply, editReply, removeReply } from "../../../_actions/reply_action";
+import { saveReply, editReply, removeReply,showReply } from "../../../_actions/reply_action";
 import Markdown from "../component/Markdown";
 import { Editor } from "@toast-ui/react-editor";
 
@@ -18,9 +18,10 @@ import {
 const ReplyComment = ({ responseTo, user, no }) => {
   const [local, setLocal] = useState([]);
   const [display, setDisplay] = useState(false);
-
+  const [render, setRender]=useState(true);
   const dispatch = useDispatch();
   const comments = useSelector((state) => state.reply);
+  console.log("no임니다"+comments);
 
   // mock user
   const editorRef = useRef();
@@ -42,7 +43,18 @@ const ReplyComment = ({ responseTo, user, no }) => {
       commentId: uuid(),
       created_at: `${date}`
     };
-    dispatch(saveReply(data));
+    dispatch(saveReply(data))
+    .then((response) => {
+      if (response.payload != null) {
+        alert("작성 완료!");
+        setRender(!render);
+      } else {
+        alert("아이디 혹은 비밀번호가 틀렸어요:X");
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   };
 
   // Edit comment
@@ -62,9 +74,12 @@ const ReplyComment = ({ responseTo, user, no }) => {
   };
 
   useEffect(() => {
-    console.log(comments);
+    // dispatch(showReply(no))
+    //   .then((response)=>{
+    //     setLocal(response.payload.filter((comment) => comment.responseTo === responseTo))
+    //   })
     setLocal(comments.showReply.filter((comment) => comment.responseTo === responseTo));
-  }, [comments, responseTo]);
+  }, [ responseTo, comments.saveReply]);
   return (
     <Stack sx={{ m: 1, ml: 4 }}>
       <Button
@@ -81,7 +96,7 @@ const ReplyComment = ({ responseTo, user, no }) => {
       {display && (
         <div>
           {local.map((comment, index) => (
-            <Box sx={{ m: 2 }} key={comment.commentId}>
+            <Box sx={{ m: 1 }} key={comment.commentId}>
               {/* writer 정보, 작성 시간 */}
               <Stack direction="row" spacing={2}>
                 <ProfileIcon>
@@ -91,12 +106,12 @@ const ReplyComment = ({ responseTo, user, no }) => {
                 </ProfileIcon>
                 <Item>{comment.writer}</Item>
 
-                <Item>{timeForToday(comment.created_at)}</Item>
+                <Item>{timeForToday(comment.date)}</Item>
               </Stack>
               {/* comment 글 내용 */}
               <Box
                 key={index}
-                sx={{ padding: "0px 20px", color: comment.exist ?? "grey" }}
+                sx={{ padding: "0px 50px", color: comment.exist ?? "grey", textAlign:"left" }}
               >
                 <Markdown comment={comment} />
               </Box>
@@ -106,7 +121,7 @@ const ReplyComment = ({ responseTo, user, no }) => {
                   {openEditor === comment.commentId && (
                     <Editor initialValue={comment.content} ref={editorRef} />
                   )}
-                  <Button
+                  <Button sx={{ float:"right" }}
                     onClick={() => {
                       if (comment.commentId === openEditor) {
                         onEdit(comment.commentId);
@@ -120,7 +135,7 @@ const ReplyComment = ({ responseTo, user, no }) => {
                   </Button>
 
                   {/* comment 삭제 */}
-                  <Button
+                  <Button sx={{ float:"right" }}
                     onClick={() => {
                       onRemove(comment.commentId);
                     }}
