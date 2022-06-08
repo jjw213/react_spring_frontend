@@ -53,7 +53,7 @@ function CommunityPage() {
       .then((response) => {
         if (response.payload != null) {
           // props.history.push('/') 이제 안됌
-          navigate("/#");
+          navigate("/community");
         } else {
           setFormErrorMessage("포스팅 실패");
           alert("포스팅 실패");

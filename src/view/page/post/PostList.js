@@ -8,25 +8,30 @@ import CommonTableRow from '../../component/table/CommonTableRow';
 
 const PostList = props => {
   const [ dataList, setDataList ] = useState([]);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(10);
   const dispatch = useDispatch();
   const onSubmitHandler= ()=>{
+    console.log("page입니다!"+page)
     dispatch(showPost(page))
     .then((response) => {
+      if(response.payload.length>10){
+        
+      }
       setDataList(response.payload)
     });
   }
   const prevHandler=()=>{
-    setPage(page-10);
-    onSubmitHandler()
+    setPage(()=>(page<=10? page=10:page-10));
+    console.log("prev page입니다!"+page)
+    
   }
   const nextHandler=()=>{
     setPage(page+10);
-    onSubmitHandler();
+    console.log("next page입니다!"+page)
   }
   useEffect(() => {
     onSubmitHandler();
-  }, [])
+  }, [page])
 
   return (
     <>
@@ -46,7 +51,7 @@ const PostList = props => {
           }) : <div>데이터 없음!!</div>
         }
       </CommonTable>
-      {page<10 ? "":<button onClick={prevHandler}>Prev</button>}
+      {page<=10 ? "":<button onClick={prevHandler}>Prev</button>}
       <button onClick={nextHandler}>Next</button>
     </>
   )
