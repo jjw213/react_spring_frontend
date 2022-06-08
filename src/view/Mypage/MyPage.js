@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import GridCard from "../Animals/GridCard";
 import { Row } from "antd";
 import Modal from "./Modal";
 
 import "../../css/MyPage.css";
 import { deleteUser } from "../../_actions/user_action";
+import { showPost } from "../../_actions/board_action";
 
 
 function MyPage() {
@@ -16,6 +17,7 @@ function MyPage() {
     const [modalOpen, setModalOpen] = useState(false);
     const [reModalOpen, setReModalOpen] = useState(false);
     const [Password, setPassword] = useState("");
+    const [page, setPage] = useState(1);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const openModal = () => {
@@ -28,12 +30,9 @@ function MyPage() {
         setPassword(event.currentTarget.value);
     };
     useEffect(() => {
-        fetch(`/board2/boardList`)
-            .then((res) => {
-                return res.json();
-            })
-            .then((data) => {
-                setboardList(data);
+        dispatch(showPost(page))
+            .then((response) => {
+                setboardList(response.payload)
             });
     }, []);
 
@@ -45,17 +44,18 @@ function MyPage() {
         };
         dispatch(deleteUser(body))
             .then((response) => {
-                if (response.payload.name == null) { 
+                if (response.payload.name == null) {
                     console.log(response.payload.data);
                     alert("정상적으로 탈퇴가 완료되었습니다!");
-                    navigate('/'); }
-                    else {
-                        closeModal();
-                        setReModalOpen(true);
-                        setModalOpen(true);
-                        setTimeout(() => {
-                            setReModalOpen(false);
-                        }, 4000);
+                    navigate('/');
+                }
+                else {
+                    closeModal();
+                    setReModalOpen(true);
+                    setModalOpen(true);
+                    setTimeout(() => {
+                        setReModalOpen(false);
+                    }, 4000);
                 }
             })
             .catch(err => {
@@ -81,7 +81,7 @@ function MyPage() {
                 deleteId={deleteID}
             >
                 <div style={{ textAlign: "center" }}>
-                {reModalOpen ? <p style={{color:"red"}}>비밀번호가 일치하지 않습니다.</p>:""}
+                    {reModalOpen ? <p style={{ color: "red" }}>비밀번호가 일치하지 않습니다.</p> : ""}
                     <p>아이디 : {user.userData}</p>
                     <p>비밀번호 : <input type="password" onChange={onPasswordHandler} /></p>
                 </div>
@@ -121,21 +121,21 @@ function MyPage() {
             </div>
             <div
                 className="Listboard"
-                >
+            >
                 {boardList.map((ele) => (
                     <div className="key" key={ele.idx}>
-                    {user.userData==ele.writer ? <div className="showview">
-                    <div className="title">
-                        <Link to={`/postView/${ele.no}`}><div>{ele.title}</div></Link>
+                        {user.userData == ele.writer ? <div className="showview">
+                            <div className="title">
+                                <Link to={`/postView/${ele.no}`}><div>{ele.title}</div></Link>
+                            </div>
+                            <div className="content">
+                                <div>{ele.content}</div>
+                            </div>
+                        </div> : <div className="none"></div>}
                     </div>
-                    <div className="content">
-                        <div>{ele.content}</div>
-                    </div>
-                    </div> : <div className="none"></div>}                    
-                    </div>
-                    
+
                 ))}
-                </div>
+            </div>
 
         </div>
     )

@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import { loadAnimal } from "../../_actions/board_action";
 import { useDispatch } from "react-redux";
 import AnimalList from "./AnimalList";
@@ -108,7 +108,7 @@ function ApiTest() {
       window.addEventListener("scroll", handleScroll);
     }
   }, [disabled]);
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     const windowHeight =
       "innerHeight" in window
         ? window.innerHeight
@@ -135,7 +135,7 @@ function ApiTest() {
 
       buttonRef.current.click();
     }
-  };
+  },[] );
   return (
     <div>
       <div style={{ width: "100%", margin: "0" }}>

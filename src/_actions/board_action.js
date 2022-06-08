@@ -27,10 +27,11 @@ export async function savePost(dataToSubmit) {
     }
 }
 
-export async function showPost() {
-    const request = await axios.get(`/board2/boardList`, null,
+export async function showPost(dataToSubmit) {
+    const request = await axios.post(`/board2/boardList`, null,
         {
             params: {
+                page:dataToSubmit
             }
         })
         .then(response => response.data)
