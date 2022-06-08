@@ -124,8 +124,8 @@ function MyPage() {
             <div
                 className="Listboard"
             >
-                {boardList.map((ele) => (
-                    <div className="key" key={ele.idx}>
+                {boardList && boardList.map((ele) => (
+                    <div className="key" key={ele.no}>
                         {user.userData == ele.writer ? <div className="showview">
                             <div className="title">
                                 <Link to={`/postView/${ele.no}`}><div>{ele.title}</div></Link>

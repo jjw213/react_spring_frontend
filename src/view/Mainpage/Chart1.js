@@ -1,119 +1,116 @@
 
 import { ResponsivePie } from '@nivo/pie'
-import React,{useState, useEffect, Suspense} from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import axios from "axios";
 
 
-function MyResponsivePie() { 
+function MyResponsivePie() {
 
     const [animal, setAnimal] = useState([]);
 
-    const endPoint = async()=>{
-        axios.post(`/animal/countList`,null, 
-        {params:{numOfRows : 1000 , kindcd:"개"}})
-        .then(res=>{setAnimal(res.data)
-            console.log(res.data)
-        
-        })
-        
+    const endPoint = async () => {
+        axios.post(`/animal/countList`, null,
+            { params: { numOfRows: 1000, kindcd: "개" } })
+            .then(res => {
+                setAnimal(res.data)
+            })
+
     }
-    useEffect(()=>{
+    useEffect(() => {
         endPoint();
-    },[])
+    }, [])
 
 
     return (
-
-
-
         <ResponsivePie
-        data={animal}
-        margin={{ top: 55, right: 80, bottom: 55, left: 80 }}
-        innerRadius={0.5}
-        padAngle={0.7}
-        cornerRadius={3}
-        activeOuterRadiusOffset={8}
-        colors={{ scheme: 'blues' }}
-        borderWidth={1}
-        borderColor="black"
-        arcLinkLabelsSkipAngle={10}
-        arcLinkLabelsTextColor="#333333"
-        arcLinkLabelsThickness={2}
-        arcLinkLabelsColor={{ from: 'color', modifiers: [] }}
-        arcLabelsSkipAngle={10}
-        arcLabelsTextColor="black"
-        defs={[
-            {
-                id: 'dots',
-                type: 'patternDots',
-                background: 'inherit',
-                color: 'rgba(255, 255, 255, 0.3)',
-                size: 4,
-                padding: 1,
-                stagger: true
-            },
-            {
-                id: 'lines',
-                type: 'patternLines',
-                background: 'inherit',
-                color: 'rgba(255, 255, 255, 0.3)',
-                rotation: -45,
-                lineWidth: 6,
-                spacing: 10
-            }
-        ]}
-        fill={[
-            {
-                match: {
-                    id: 'ruby'
+            data={animal}
+            margin={{ top: 55, right: 80, bottom: 55, left: 80 }}
+            innerRadius={0.5}
+            padAngle={0.7}
+            cornerRadius={3}
+            activeOuterRadiusOffset={8}
+            colors={{ scheme: 'blues' }}
+            borderWidth={1}
+            borderColor="black"
+            arcLinkLabelsSkipAngle={10}
+            arcLinkLabelsTextColor="#333333"
+            arcLinkLabelsThickness={2}
+            arcLinkLabelsColor={{ from: 'color', modifiers: [] }}
+            arcLabelsSkipAngle={10}
+            arcLabelsTextColor="black"
+            defs={[
+                {
+                    id: 'dots',
+                    type: 'patternDots',
+                    background: 'inherit',
+                    color: 'rgba(255, 255, 255, 0.3)',
+                    size: 4,
+                    padding: 1,
+                    stagger: true
                 },
-                id: 'dots'
-            },
-            {
-                match: {
-                    id: 'c'
+                {
+                    id: 'lines',
+                    type: 'patternLines',
+                    background: 'inherit',
+                    color: 'rgba(255, 255, 255, 0.3)',
+                    rotation: -45,
+                    lineWidth: 6,
+                    spacing: 10
+                }
+            ]}
+            fill={[
+                {
+                    match: {
+                        id: 'ruby'
+                    },
+                    id: 'dots'
                 },
-                id: 'dots'
-            },
-            {
-                match: {
-                    id: 'go'
+                {
+                    match: {
+                        id: 'c'
+                    },
+                    id: 'dots'
                 },
-                id: 'dots'
-            },
-            {
-                match: {
-                    id: 'python'
+                {
+                    match: {
+                        id: 'go'
+                    },
+                    id: 'dots'
                 },
-                id: 'dots'
-            },
-            {
-                match: {
-                    id: 'scala'
+                {
+                    match: {
+                        id: 'python'
+                    },
+                    id: 'dots'
                 },
-                id: 'lines'
-            },
-            {
-                match: {
-                    id: 'lisp'
+                {
+                    match: {
+                        id: 'scala'
+                    },
+                    id: 'lines'
                 },
-                id: 'lines'
-            },
-            {
-                match: {
-                    id: 'elixir'
+                {
+                    match: {
+                        id: 'lisp'
+                    },
+                    id: 'lines'
                 },
-                id: 'lines'
-            },
-            {
-                match: {
-                    id: 'javascript'
+                {
+                    match: {
+                        id: 'elixir'
+                    },
+                    id: 'lines'
                 },
-                id: 'lines'
-            }
-        ]}
-        legends={[]}
-    />
+                {
+                    match: {
+                        id: 'javascript'
+                    },
+                    id: 'lines'
+                }
+            ]}
+            legends={[]}
+        />
 
-)}
+    )
+}
 export default MyResponsivePie

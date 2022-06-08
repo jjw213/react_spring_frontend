@@ -10,9 +10,8 @@ function MyResponsivePie() {
     const endPoint = async()=>{
         axios.post(`/animal/countList`,null, 
         {params:{numOfRows : 1000 , kindcd:"고양이"}})
-        .then(res=>{setAnimal(res.data)
-            console.log(res.data)
-        
+        .then(res=>{
+            setAnimal(res.data)
         })
         
     }

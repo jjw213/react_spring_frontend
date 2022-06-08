@@ -42,7 +42,7 @@ function App() {
           <Route exact path="/members/kakaoLogin" element={Auth()}/>
           <Route exact path="/members/kakaoLogout" element={KakaoLogout()}/> 
           <Route exact path="/apiTest" element={ApiTest()}/> 
-          <Route exact path="/MyPage" element={MyPage()}/>
+          <Route exact path="/myPage" element={MyPage()}/>
           
           <Route exact path='/postView/:no' element={<PostView/>} />
         <Route exact path='/community' element={PostMain()} />
