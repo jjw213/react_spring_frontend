@@ -49,7 +49,7 @@ function Main() {
 
 
             <section id="section4">
-                <TextSlide></TextSlide>
+                {/* <TextSlide></TextSlide> */}
                 <SectionSlide></SectionSlide>
                 <AnimateSection></AnimateSection>
             </section>

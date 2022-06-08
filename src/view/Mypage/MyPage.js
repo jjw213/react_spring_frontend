@@ -5,6 +5,8 @@ import GridCard from "../Animals/GridCard";
 import { Row } from "antd";
 import Modal from "./Modal";
 
+
+
 import "../../css/MyPage.css";
 import { deleteUser } from "../../_actions/user_action";
 import { showPost } from "../../_actions/board_action";
