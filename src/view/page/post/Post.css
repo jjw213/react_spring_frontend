@@ -14,15 +14,23 @@
 
 .post-view-row {
   margin: 10px 0;
-  display: flex;
+  display: inline;
 }
 
 .post-view-row > label:first-child {
-  margin: 10px 0;
+  margin: 10px 20px;
   width: 30%;
   font-weight: bold;
 }
-
+.post-view-row > h1 {
+  margin: 60px 20px;
+  font-weight: bold;
+  font-size: x-large;
+}
+.post-view-row > p {
+  margin: 20px;
+  font-size: larger;
+}
 .post-view-row > *:nth-child(2) {
   margin: 10px 0;
 }

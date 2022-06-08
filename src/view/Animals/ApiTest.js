@@ -36,7 +36,7 @@ function ApiTest() {
   const [isHover1, setIsHover1] = useState(false);
   const [isHover2, setIsHover2] = useState(false);
   const [isHover3, setIsHover3] = useState(false);
-  const [disabled, setDisabled] = useState(false);
+  const [disabled, setDisabled] = useState(true);
   const handleSelect = (e) => {
     setSelected(e.target.value);
     setNumOfRows(50);
@@ -101,8 +101,13 @@ function ApiTest() {
     });
   };
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-  }, []);
+    console.log("disabled의 상태 "+disabled);
+    if(disabled){
+      window.removeEventListener("scroll", handleScroll);
+    }else{
+      window.addEventListener("scroll", handleScroll);
+    }
+  }, [disabled]);
   const handleScroll = () => {
     const windowHeight =
       "innerHeight" in window

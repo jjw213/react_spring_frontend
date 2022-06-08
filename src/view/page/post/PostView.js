@@ -42,16 +42,16 @@ const PostView = () => {
                 <label>{ data.readCount }</label>
               </div>
               <div className="post-view-row">
-                <label>제목</label>
-                <label>{ data.title }</label>
+                {/* <label>제목</label> */}
+                <h1>{ data.title }</h1>
               </div>
               <div className="post-view-row">
-                <label>내용</label>
-                <div>
+                {/* <label>내용</label> */}
+                <p>
                   {
                     data.content
                   }
-                </div>
+                </p>
               </div>
             </>
           ) : '해당 게시글을 찾을 수 없습니다.'

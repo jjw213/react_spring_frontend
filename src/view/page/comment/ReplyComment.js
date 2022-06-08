@@ -21,7 +21,6 @@ const ReplyComment = ({ responseTo, user, no }) => {
   const [render, setRender]=useState(true);
   const dispatch = useDispatch();
   const comments = useSelector((state) => state.reply);
-  console.log("no임니다"+comments);
 
   // mock user
   const editorRef = useRef();
@@ -65,23 +64,45 @@ const ReplyComment = ({ responseTo, user, no }) => {
     console.log(getContent);
 
     let data = { commentId: commentId, content: getContent };
-    dispatch(editReply(data));
+    dispatch(editReply(data))
+    .then((response) => {
+      if (response.payload != null) {
+        alert("수정 완료!");
+        setRender(!render);
+      } else {
+        alert("에러 발생!");
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   };
 
   // Remove comment
   const onRemove = (commentId) => {
-    dispatch(removeReply(commentId));
+    dispatch(removeReply(commentId))
+    .then((response) => {
+      if (response.payload != null) {
+        alert("삭제 완료!");
+        setRender(!render);
+      } else {
+        alert("에러 발생!");
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   };
 
   useEffect(() => {
-    // dispatch(showReply(no))
-    //   .then((response)=>{
-    //     setLocal(response.payload.filter((comment) => comment.responseTo === responseTo))
-    //   })
-    setLocal(comments.showReply.filter((comment) => comment.responseTo === responseTo));
-  }, [ responseTo, comments.saveReply]);
+    dispatch(showReply(no))
+      .then((response)=>{
+        setLocal(response.payload.filter((comment) => comment.responseTo === responseTo))
+      })
+    // setLocal(comments.showReply.filter((comment) => comment.responseTo === responseTo));
+  }, [ responseTo, render]);
   return (
-    <Stack sx={{ m: 1, ml: 4 }}>
+    <Box sx={{ m: 1, ml: 4 }}>
       <Button
         onClick={() => {
           setDisplay(!display);
@@ -145,7 +166,7 @@ const ReplyComment = ({ responseTo, user, no }) => {
                 </>
               )}
               {/* 대댓글 컴포넌트 */}
-              <ReplyComment responseTo={comment.commentId} user={user} />
+              <ReplyComment responseTo={comment.commentId} user={user} no={no} />
               <Divider variant="middle" />{" "}
             </Box>
           ))}
@@ -159,7 +180,7 @@ const ReplyComment = ({ responseTo, user, no }) => {
           </div>
         </div>
       )}
-    </Stack>
+    </Box>
   );
 };
 
