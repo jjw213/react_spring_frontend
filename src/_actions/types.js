@@ -14,4 +14,5 @@ export const DIBS_LIST = 'dibs_list';
 export const DIBS_ANIMAL = 'dibs_animal';
 export const SHOW_REPLY = 'show_reply';
 export const SAVE_REPLY = 'save_reply';
+export const REMOVE_REPLY = 'remove_reply';
 

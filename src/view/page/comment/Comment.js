@@ -47,8 +47,6 @@ const Comment = ({ no }) => {
 
     // 데이터 저장
     // setCommentValule(text);
-    console.log("no입니다!!"+no);
-    console.log("user입니다!!"+user);
     const data = {
       content: getContent,
       writer: user,
@@ -63,7 +61,7 @@ const Comment = ({ no }) => {
         alert("작성 완료!");
         setRender(!render);
       } else {
-        alert("아이디 혹은 비밀번호가 틀렸어요:X");
+        alert("에러 발생!");
       }
     })
     .catch((err) => {
@@ -79,12 +77,34 @@ const Comment = ({ no }) => {
     console.log(getContent);
 
     let data = { commentId: commentId, content: getContent };
-    dispatch(editReply(data));
+    dispatch(editReply(data))
+    .then((response) => {
+      if (response.payload != null) {
+        alert("수정 완료!");
+        setRender(!render);
+      } else {
+        alert("에러 발생!");
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   };
 
   // Remove comment
   const onRemove = (commentId) => {
-    dispatch(removeReply(commentId));
+    dispatch(removeReply(commentId))
+    .then((response) => {
+      if (response.payload != null) {
+        alert("삭제 완료!");
+        setRender(!render);
+      } else {
+        alert("에러 발생!");
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   };
 
   useEffect(() => {
@@ -96,7 +116,7 @@ const Comment = ({ no }) => {
   }, [no, render]);
 
   return (
-    <Paper sx={{ m: 15, p: 3 }}>
+    <Paper sx={{ m: "5%", p: 3  }}>
       <Button
         onClick={() => {
           setDisplay(!display);

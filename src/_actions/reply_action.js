@@ -3,6 +3,7 @@ import axios from 'axios';
 import {
     SHOW_REPLY,
     SAVE_REPLY,
+    REMOVE_REPLY
 } from './types';
 // import { USER_SERVER } from '../components/Config.js';
 
@@ -56,13 +57,13 @@ export async function removeReply(dataToSubmit) {
     const request = await axios.post(`/reply/remove`, null,
         {
             params: {  
-                commentId: dataToSubmit.commentId,
+                commentId: dataToSubmit,
             }
         })
         .then(response => response.data)
     //.then(setAuthHeader(response => response.dataToSubmit.token));
     return {
-        type: SAVE_REPLY,
+        type: REMOVE_REPLY,
         payload: request
     }
 }
