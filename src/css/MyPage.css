@@ -18,41 +18,39 @@ body{
 .DibsList {
     text-align: left;
     margin-left: 5%;
-    margin-bottom: 2%;
+    margin-right: 50%;
+    margin-bottom: 10px;
+    border-bottom: solid 1px black;
     font-size: large;
 }
 
-div div {
-    margin: 10px;
-}
 
-div div div {
-    margin: 0px;
-}
-
-table div {
-    width: 100%;
-}
-
-table div div {
-    width: 90%;
-    margin: 0 auto;
-}
-table div div th {
-    width: 30%;
-    text-align: left;
-}
 #Alllist{
     width: 90%;
+    height: 50px;
     margin: 0 auto;
+    display: block;
 }
 
 #Alllist div {
     display: block;
     float: left;
-    width: 30%;
     text-align: left;
+    padding-left: 5px;
+    margin-top: 10px;
+    border-left: solid 5px greenyellow;
+    border-bottom: solid 1px black;
 }
+
+#Alllist :first-child{
+    width: 30%;
+    height: 30px;
+}
+#Alllist :last-child{
+    width: 70%;
+    height: 30px;
+}
+
 
 
 .DeleteID{
@@ -63,8 +61,66 @@ table div div th {
 .WriteList{
     text-align: left;
     margin-left: 5%;
-    margin-bottom: 2%;
-    margin-top: 30px;
+    margin-right: 50%;
+    margin-bottom: 10px;
     font-size: large;
+    border-bottom: solid 1px black;
+}
 
+
+.Listboard {
+    width: 90%;
+    margin: 0 auto;
+}
+.Listboard div {
+    display: block;
+}
+
+.key {
+    width: 100%;
+}
+.showview {
+    width: 100%;
+}
+
+.key div {
+    float: left;
+    display: block;
+}
+.title {
+    width: 30%;
+    height: 50px;
+    border: solid 1px gray;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.title div {
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 10%;
+    width: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.content{
+    width: 70%;
+    height: 50px;
+    border: solid 1px gray;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.content div {
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 5%;
+    width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
 }

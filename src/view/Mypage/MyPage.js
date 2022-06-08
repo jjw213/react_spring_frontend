@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {useNavigate } from "react-router-dom";
+import {Link, useNavigate } from "react-router-dom";
 import GridCard from "../Animals/GridCard";
 import { Row } from "antd";
 import Modal from "./Modal";
@@ -118,30 +118,24 @@ function MyPage() {
             <div id="Alllist">
                 <div>제목</div>
                 <div>내용</div>
-                <div>이름</div>
             </div>
-            <table
-                className="table table--vertical"
-                cellPadding={"0"}
-                cellSpacing="0"
+            <div
+                className="Listboard"
                 >
                 {boardList.map((ele) => (
-                    <div key={ele.idx}>
-                    {user.userData==ele.writer ? <div>
-                    <th className="title">
-                        <h4>{ele.title}</h4>
-                    </th>
-                    <th>
-                        <div>{ele.content}</div>
-                    </th>
-                    <th>
-                        <div>작성자 : {ele.writer}</div>
-                    </th>
-                    </div> : ""}                    
-                    <hr/>
+                    <div className="key" key={ele.idx}>
+                    {user.userData==ele.writer ? <div className="showview">
+                    <div className="title">
+                        <Link to={`/postView/${ele.no}`}><div>{ele.title}</div></Link>
                     </div>
+                    <div className="content">
+                        <div>{ele.content}</div>
+                    </div>
+                    </div> : <div className="none"></div>}                    
+                    </div>
+                    
                 ))}
-                </table>
+                </div>
 
         </div>
     )
