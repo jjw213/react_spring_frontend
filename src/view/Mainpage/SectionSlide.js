@@ -85,7 +85,7 @@ function useInterval(callback, delay) {
           <div className="md:w-1/4 py-64 md:mb-0 mb-6 flex flex-col text-center items-center" 
           style={{float:"left",marginTop:"19%"}}>
             <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-orange-100 text-orange-500 mb-5 flex-shrink-0">
-              <button onClick={checkNext}>{'<'}</button>
+              <button className="w-btn-neon2" onClick={checkNext}>{'<'}</button>
             </div>
           </div>
           <div className="md:w-2/4 md:mb-0 mb-6 flex flex-col text-center items-center" 
@@ -132,7 +132,7 @@ function useInterval(callback, delay) {
           <div className="md:w-1/4 py-64 md:mb-0 mb-6 flex flex-col text-center items-center"
            style={{float:"left",marginTop:"19%"}}>
             <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-orange-100 text-orange-500 mb-5 flex-shrink-0">
-              <button onClick={checkNext}>{'>'}</button>
+              <button className="w-btn-neon2" onClick={checkNext}>{'>'}</button>
             </div>
           </div>
           <div id="Textlink"
@@ -146,7 +146,7 @@ function useInterval(callback, delay) {
               <br/>
               알아볼수있는 정보사이트입니다.
             </p>
-            <button class="w-btn-outline w-btn-blue-outline" type="button"><Link to = {"/apiTest"}>Click</Link></button>
+            <button className="w-btn-outline w-btn-blue-outline" type="button"><Link to = {"/apiTest"}>Click</Link></button>
           </div> : 
           selectedIndex==1?<div>
             <h1>다양한이들과의 의사소통</h1>
@@ -155,18 +155,18 @@ function useInterval(callback, delay) {
               <br/>
               다른이들과 다양한 정보를 나누세요.
             </p>
-            <button class="w-btn-outline w-btn-brown-outline" type="button"><Link to = {"/community"}>Click</Link></button>
+            <button className="w-btn-outline w-btn-brown-outline" type="button"><Link to = {"/community"}>Click</Link></button>
           </div>:
           selectedIndex==2?<div>
             <h1>로그인 기능</h1>
             <p>
               회원가입과 로그인기능
               <br/>
-              카카오톡과 연결하여 가입가능
+              카카오톡과 연결하여 가입가능이 있습니다.
               <br/>
-              친구에게 공유가 가능하다.
+              친구에게 공유가 가능합니다.
             </p>
-            <button class="w-btn-outline w-btn-green-outline" type="button">
+            <button className="w-btn-outline w-btn-green-outline" type="button">
               {user.userData == null?
               <Link to = {"/members/memberLogin"}>Click</Link>:
               <Link to = {"/MyPage"}>Click</Link>
