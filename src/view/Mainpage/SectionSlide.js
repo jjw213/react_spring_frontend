@@ -1,8 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import image1 from "../../css/img/image1.png";
 import image2 from "../../css/img/image2.png";
 import image3 from "../../css/img/image3.png";
 import image4 from "../../css/img/image4.png";
+import { useSelector } from "react-redux";
+import "../../css/button.css";
 
 function SectionSlide(){
 
@@ -48,7 +51,7 @@ function SectionSlide(){
     // )
     const [selectedIndex, setSelectedIndex] = React.useState(0);
     const [count, setCount] = useState(0);
-
+    const user = useSelector((state) => state.user)
   const checkNext = () => {
     const labels = document.querySelectorAll('#slider label');
     const nextIndex = selectedIndex === (labels.length - 1) ? 0 : selectedIndex + 1; 
@@ -77,8 +80,8 @@ function useInterval(callback, delay) {
   }
 
     return (
-      <div>
-        <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
+      <div className="space">
+        <div className="flex flex-wrap sm:-m-4 -mx-6 -mb-10 -mt-4">
           <div className="md:w-1/4 py-64 md:mb-0 mb-6 flex flex-col text-center items-center" 
           style={{float:"left",marginTop:"19%"}}>
             <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-orange-100 text-orange-500 mb-5 flex-shrink-0">
@@ -86,7 +89,7 @@ function useInterval(callback, delay) {
             </div>
           </div>
           <div className="md:w-2/4 md:mb-0 mb-6 flex flex-col text-center items-center" 
-          style={{    margin: "5% 9%" ,float:"left"}}>
+          style={{    margin: "5% 15%" ,float:"left"}}>
             <section
               id="slider"
               className="w-16 h-20 inline-flex items-center justify-center mb-5 flex-shrink-0"
@@ -132,7 +135,47 @@ function useInterval(callback, delay) {
               <button onClick={checkNext}>{'>'}</button>
             </div>
           </div>
+          <div id="Textlink"
+          style={{float:"left"}}>
+          {selectedIndex==0? <div>
+            <h1>유기동물 검색 시스템</h1>
+            <p>
+              다양한 유기동물의 대한 정보사이트 입니다.
+              <br/>
+              자신이 원하는 동물을 원하는 지역에 맞춰서
+              <br/>
+              알아볼수있는 정보사이트입니다.
+            </p>
+            <button class="w-btn-outline w-btn-blue-outline" type="button"><Link to = {"/apiTest"}>Click</Link></button>
+          </div> : 
+          selectedIndex==1?<div>
+            <h1>다양한이들과의 의사소통</h1>
+            <p>
+              커뮤니티 페이지가 존재합니다.
+              <br/>
+              다른이들과 다양한 정보를 나누세요.
+            </p>
+            <button class="w-btn-outline w-btn-brown-outline" type="button"><Link to = {"/community"}>Click</Link></button>
+          </div>:
+          selectedIndex==2?<div>
+            <h1>로그인 기능</h1>
+            <p>
+              회원가입과 로그인기능
+              <br/>
+              카카오톡과 연결하여 가입가능
+              <br/>
+              친구에게 공유가 가능하다.
+            </p>
+            <button class="w-btn-outline w-btn-green-outline" type="button">
+              {user.userData == null?
+              <Link to = {"/members/memberLogin"}>Click</Link>:
+              <Link to = {"/MyPage"}>Click</Link>
+            }</button>
+          </div>:""
+        }
         </div>
+        </div>
+        
       </div>
     );
 }

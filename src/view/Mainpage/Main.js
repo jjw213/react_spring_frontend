@@ -51,7 +51,7 @@ function Main() {
             <section id="section4">
                 {/* <TextSlide></TextSlide> */}
                 <SectionSlide></SectionSlide>
-                <AnimateSection></AnimateSection>
+                {/* <AnimateSection></AnimateSection> */}
             </section>
 
 
