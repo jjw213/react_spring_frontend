@@ -23,114 +23,7 @@ header {
   display: flex;
   justify-content: space-between;
 }
-@media screen and (max-width: 500px) {
-  .container {
-    position: relative;
-    z-index: 1;
-    max-width: 100%;
-    margin: 0 auto;
-    height: 100%;
-    min-height: 100%;
-  }
-
-  .login-form {
-    -webkit-box-pack: center;
-    /* justify-content: center;
-  position: relative;
-  */
-    z-index: 1;
-    width: calc(100% - 80px);
-    /* width: 1120px/1280px */
-    padding: 40px 3.125%;
-    /* padding : 40px/1280px */
-    margin: 40px;
-    height: 90%;
-    background-repeat: no-repeat;
-    background-color: rgb(136, 175, 207);
-    background-size: 250px;
-    border-radius: 1rem;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.24);
-    justify-content: flex-end;
-  }
-
-  .form-group {
-    display: grid;
-    align-items: center;
-  }
-
-  .form-group input {
-    display: flex;
-    align-items: center;
-    font-family: sans-serif;
-    outline: 0;
-    background-color: white;
-    border-radius: 10px;
-    width: auto;
-    min-height: 80%;
-    border: 1.5px solid white;
-    margin: 0 0 15px;
-    padding: 1rem;
-    box-sizing: border-box;
-    font-size: 1rem;
-    text-align: center;
-  }
-
-  .form-group2 {
-    display: grid;
-    align-items: center;
-  }
-
-  .form-group2 input {
-    display: flex;
-    align-items: center;
-    font-family: sans-serif;
-    outline: 0;
-    background-color: white;
-    border-radius: 10px;
-    width: auto;
-    min-height: 80%;
-    border: 1.5px solid white;
-    margin: 0 0 15px;
-    padding: 1rem;
-    box-sizing: border-box;
-    font-size: 1rem;
-    text-align: center;
-  }
-
-  .login-form button {
-    display: grid;
-    margin: 0 auto 10px auto;
-    font-family: sans-serif;
-    background-color: rgb(247, 239, 190);
-    width: 100%;
-    border: 0;
-    border-radius: 1rem;
-    padding: 9px;
-    color: black;
-    font-size: 1rem;
-    justify-content: center;
-    cursor: pointer; /* 마우스가 올라갈때 손가락 모양으로 바뀐다. */
-  }
-
-  .loginName {
-    display: grid;
-    font-family: sans-serif;
-    color: black;
-    text-align: center;
-    font-size: 1rem;
-  }
-
-  .passwordName {
-    display: grid;
-    align-content: center;
-    font-family: sans-serif;
-    color: black;
-    text-align: center;
-    font-size: 1rem;
-  }
-}
 /* ------------680px 이하 */
-@media  (max-width:700px) and (min-width: 500px) {
 .login-form {
   display: flex;
   -webkit-box-pack: center;
@@ -138,15 +31,11 @@ header {
   position: relative;
   z-index: 1;
   transform: translate(0%, -10%);
-  /* background-image: url("../css/img/corgi.png");
-  background-size: 340px;
-  background-position: left;
-  background-repeat: no-repeat; */
   background-color: rgb(136, 175, 207);
   border-radius: 2rem;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.24);
 }
-}
+
 /* -----------데스크탑---------- */
 @media  screen and (min-width: 700px) {
   .login-form {
@@ -165,7 +54,6 @@ header {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.24);
   }
   }
-@media screen and (min-width: 500px) {
   .container {
     position: relative;
     z-index: 1;
@@ -173,7 +61,6 @@ header {
     margin: 90px;
     height: 100%;
     min-height: 100%;
-    /* padding-bottom: 70px; footer 의 높이만큼 아래쪽 공백주기 */
   }
 
   .login-form {
@@ -200,7 +87,7 @@ header {
   .login-form button {
     display: grid;
     align-items: center;
-    margin: 0 auto 10px auto;
+    margin: 10px auto;
     font-family: sans-serif;
     outline: 0;
     background-color: rgb(247, 239, 190);
@@ -227,7 +114,6 @@ header {
     color: black;
     text-align: center;
   }
-}
 /* -------------------------------------------- */
 .kakaoLoginBtn {
   display: grid;
@@ -248,14 +134,14 @@ header {
   position: relative;
   z-index: 5;
 
-  animation-name: slideExpandUp;
+  /* animation-name: slideExpandUp;
   -webkit-animation-name: slideExpandUp;
 
   animation-duration: 1.6s;
   -webkit-animation-duration: 1.6s;
 
   animation-timing-function: ease-out;
-  -webkit-animation-timing-function: ease -out;
+  -webkit-animation-timing-function: ease -out; */
 
   visibility: visible !important;
 }
@@ -297,14 +183,14 @@ header {
     font-weight: 500;
     position: relative;
     z-index: 5;
-    animation-name: slideExpandUp;
+    /* animation-name: slideExpandUp;
     -webkit-animation-name: slideExpandUp;
 
     animation-duration: 1.6s;
     -webkit-animation-duration: 1.6s;
 
     animation-timing-function: ease-out;
-    -webkit-animation-timing-function: ease -out;
+    -webkit-animation-timing-function: ease -out; */
 
     visibility: visible !important;
   }
@@ -375,155 +261,6 @@ header {
 .login-form button:focus {
   background-color: rgb(248, 190, 105);
 }
-
-/* signPage css */
-/* 
-.signContainer {
-  position: relative;
-  z-index: 1;
-  max-width: 100%;
-  margin: 0 auto;
-  height: 100%;
-  min-height: 100%;
-}
-
-.signName {
-  display: grid;
-  align-content: center;
-  font-family: sans-serif;
-  color: black;
-  text-align: center;
-  font-size: 50%;
-}
-
-@media all and (min-width: 480px) and (min-height: 480px) {
-  .signName {
-    display: grid;
-    align-content: center;
-    font-family: sans-serif;
-    color: black;
-    text-align: center;
-    font-size: 14px;
-  }
-}
-
-.signPassword {
-  display: grid;
-  align-content: center;
-  font-family: sans-serif;
-  color: black;
-  text-align: center;
-  font-size: 50%;
-}
-
-@media all and (min-width: 480px) and (min-height: 480px) {
-  .signPassword {
-    display: grid;
-    align-content: center;
-    font-family: sans-serif;
-    color: black;
-    text-align: center;
-    font-size: 14px;
-  }
-}
-
-.signPasswordCon {
-  display: grid;
-  align-content: center;
-  font-family: sans-serif;
-  color: black;
-  text-align: center;
-  font-size: 50%;
-}
-
-@media all and (min-width: 480px) and (min-height: 480px) {
-  .signPasswordCon {
-    display: grid;
-    align-content: center;
-    font-family: sans-serif;
-    color: black;
-    text-align: center;
-    font-size: 14px;
-  }
-}
-
-.sign-form {
-  display: grid;
-  align-content: center;
-  margin: 0 auto;
-}
-
-@media all and (min-width: 480px) and (min-height: 480px) {
-  .sign-form {
-    margin-left: 60%;
-  }
-}
-
-.signForm {
-  display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
-  transform: translate(0%, -10%);
-
-  background-repeat: no-repeat;
-  background-color: rgb(93, 190, 165);
-  border-radius: 10%;
-  margin: 10%;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.24);
-}
-
-@media all and (min-width: 480px) and (min-height: 480px) {
-  .signForm {
-    display: flex;
-    -webkit-box-pack: center;
-    justify-content: center;
-    position: relative;
-    z-index: 1;
-    transform: translate(0%, -10%);
-    background-image: url("../css/img/neko.png");
-    background-size: 480px;
-    background-color: rgb(93, 190, 165);
-    border-radius: 10%;
-    text-align: center;
-    margin: 10%;
-    padding: 45px;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.24);
-  }
-}
-
-.signForm input {
-  display: grid;
-  align-items: center;
-  font-family: sans-serif;
-  outline: 0;
-  background-color: white;
-  border-radius: 10px;
-  width: 100%;
-  border: 1.5px solid white;
-  margin: 0 0 15px;
-  padding: 9px;
-  box-sizing: border-box;
-  font-size: 50%;
-}
-
-@media all and (min-width: 480px) and (min-height: 480px) {
-  .signForm input {
-    display: grid;
-    align-items: center;
-    font-family: sans-serif;
-    outline: 0;
-    background-color: white;
-    border-radius: 10px;
-    width: 110%;
-    border: 1.5px solid white;
-    margin: 0 0 15px;
-    padding: 9px;
-    box-sizing: border-box;
-    font-size: 14px;
-  }
-} */
 
 @media screen and (max-width: 500px) {
   .signContainer {
@@ -645,7 +382,7 @@ header {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.24);
   }
   }
-@media screen and (min-width: 500px) {
+
   .signContainer {
     position: relative;
     z-index: 1;
@@ -660,7 +397,7 @@ header {
     display: grid;
     align-content: center;
     margin: 10% 15%;
-    height: 400px;
+    height: 500px;
   }
 
   .sign-form input {
@@ -708,7 +445,7 @@ header {
     color: black;
     text-align: center;
   }
-}
+
 /* -------------------------------------------- */
 
 

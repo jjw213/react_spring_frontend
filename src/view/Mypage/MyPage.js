@@ -19,7 +19,7 @@ function MyPage() {
     const [modalOpen, setModalOpen] = useState(false);
     const [reModalOpen, setReModalOpen] = useState(false);
     const [Password, setPassword] = useState("");
-    const [page, setPage] = useState(1);
+    const [page, setPage] = useState(10);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const openModal = () => {

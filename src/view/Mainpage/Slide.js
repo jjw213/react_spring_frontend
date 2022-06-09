@@ -1,4 +1,4 @@
-import React,{useState, useEffect, Suspense} from "react";
+import React,{useState, useEffect, Suspense, useCallback} from "react";
 import axios from "axios";
 
 function Slide(){
@@ -9,14 +9,15 @@ function Slide(){
     // const [img3, setImg3] = useState([]);
     // const [img4, setImg4] = useState([]);
 
-    const endPoint = async()=>{
+    const endPoint = useCallback(()=>{
         axios.post(`/animal/mainList`,null, 
         {params:{numOfRows : 4 }})
         .then(res=>{setAnimal(res.data)
         setImg1(res.data[0].popfile)
         })
-        console.log(animal)
-    }
+        return ()=>{}
+    },[]);
+    
     useEffect(()=>{
         endPoint();
     },[])

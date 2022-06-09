@@ -1,22 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { registerUser } from "../../_actions/user_action";
+import { checkUser, registerUser } from "../../_actions/user_action";
 import "../../css/main.css";
 import SignUpInput from "./SignUpInput";
 
-function SignPage(props) {
-  const kakaoid = props;
+function SignPage() {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [Name, setName] = useState("");
+  const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const [ConfirmPassword, setConfirmPassword] = useState("");
-  const [isActive, setIsActive] = useState(false);
+  const [disabled, setDisabled] = useState(false);
 
   const onNameHandeler = (event) => {
     setName(event.currentTarget.value);
+    
+  };
+  const onEmailHandler = (event) => {
+    setEmail(event.currentTarget.value);
   };
   const onPasswordHandler = (event) => {
     setPassword(event.currentTarget.value);
@@ -24,49 +28,50 @@ function SignPage(props) {
   const onConfirmPasswordHandler = (event) => {
     setConfirmPassword(event.currentTarget.value);
   };
-  // const onCheckHandler =()=>{
-  //   Name.includes("@") && Password.length >=5 && Password==ConfirmPassword
-  //   ? setIsActive(true) : setIsActive(false)
-  //   console.log("is액티브??"+isActive)
-  // }
-
+  const onCheckHandler =()=>{
+    dispatch(checkUser(Name))
+      .then((response)=>{
+        if (response.payload != null && response.payload != '') {
+          setDisabled(true);
+        } else {
+          setDisabled(false);
+        }
+      })
+  }
+  useEffect(()=>{
+    onCheckHandler();
+},[Name])
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    console.log(Password.length);
-    console.log("비번, 확인 : "+Password+ConfirmPassword);
-    console.log("@ 포함?  "+Name);
 
     if (Password!=ConfirmPassword) {
       return alert("비밀번호와 확인이 일치하지 않습니다.");
-    }else if( Password.length <5) {
-      return alert("비밀번호는 5자리 이상이여야 합니다.");
-    }else if(!Name.includes("@")){
-      console.log("@포합이니?"+Name.includes("@"))
+    }else if( Password.length <8) {
+      return alert("비밀번호는 8자리 이상이여야 합니다.");
+    }else if(!Email.includes("@")){
       return alert("아이디는 (@가 포함된) 이메일 형식이어야 합니다.");
+    }else if(Name.length>20){
+      return alert("아이디는 20글자 이하여야 합니다.");
     }
+    
     let body = {
       name: Name,
       password: Password,
       kakao_id: 0,
+      email:Email
     };
     dispatch(registerUser(body))
       .then((response) => {
-        if (response.payload != null) {
-          // props.history.push('/') 이제 안됌
+        if (response.payload != null && response.payload != '') {
           alert("회원가입 축하드립니다!");
           navigate("/");
         } else {
-          //    setFormErrorMessage("아이디 혹은 비번 틀림")
-          alert("아이디 혹은 비밀번호가 틀렸어요:X");
+          alert("이미 존재하는 이메일 입니다.");
         }
       })
       .catch((err) => {
         console.log(err);
-        // setFormErrorMessage('서버 연결이 불안정합니다.')
-        setTimeout(() => {
-          //   setFormErrorMessage("")
-        }, 3000);
       });
   };
   return (
@@ -79,6 +84,8 @@ function SignPage(props) {
         name={onNameHandeler}
         pw={onPasswordHandler}
         pwc={onConfirmPasswordHandler}
+        email={onEmailHandler}
+        disabled={disabled}
       />
       <footer>
         <ul className="footer-list">

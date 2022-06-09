@@ -7,27 +7,27 @@ import CommonTableColumn from '../../component/table/CommonTableColumn';
 import CommonTableRow from '../../component/table/CommonTableRow';
 
 const PostList = props => {
-  const [ dataList, setDataList ] = useState([]);
+  const [dataList, setDataList] = useState([]);
   const [page, setPage] = useState(10);
+  const [next, setNext] = useState(true);
   const dispatch = useDispatch();
-  const onSubmitHandler= ()=>{
-    console.log("page입니다!"+page)
+  const onSubmitHandler = () => {
     dispatch(showPost(page))
-    .then((response) => {
-      if(response.payload.length>10){
-        
-      }
-      setDataList(response.payload)
-    });
+      .then((response) => {
+        if (response.payload.length < 10) {
+          setNext(false);
+        }
+        else{
+          setNext(true);
+        }
+        setDataList(response.payload)
+      });
   }
-  const prevHandler=()=>{
-    setPage(()=>(page<=10? page=10:page-10));
-    console.log("prev page입니다!"+page)
-    
+  const prevHandler = () => {
+    setPage(() => (page <= 10 ? page = 10 : page - 10));
   }
-  const nextHandler=()=>{
-    setPage(page+10);
-    console.log("next page입니다!"+page)
+  const nextHandler = () => {
+    setPage(page + 10);
   }
   useEffect(() => {
     onSubmitHandler();
@@ -40,19 +40,19 @@ const PostList = props => {
           dataList ? dataList.map((item, index) => {
             return (
               <CommonTableRow key={index}>
-                <CommonTableColumn>{ item.no }</CommonTableColumn>
+                <CommonTableColumn>{item.no}</CommonTableColumn>
                 <CommonTableColumn>
-                  <Link to={`/postView/${item.no}`}>{ item.title }</Link>
+                  <Link to={`/postView/${item.no}`}>{item.title}</Link>
                 </CommonTableColumn>
-                <CommonTableColumn>{ item.createDate }</CommonTableColumn>
-                <CommonTableColumn>{ item.readCount }</CommonTableColumn>
+                <CommonTableColumn>{item.createDate}</CommonTableColumn>
+                <CommonTableColumn>{item.readCount}</CommonTableColumn>
               </CommonTableRow>
             )
           }) : <div>데이터 없음!!</div>
         }
       </CommonTable>
-      {page<=10 ? "":<button onClick={prevHandler}>Prev</button>}
-      <button onClick={nextHandler}>Next</button>
+      {page <= 10 ? "" : <button className='post-view-go-prev-btn' onClick={prevHandler}>Prev</button>}
+      {next ? <button className='post-view-go-next-btn' onClick={nextHandler}>Next</button> : ""}
     </>
   )
 }

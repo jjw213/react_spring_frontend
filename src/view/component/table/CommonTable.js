@@ -11,13 +11,13 @@ const CommonTable = props => {
           {
             headersName.map((item, index) => {
               return (
-                <td className="common-table-header-column" key={index}>{ item }</td>
+                <td className="common-table-header-column" key={index}>{item}</td>
               )
             })
           }
         </tr>
       </thead>
-      <tbody>
+      <tbody style={{ height: "420px" }}>
         {
           children
         }

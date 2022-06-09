@@ -12,6 +12,24 @@
   margin-right: 10%;
 }
 
+.post-view-go-next-btn {
+  border: 0;
+  padding: 10px;
+  background-color: #ffd9d9;
+  cursor: pointer;
+  margin-left: 1%;
+  position: absolute;
+}
+
+.post-view-go-prev-btn {
+  border: 0;
+  padding: 10px;
+  background-color: #ffd9d9;
+  cursor: pointer;
+  margin-left: -60px;
+  position: absolute;
+}
+
 .post-view-row {
   margin: 10px 0;
   display: inline;

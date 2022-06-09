@@ -22,3 +22,7 @@
 .common-table-column {
   padding: 10px 5px;
 }
+
+.common-table-row{
+  vertical-align: top;
+}

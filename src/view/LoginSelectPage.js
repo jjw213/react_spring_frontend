@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import kakao from "../css/img/kakao.png";
 import newReg from "../css/img/dogAndcat.png";
 import "../css/main.css";
+import { Link } from "react-router-dom";
 
 function LoginSelectPage() {
   const REST_API_KEY = "170293c1b046c874abd5476ddf3dba3a";
@@ -16,14 +17,14 @@ function LoginSelectPage() {
       <div className="regReg">
         <div className="up">
           <p className="homeReg btn-11">
-            <a
-              href="/members/new"
+            <Link
+              to="/members/new"
               style={{
                 color: "black",
               }}
             >
               신규 회원가입
-            </a>
+            </Link>
           </p>
           <br></br>
           <p className="kakaoLoginBtn">

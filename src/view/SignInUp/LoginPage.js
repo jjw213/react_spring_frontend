@@ -1,32 +1,23 @@
 import React, { useEffect, useState } from "react";
-// import { userData } from "./SignPage";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../_actions/user_action";
 import { useNavigate } from "react-router-dom";
 import "../../css/main.css";
 import { dibsList } from "../../_actions/board_action";
-// import kakao from "../css/img/kakao.png";
+import kakao from "../../css/img/kakao.png";
+
 function LoginPage(props) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const REST_API_KEY = "170293c1b046c874abd5476ddf3dba3a";
-  // const REDIRECT_URI = "http://localhost:3000/members/kakaoLogin";
-  // const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+  const REDIRECT_URI = "http://localhost:3000/members/kakaoLogin";
+  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
-  const [Name, setName] = useState("");
+  const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
-  const [formErrorMessage, setFormErrorMessage] = useState("");
-  // useEffect(async()  => {
-  //      await fetch(`/members/memberLogin`)
-  //         .then((res) => {
-  //             return res.json();
-  //         })
-  //         .then((data) => {
-  //             setMessage(data);
-  //         });
-  // }, []);
+
   const onNameHandeler = (event) => {
-    setName(event.currentTarget.value);
+    setEmail(event.currentTarget.value);
   };
   const onPasswordHandler = (event) => {
     setPassword(event.currentTarget.value);
@@ -34,36 +25,29 @@ function LoginPage(props) {
   const onSigninHandler = (event) => {
     navigate("/members/new");
   };
-  // const onKakaoHandler = (event) => {
-  //   window.open(KAKAO_AUTH_URL);
-  // };
   const onSubmitHandler = (event) => {
     event.preventDefault();
     let body = {
-      name: Name,
+      email: Email,
       password: Password,
     };
+    if(body.name == ""){
+      return alert("아이디를 입력하세요.");
+    }else if(body.password==""){
+      return alert("패스워드를 입력하세요.");
+    }
     dispatch(loginUser(body))
       .then((response) => {
-        console.log(response.payload);
-        if (response.payload != null) {
-          console.log(body.name);
-          // props.history.push('/') 이제 안됌
-          dispatch(dibsList(body.name)).then((response) => {
-            console.log(response.payload);
-          });
+        console.log("response?? "+response.payload);
+        if (response.payload != null && response.payload!="") {
+          dispatch(dibsList(body.name));
           navigate("/");
         } else {
-          setFormErrorMessage("아이디 혹은 비번 틀림");
           alert("아이디 혹은 비번 틀림");
         }
       })
       .catch((err) => {
         console.log(err);
-        setFormErrorMessage("서버 연결이 불안정합니다.");
-        setTimeout(() => {
-          setFormErrorMessage("");
-        }, 3000);
       });
   };
 
@@ -105,17 +89,25 @@ function LoginPage(props) {
             ></input>
           </div>
           <button onSubmit={onSubmitHandler}>로그인</button>
-          {/* <p className='homeReg'></p> */}
-          {/* <button type="button" img className="kakaoLoginBtn" src={kakao } width="183px" height="45px" a href={KAKAO_AUTH_URL} /> */}
+          <p className="kakaoLoginBtn" style={{width:"200px", height:"40px"}}>
+            <a
+              href={KAKAO_AUTH_URL}
+              style={{
+                color: "black",
+                fontSize:"initial"
+              }}
+            >
+              <img
+                src={kakao}
+                width="8%"
+                height="auto"
+                style={{ margin: "0px 3% 0px 0px" }}
+              />
+              카카오 로그인
+            </a>
+          </p>
           <button onClick={onSigninHandler}>신규 회원가입</button>
         </form>
-        {/* <button
-              className="kakaoLoginBtn"
-              onClick={onKakaoHandler}
-              width="183px"
-              height="45px"
-            ></button> */}
-        {/* </div> */}
       </main>
       <footer>
         <ul className="footer-list">

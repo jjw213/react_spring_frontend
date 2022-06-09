@@ -15,6 +15,7 @@ function RightNav() {
     const user = useSelector((state) => state.user)
     const logoutHandler = (event) => {
         dispatch(logoutUser()).then(() => {
+            alert("로그아웃 하였습니다.");
             navigate('/');
         })
             .catch(err => {
@@ -41,12 +42,12 @@ function RightNav() {
     </Menubar> */}
     
     {user.userData == null ?
-                <Menu.Item key="signUp" style={{paddingLeft:"24px"}}><a href="/members/loginSelect" >
-                    회원가입</a></Menu.Item>
+                <Menu.Item key="signUp" style={{paddingLeft:"24px"}}><Link to="/members/loginSelect" >
+                    회원가입</Link></Menu.Item>
                 : <Menu.Item key="signUp" style={{paddingLeft:"24px"}}><Link to="/MyPage"  >
                     {user.userData} 님 환영합니다.</Link></Menu.Item>}
-            {user.userData == null ? <Menu.Item key="signin"  style={{paddingLeft:"24px"}}><a  href="/members/memberLogin">
-                로그인</a></Menu.Item>
+            {user.userData == null ? <Menu.Item key="signin"  style={{paddingLeft:"24px"}}><Link to="/members/memberLogin">
+                로그인</Link></Menu.Item>
                 : <Menu.Item key="signin"  style={{paddingLeft:"24px"}}><a onClick
                 ={logoutHandler}>로그아웃</a></Menu.Item>}
             
