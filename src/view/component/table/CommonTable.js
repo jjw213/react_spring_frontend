@@ -5,7 +5,7 @@ const CommonTable = props => {
   const { headersName, children } = props;
 
   return (
-    <table className="common-table">
+    <table className="common-table" cellspacing="10px">
       <thead>
         <tr>
           {
@@ -17,7 +17,7 @@ const CommonTable = props => {
           }
         </tr>
       </thead>
-      <tbody style={{ height: "420px" }}>
+      <tbody>
         {
           children
         }
