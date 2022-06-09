@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { checkUser, registerUser } from "../../_actions/user_action";
+import { checkUser, emailUser, registerUser } from "../../_actions/user_action";
 import "../../css/main.css";
 import SignUpInput from "./SignUpInput";
 
@@ -64,8 +64,16 @@ function SignPage() {
     dispatch(registerUser(body))
       .then((response) => {
         if (response.payload != null && response.payload != '') {
-          alert("회원가입 축하드립니다!");
-          navigate("/");
+          alert("가입 메일로 발송된 인증번호를 확인해주십시오.");
+          dispatch(emailUser(body)).then((response)=>{
+            if (response.payload != null && response.payload != '') {
+              alert("회원가입 축하드립니다!");
+              navigate("/");
+            }
+            else{
+              alert("이메일 발송 실패!");
+            }
+          })
         } else {
           alert("이미 존재하는 이메일 입니다.");
         }

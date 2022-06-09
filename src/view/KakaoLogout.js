@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 function KakaoLogout(props) {
-  const JAVA_KEY = process.env.REACT_APP_JAVA_KEY;
+  const JAVA_KEY = process.env.REACT_APP_FEED_KEY;
   
   const setProfile = async () => {
     if (!window.Kakao.isInitialized()) {

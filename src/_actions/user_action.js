@@ -56,27 +56,6 @@ export async function kakaoLoginUser(dataToSubmit){
     }
 }
 
-// export async function findUser(dataToSubmit){
-//     const request = await axios.post(`/members/kakaoLogin`,null, 
-//     {params:{kakao_id : dataToSubmit.id}, withCredentials:true})
-//                 //.then(response => response.data)
-//                 .then(response => {return response.data})   
-//     return {
-//         type: LOGIN_USER,
-//         payload: request
-//     }
-// }
-
-// export async function auth(){
-//     const request = await axios.get(`${USER_SERVER}/user`,{withCredentials:true})
-//     .then(response => response.data);
-
-//     return {
-//         type: AUTH_USER,
-//         payload: request
-//     }
-// }
-
 export async function deleteUser(dataToSubmit){
     
     const request = await axios.post(`/members/memberDelete`,null, 
@@ -96,6 +75,17 @@ export async function logoutUser(){
 
     return {
         type: LOGOUT_USER,
+        payload: request
+    }
+}
+export async function emailUser(dataToSubmit){
+    const request = await axios.post(`/members/sendEmail`,null, 
+    {params:{userEmail : dataToSubmit.email, name:dataToSubmit.name
+    }})
+        .then(response =>  {return response.data})
+        //.then(setAuthHeader(response => response.dataToSubmit.token));
+    return {
+        type: REGISTER_USER,
         payload: request
     }
 }

@@ -5,7 +5,7 @@ import "../css/main.css";
 import { Link } from "react-router-dom";
 
 function LoginSelectPage() {
-  const REST_API_KEY = "170293c1b046c874abd5476ddf3dba3a";
+  const REST_API_KEY =  process.env.REACT_APP_REST_API_KEY;
   const REDIRECT_URI = "http://localhost:3000/members/kakaoLogin";
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 

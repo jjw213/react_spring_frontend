@@ -9,9 +9,9 @@ import KakaoSignUpPage from "../view/SignInUp/KakaoSignUpPage";
 import MainPage from "../view/MainPage";
 import { dibsList } from "../_actions/board_action";
 const Auth = () => {
-  const REST_API_KEY = "170293c1b046c874abd5476ddf3dba3a";
+  const REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
   const REDIRECT_URI = "http://localhost:3000/members/kakaoLogin";
-  const CLIENT_SECRET = "WmzPDuCt5rNi690ttzDFNHkahoqp3wUW";
+  const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
 
   const code = new URL(window.location.href).searchParams.get("code");
   const navigate = useNavigate();

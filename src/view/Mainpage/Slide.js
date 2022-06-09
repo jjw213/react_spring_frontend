@@ -36,9 +36,7 @@ function Slide(){
                 <div className="slideitem">
                     {animal && animal.map(ele =>
                         <div className="Float" key={ele.desertionNo}>
-                            <Suspense fallback={<div className="Float" style={{width:"400px"}}>로딩중...</div>}>
                             <img src={ele.popfile}/>
-                            </Suspense>
                         </div>)
                     }
                     <div className="Float" >
