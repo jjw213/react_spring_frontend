@@ -204,7 +204,7 @@ header {
   .login-form button {
     display: grid;
     align-items: center;
-    margin: 0 auto 10px auto;
+    margin: 0 auto;
     font-family: sans-serif;
     outline: 0;
     background-color: rgb(247, 239, 190);
@@ -236,8 +236,8 @@ header {
 .kakaoLoginBtn {
   display: grid;
   place-content: center;
-  width: 70%;
-  height: 100%;
+  width: 350px;
+  height: 60px;
   margin: 3px auto;
   text-align: center;
   border-style: none;
@@ -251,7 +251,7 @@ header {
   font-weight: 500;
   position: relative;
   z-index: 5;
-
+/* 
   animation-name: slideExpandUp;
   -webkit-animation-name: slideExpandUp;
 
@@ -259,7 +259,7 @@ header {
   -webkit-animation-duration: 1.6s;
 
   animation-timing-function: ease-out;
-  -webkit-animation-timing-function: ease -out;
+  -webkit-animation-timing-function: ease -out; */
 
   visibility: visible !important;
 }
@@ -284,35 +284,6 @@ header {
   }
 }
 
-@media all and (min-width: 480px) {
-  .kakaoLoginBtn {
-    display: grid;
-    place-content: center;
-    position: relative;
-    margin: 3px auto;
-    width: 350px;
-    height: 60px;
-    cursor: pointer;
-    font-size: 22px;
-    /* border: 3px solid rgb(136, 175, 207); */
-    background-color: #fedc00;
-    text-transform: uppercase;
-    letter-spacing: -3px;
-    font-weight: 500;
-    position: relative;
-    z-index: 5;
-    animation-name: slideExpandUp;
-    -webkit-animation-name: slideExpandUp;
-
-    animation-duration: 1.6s;
-    -webkit-animation-duration: 1.6s;
-
-    animation-timing-function: ease-out;
-    -webkit-animation-timing-function: ease -out;
-
-    visibility: visible !important;
-  }
-}
 
 @keyframes slideExpandUp {
   0% {
@@ -664,7 +635,7 @@ header {
     display: grid;
     align-content: center;
     margin: 10% 15%;
-    height: 400px;
+    height: 500px;
   }
 
   .sign-form input {
