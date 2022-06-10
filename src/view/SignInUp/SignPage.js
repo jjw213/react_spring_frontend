@@ -63,16 +63,11 @@ function SignPage() {
     };
     dispatch(registerUser(body))
       .then((response) => {
+        console.log(response.payload);
         if (response.payload != null && response.payload != '') {
           alert("가입 메일로 발송된 인증번호를 확인해주십시오.");
-          dispatch(emailUser(body)).then((response)=>{
-            if (response.payload != null && response.payload != '') {
-              alert("회원가입 축하드립니다!");
-              navigate("/");
-            }
-            else{
-              alert("이메일 발송 실패!");
-            }
+          dispatch(emailUser(body)).then(()=>{
+            navigate("/");
           })
         } else {
           alert("이미 존재하는 이메일 입니다.");

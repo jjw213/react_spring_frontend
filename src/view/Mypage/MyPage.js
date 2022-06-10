@@ -62,7 +62,6 @@ function MyPage() {
         dispatch(deleteUser(body))
             .then((response) => {
                 if (response.payload.name == null) {
-                    console.log(response.payload.data);
                     alert("정상적으로 탈퇴가 완료되었습니다!");
                     navigate('/');
                 }
@@ -90,10 +89,9 @@ function MyPage() {
         };
         dispatch(codeCheck(body))
             .then((response) => {
-                if (response.payload.name == null) {
-                    console.log(response.payload.data);
+                if (response.payload != null) {
                     alert("인증되었습니다!");
-                    navigate('/');
+                    closeModal2();
                 }
                 else {
                     closeModal2();
@@ -111,8 +109,6 @@ function MyPage() {
             });
 
     }
-
-    // console.log(dibs.dibsList);
 
     return (
         <div>

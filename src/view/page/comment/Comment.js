@@ -27,6 +27,7 @@ import {
 const Comment = ({ no }) => {
   const dispatch = useDispatch();
   const user=useSelector((state)=>state.user.userData);
+  const code=useSelector((state)=>state.user.userCode);
   const [local, setLocal] = useState([]);
   const [render, setRender]=useState(true);
   // const comments = useSelector((state) => state.comment);
@@ -55,6 +56,10 @@ const Comment = ({ no }) => {
       commentId: uuid(),
       created_at: `${date}`
     };
+    if (code != null) {
+      console.log(code);
+      return alert("마이 페이지에서 인증 번호를 입력하세요.");
+    }
     dispatch(saveReply(data))
     .then((response) => {
       if (response.payload != null) {
