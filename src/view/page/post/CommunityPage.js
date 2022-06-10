@@ -21,16 +21,7 @@ function CommunityPage() {
   const [formErrorMessage, setFormErrorMessage] = useState("");
   const user = useSelector((state) => state.user);
   const [boardList, setboardList] = useState([]);
-  useEffect(() => {
-    fetch(`/board/boardList`)
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setboardList(data);
-        console.log(data);
-      });
-  }, []);
+
   const getValue = (e) => {
     const { title, value } = e.target;
     setBoardContent({
@@ -79,31 +70,7 @@ function CommunityPage() {
   return (
     <div>
       <div className="App">
-        <h2>예비 입양자 및 입양자끼리 소통해요</h2>
-        <div className="table-wrap">
-          <div className="table-box table-box--vertical">
-            <table
-              className="table table--vertical"
-              cellPadding={"0"}
-              cellSpacing="0"
-            >
-              {boardList.map((ele) => (
-                <div key={ele.idx}>
-                  <th className="title">
-                    <h4>{ele.title}</h4>
-                  </th>
-                  <th>
-                    <div>{ele.content}</div>
-                  </th>
-                  <th>
-                    <div>작성자 : {ele.writer}</div>
-                  </th>
-                  <hr></hr>
-                </div>
-              ))}
-            </table>
-          </div>
-        </div>
+        <h2>게시글 작성</h2>
         <div className="form-wrapper">
           <input
             className="title-input"
@@ -114,11 +81,8 @@ function CommunityPage() {
           />
           <CKEditor
             editor={ClassicEditor}
-            data="<p>Hello!</p>"
-            onReady={(editor) => {
-              // You can store the "editor" and use when it is needed.
-              console.log("Editor is ready to use!", editor);
-            }}
+            config={{placeholder: "게시글 사용 수칙을 준수해주세요."}} 
+            data="<p></p>"
             onChange={(event, editor) => {
               const data = editor.getData();
               setBoardContent({

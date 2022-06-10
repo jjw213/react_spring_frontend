@@ -1,6 +1,6 @@
 import { width } from "@mui/system";
 import React from "react";
-import logo from "../css/img/logo.png";
+import logo from "../../css/img/logo.png";
 
 function Header() {
   return (

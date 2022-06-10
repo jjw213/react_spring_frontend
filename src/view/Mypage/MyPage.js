@@ -115,7 +115,7 @@ function MyPage() {
             <section className="UserName">회원이름 : {user.userData} </section>
 
             <section className="PassID">
-                <button className="w-btn w-btn-gra1" onClick={openModal2}>회원인증</button>
+                {user.userCode==null ? "":<button className="w-btn w-btn-gra1" onClick={openModal2}>회원인증</button>}
             </section>
             <Modal2
                 open={modalOpen2}

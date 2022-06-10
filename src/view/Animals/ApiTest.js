@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import { loadAnimal } from "../../_actions/board_action";
 import { useDispatch } from "react-redux";
@@ -18,11 +17,6 @@ function ApiTest() {
       state: "protect",
       code:2,
     },
-    // {
-    //   processState: "종료",
-    //   state: "notice",
-    //   code:3,
-    // },
   ];
   const dispatch = useDispatch();
   const buttonRef = useRef(null);
@@ -101,7 +95,6 @@ function ApiTest() {
     });
   };
   useEffect(() => {
-    console.log("disabled의 상태 "+disabled);
     if(disabled){
       window.removeEventListener("scroll", handleScroll);
     }else{

@@ -7,7 +7,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import ReactHtmlParser from 'react-html-parser';
 import "../css/MainPage.css"
 
-import Header from './Header';
+import Header from './Mainpage/Header';
 import Main from './Mainpage/Main';
 import Footer from './Mainpage/Footer';
 

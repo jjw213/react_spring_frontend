@@ -4,7 +4,7 @@ import axios from "axios";
 import qs from "qs";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { kakaoLoginUser, loginUser, registerUser } from "../_actions/user_action";
+import { codeCheck, kakaoLoginUser, loginUser, registerUser } from "../_actions/user_action";
 import KakaoSignUpPage from "../view/SignInUp/KakaoSignUpPage";
 import MainPage from "../view/MainPage";
 import { dibsList } from "../_actions/board_action";
@@ -51,28 +51,22 @@ const Auth = () => {
         
         dispatch(kakaoLoginUser(resp))
         .then((response) => {
-          console.log(response);
           if (response.payload == "") {
             // 새로 회원가입해야하는 회원
             setIsSignUp(false);  
-            console.log(isSignUp);
           } else {
             // 이미 회원가입한 회원
             setIsSignUp(true);
-            dispatch(dibsList(response.payload.name)).then((response) => {
-              console.log(response.payload);
-            });
+            let body2={
+              name:response.payload.name,
+              code:"none"
+            }
+            dispatch(dibsList(body2.name));
+            dispatch(codeCheck(body2));
             navigate("/");
           }
         })
         setData(resp);
-        console.log(isSignUp);
-
-      // window.Kakao.Auth.logout();
-      // data = await window.Kakao.API.request({
-      //     url: "/v1/user/unlink"
-      // });
-      // console.log(data);
 
     } catch (err) {
       console.log(err);

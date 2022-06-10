@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import '../../css/modal.css';
-import Share from '../KakaoLogout';
+import Share from './Share';
 const Modal = (props) => {
   // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
   const { open, close, header, dibs, isDibs, dibsCancel, dibsHandler } = props;

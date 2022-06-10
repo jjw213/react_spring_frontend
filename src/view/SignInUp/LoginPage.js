@@ -31,20 +31,19 @@ function LoginPage(props) {
       email: Email,
       password: Password,
     };
-    if(body.name == ""){
+    if (body.name == "") {
       return alert("아이디를 입력하세요.");
-    }else if(body.password==""){
+    } else if (body.password == "") {
       return alert("패스워드를 입력하세요.");
     }
     dispatch(loginUser(body))
       .then((response) => {
-        console.log("response?? "+response.payload);
-        if (response.payload != null && response.payload!="") {
-          dispatch(dibsList(body.name));
-          let body2={
-            name:"",
-            code:""
+        if (response.payload != null && response.payload != "") {
+          let body2 = {
+            name: response.payload.name,
+            code: "none"
           }
+          dispatch(dibsList(body2.name));
           dispatch(codeCheck(body2));
           navigate("/");
         } else {
@@ -94,12 +93,12 @@ function LoginPage(props) {
             ></input>
           </div>
           <button onSubmit={onSubmitHandler}>로그인</button>
-          <p className="kakaoLoginBtn" style={{width:"200px", height:"40px"}}>
+          <p className="kakaoLoginBtn" style={{ width: "200px", height: "40px" }}>
             <a
               href={KAKAO_AUTH_URL}
               style={{
                 color: "black",
-                fontSize:"initial"
+                fontSize: "initial"
               }}
             >
               <img

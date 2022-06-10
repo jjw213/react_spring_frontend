@@ -70,7 +70,6 @@ export async function deleteUser(dataToSubmit){
 }
 
 export async function codeCheck(dataToSubmit){
-    
     const request = await axios.post(`/members/codeCheck`,null, 
     {params:{name : dataToSubmit.name, code:dataToSubmit.code}, withCredentials:true})
     .then(response => response.data);
