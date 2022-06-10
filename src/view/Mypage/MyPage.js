@@ -115,7 +115,7 @@ function MyPage() {
             <section className="UserName">회원이름 : {user.userData} </section>
 
             <section className="PassID">
-                <button onClick={openModal2}>회원인증</button>
+                <button className="w-btn w-btn-gra1" onClick={openModal2}>회원인증</button>
             </section>
             <Modal2
                 open={modalOpen2}
@@ -133,7 +133,7 @@ function MyPage() {
 
 
             <section className="DeleteID">
-                <button onClick={openModal}> 탈퇴 버튼 </button>
+                <button className="w-btn w-btn-gra1" onClick={openModal}> 탈퇴 버튼 </button>
             </section>
             <Modal
                 open={modalOpen}
