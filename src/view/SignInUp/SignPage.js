@@ -51,8 +51,8 @@ function SignPage() {
       return alert("비밀번호는 8자리 이상이여야 합니다.");
     }else if(!Email.includes("@")){
       return alert("아이디는 (@가 포함된) 이메일 형식이어야 합니다.");
-    }else if(Name.length>20){
-      return alert("아이디는 20글자 이하여야 합니다.");
+    }else if(Name.length>10){
+      return alert("이름은 10글자 이하여야 합니다.");
     }
     
     let body = {
@@ -63,7 +63,6 @@ function SignPage() {
     };
     dispatch(registerUser(body))
       .then((response) => {
-        console.log(response.payload);
         if (response.payload != null && response.payload != '') {
           alert("가입 메일로 발송된 인증번호를 확인해주십시오.");
           dispatch(emailUser(body)).then(()=>{
