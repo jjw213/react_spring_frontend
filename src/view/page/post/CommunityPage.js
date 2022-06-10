@@ -37,11 +37,11 @@ function CommunityPage() {
       ...board,
       title: value,
     });
-    // console.log(title, value);
   };
-
+  
   const onSubmitHandler = (event) => {
     event.preventDefault();
+    
     let body = {
       title: board.title,
       content: board.content,
@@ -53,13 +53,14 @@ function CommunityPage() {
       return alert("내용을 입력하세요.");
     }
     if (code != null) {
+      
       return alert("마이 페이지에서 인증 번호를 입력하세요.");
     }
 
     dispatch(savePost(body))
       .then((response) => {
         if (response.payload != null) {
-          // props.history.push('/') 이제 안됌
+          console.log( code);
           navigate("/community");
         } else {
           setFormErrorMessage("포스팅 실패");

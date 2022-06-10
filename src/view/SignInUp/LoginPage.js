@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { loginUser } from "../../_actions/user_action";
+import { codeCheck, loginUser } from "../../_actions/user_action";
 import { useNavigate } from "react-router-dom";
 import "../../css/main.css";
 import { dibsList } from "../../_actions/board_action";
@@ -41,6 +41,11 @@ function LoginPage(props) {
         console.log("response?? "+response.payload);
         if (response.payload != null && response.payload!="") {
           dispatch(dibsList(body.name));
+          let body2={
+            name:"",
+            code:""
+          }
+          dispatch(codeCheck(body2));
           navigate("/");
         } else {
           alert("아이디 혹은 비번 틀림");
