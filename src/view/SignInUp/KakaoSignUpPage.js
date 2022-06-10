@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { checkUser, registerUser } from "../../_actions/user_action";
+import { checkUser, emailUser, registerUser } from "../../_actions/user_action";
 import "../../css/main.css";
 import SignUpInput from "./SignUpInput";
 
@@ -50,8 +50,8 @@ function SignPage(props) {
       return alert("비밀번호는 8자리 이상이여야 합니다.");
     }else if(!Email.includes("@")){
       return alert("아이디는 (@가 포함된) 이메일 형식이어야 합니다.");
-    }else if(Name.length>20){
-      return alert("아이디는 20글자 이하여야 합니다.");
+    }else if(Name.length>10){
+      return alert("이름은 10글자 이하여야 합니다.");
     }
 
     let body = {
@@ -62,12 +62,13 @@ function SignPage(props) {
     };
     dispatch(registerUser(body))
       .then((response) => {
-        console.log(response);
-        if (response != null && response.payload != '') {
-          alert("회원가입 축하드립니다!");
-          navigate("/");
+        if (response.payload != null && response.payload != '') {
+          alert("가입 메일로 발송된 인증번호를 확인해주십시오.");
+          dispatch(emailUser(body)).then(()=>{
+            navigate("/");
+          })
         } else {
-          alert("아이디 혹은 비밀번호가 틀렸어요:X");
+          alert("이미 존재하는 이메일 입니다.");
         }
       })
       .catch((err) => {
