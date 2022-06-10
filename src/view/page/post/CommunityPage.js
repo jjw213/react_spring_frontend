@@ -11,7 +11,8 @@ import ReactHtmlParser from "react-html-parser";
 function CommunityPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const code=useSelector((state)=>state.user.userCode);
+  
   const [board, setBoardContent] = useState({
     title: "",
     content: "",
@@ -47,8 +48,14 @@ function CommunityPage() {
       writer: user.userData,
     };
     if (body.writer == null) {
-      return alert("로그인 해야 함!!");
+      return alert("로그인 해야 합니다.");
+    }else if(body.content==null){
+      return alert("내용을 입력하세요.");
     }
+    if (code != null) {
+      return alert("마이 페이지에서 인증 번호를 입력하세요.");
+    }
+
     dispatch(savePost(body))
       .then((response) => {
         if (response.payload != null) {

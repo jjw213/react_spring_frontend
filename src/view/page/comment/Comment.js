@@ -56,9 +56,10 @@ const Comment = ({ no }) => {
       commentId: uuid(),
       created_at: `${date}`
     };
-    if (code != null) {
-      console.log(code);
-      return alert("마이 페이지에서 인증 번호를 입력하세요.");
+    if (data.writer == null) {
+      return alert("로그인 해야 합니다.");
+    }else if(data.content==null){
+      return alert("내용을 입력하세요.");
     }
     dispatch(saveReply(data))
     .then((response) => {
