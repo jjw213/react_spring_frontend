@@ -4,11 +4,13 @@ import { Link, useNavigate } from "react-router-dom";
 import GridCard from "../Animals/GridCard";
 import { Row } from "antd";
 import Modal from "./Modal";
+import Modal2 from "./Modal2";
 
 
 
 import "../../css/MyPage.css";
 import { deleteUser } from "../../_actions/user_action";
+import { codeCheck } from "../../_actions/user_action";
 import { showPost } from "../../_actions/board_action";
 
 
@@ -17,20 +19,33 @@ function MyPage() {
     const dibs = useSelector((state) => state.board);
     const [boardList, setboardList] = useState([]);
     const [modalOpen, setModalOpen] = useState(false);
+    const [modalOpen2, setModalOpen2] = useState(false);
     const [reModalOpen, setReModalOpen] = useState(false);
+    const [reModalOpen2, setReModalOpen2] = useState(false);
     const [Password, setPassword] = useState("");
+    const [code, setCode] = useState("");
     const [page, setPage] = useState(10);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const openModal = () => {
         setModalOpen(true);
     };
+    const openModal2 = () => {
+        setModalOpen2(true);
+    };
     const closeModal = () => {
         setModalOpen(false);
+    };
+    const closeModal2 = () => {
+        setModalOpen2(false);
     };
     const onPasswordHandler = (event) => {
         setPassword(event.currentTarget.value);
     };
+    const onCodeHandler = (event) => {
+        setCode(event.currentTarget.value);
+    };
+
     useEffect(() => {
         dispatch(showPost(page))
             .then((response) => {
@@ -67,12 +82,60 @@ function MyPage() {
             });
 
     }
+    const PassID = (event) => {
+        event.preventDefault();
+        let body = {
+            name: user.userData,
+            code: code,
+        };
+        dispatch(codeCheck(body))
+            .then((response) => {
+                if (response.payload.name == null) {
+                    console.log(response.payload.data);
+                    alert("인증되었습니다!");
+                    navigate('/');
+                }
+                else {
+                    closeModal2();
+                    setReModalOpen2(true);
+                    setModalOpen2(true);
+                    setTimeout(() => {
+                        setReModalOpen2(false);
+                    }, 4000);
+                }
+            })
+            .catch(err => {
+                console.log(err);
+                setTimeout(() => {
+                }, 3000);
+            });
+
+    }
 
     // console.log(dibs.dibsList);
 
     return (
         <div>
             <section className="UserName">회원이름 : {user.userData} </section>
+
+            <section className="PassID">
+                <button onClick={openModal2}>회원인증</button>
+            </section>
+            <Modal2
+                open={modalOpen2}
+                close={closeModal2}
+                header2="회원 인증이 필요합니다."
+                PassId={PassID}
+            >
+                <div style={{ textAlign: "center" }}>
+                {reModalOpen2 ? <p style={{ color: "red" }}> 인증번호를 확인해 주세요</p> : ""}
+                    <p>아이디 : {user.userData}</p>
+                    <p>코드 : <input type="text" onChange={onCodeHandler} /></p>
+                </div>
+
+            </Modal2>
+
+
             <section className="DeleteID">
                 <button onClick={openModal}> 탈퇴 버튼 </button>
             </section>

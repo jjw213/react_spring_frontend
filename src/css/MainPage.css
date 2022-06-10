@@ -2215,6 +2215,16 @@
     }
 
 }
+
+@media (min-width:1600px) and (max-width:2000px){
+    .main #section2_forntpage div .dogimg{
+        width: 40%;
+    }
+    .main #section2_forntpage div .catimg{
+        width: 40%;
+    }
+}
+
 /* 
 @media (min-width: 1200px) and (max-width:1330px) {
 

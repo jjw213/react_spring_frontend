@@ -52,9 +52,15 @@ body{
 
 
 
+.PassID{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
 .DeleteID{
     display: flex;
     justify-content: flex-end;
+    margin-bottom: 10px;
 }
 
 .WriteList{

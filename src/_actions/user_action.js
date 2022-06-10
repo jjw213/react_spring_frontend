@@ -5,7 +5,8 @@ import {
     REGISTER_USER,
     AUTH_USER,
     LOGOUT_USER,
-    KAKAO_USER
+    KAKAO_USER,
+    CHECK_CODE,
 } from './types';
 // import { USER_SERVER } from '../components/Config.js';
 
@@ -67,6 +68,20 @@ export async function deleteUser(dataToSubmit){
         payload: request
     }
 }
+
+export async function codeCheck(dataToSubmit){
+    
+    const request = await axios.post(`/members/codeCheck`,null, 
+    {params:{name : dataToSubmit.name, code:dataToSubmit.code}, withCredentials:true})
+    .then(response => response.data);
+
+    return {
+        type: CHECK_CODE,
+        payload: request
+    }
+}
+
+
 
 export async function logoutUser(){
     
