@@ -61,7 +61,6 @@ function LoginPage(props) {
         <nav className="header-nav"></nav>
       </header>
       <main className="container">
-        {/* <div className="form"> */}
         <form
           action=""
           method=""
