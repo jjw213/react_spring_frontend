@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+![Node](https://img.shields.io/badge/node-v14.17.1-blue)
+![NPM](https://img.shields.io/badge/npm-v7.19.0-blue)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![React](https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![js](https://img.shields.io/badge/JavaScript-F7DF1E.svg?&style=for-the-badge&logo=JavaScript&logoColor=white)
+![css](https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![kakao](https://img.shields.io/badge/Kakao-FFCD00?style=for-the-badge&logo=Kakao&logoColor=white)
 
-## Available Scripts
+![JAVA](https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white)
+![Spring](https://img.shields.io/badge/spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+![Oracle DB](https://img.shields.io/badge/oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white)
 
-In the project directory, you can run:
+### **실행을 위해서 [react_spring_backend](https://github.com/jjw213/react_spring_backend) 가 필요합니다.**
+### 가급적 위의 backend 먼저 git clone 후 생성된 react_spring_backend > frontend 아래에서 git clone 해주세요.
+___
 
-### `npm start`
+# Run
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## react_spring_frontend
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**개발환경 Visual Studio Code at Windows 10**
+1. 터미널에서 git clone https://github.com/jjw213/react_spring_frontend.git
+2. node 설치
+3. npm i로 node_module 설치
+4. 생성된 react_spring_frontend 폴더 바로 밑에 .env 파일 생성 후 kakao developers에서 생성한 앱의 키를 아래 코드에 맞춰서 입력
+```c
+REACT_APP_FEED_KEY=발급받은 JAVASCRIPT 키
+REACT_APP_REST_API_KEY=발급받은 REST API 키
+REACT_APP_CLIENT_SECRET=발급받은 CLIENT SECRET 키
+```
+4. npm start 로 실행
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## react_spring_backend
 
-### `npm run build`
+**개발환경 IntelliJ IDEA at Windows 10**
+1. 터미널에서 git clone https://github.com/jjw213/react_spring_backend.git
+2. build.gradle 설치 후 file > settings > Build, Execution, Deployment > Compiler > Annotation Processors 에서 Enable annotation processing 체크 후 OK
+3. Edit Configurations... > Build and run 에서 JAVA 11 버전과 hello.spring.main 설정 후 main class 는 hello.hellospring.HelloSpringApplication로 설정
+4. resources 폴더 하위에 **application.properties** 파일 생성 후 아래 코드 작성
+```c
+#datasource (oracle)
+spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
+spring.datasource.url=jdbc:oracle:thin:@localhost:1521:XE
+spring.datasource.username=오라클 유저 이름
+spring.datasource.password=오라클 유저 비밀번호
+spring.http.encoding.charset=UTF-8
+spring.http.encoding.enabled=true
+spring.http.encoding.force=true
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#mail
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+spring.mail.username=구글 이메일
+spring.mail.password=구글 앱 키
+spring.mail.properties.mail.smtp.starttls.enable=true
+spring.mail.properties.mail.smtp.auth=true
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+5. 실행
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+# setting port
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+frontend : http://localhost:3000
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+backend : http://localhost:8080
