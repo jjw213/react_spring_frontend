@@ -65,3 +65,8 @@ spring.mail.properties.mail.smtp.auth=true
 frontend : http://localhost:3000
 
 backend : http://localhost:8080
+
+
+# Run Screen
+
+![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/88258840/174488781-a997a1c3-84fd-46ee-9fb3-68111c9d18de.gif)
